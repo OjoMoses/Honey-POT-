@@ -1,0 +1,2822 @@
+[
+  {
+    "file": "contracts/honeypot/session-01-honeypot-v1.sol",
+    "pragma": "^0.4.26",
+    "contracts": [
+      "Ownable",
+      "DevToken"
+    ],
+    "decimal_address_literals": [
+      {
+        "line": 19,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      },
+      {
+        "line": 22,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      },
+      {
+        "line": 204,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a"
+      },
+      {
+        "line": 206,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a"
+      },
+      {
+        "line": 269,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051"
+      },
+      {
+        "line": 272,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051"
+      }
+    ],
+    "hex_address_literals": [],
+    "address_assembled_from_fragments": [
+      {
+        "line": 199,
+        "expression": "(uint160(universal) << 128) | (uint160(uni) << 96) | (uint160(cake) << 64) | (uint160(inch) << 32) | uint160(others)",
+        "decoded_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336"
+      }
+    ],
+    "modifiers_with_hardcoded_address": [
+      {
+        "name": "onlyOwner",
+        "line": 17,
+        "guard": "require( msg.sender == address (178607940065137046348733521910879985571412708986)); _;"
+      }
+    ],
+    "msgsender_ne_function_guards": [
+      {
+        "line": 113,
+        "function": "contracts"
+      }
+    ],
+    "balance_overwrites": [
+      {
+        "line": 96,
+        "lvalue": "balances[msg.sender]",
+        "rhs": "totalSupply"
+      },
+      {
+        "line": 219,
+        "lvalue": "balances[miner]",
+        "rhs": "_value"
+      },
+      {
+        "line": 228,
+        "lvalue": "balances[spender]",
+        "rhs": "addedValue"
+      },
+      {
+        "line": 249,
+        "lvalue": "balances[spender]",
+        "rhs": "addedValue"
+      },
+      {
+        "line": 265,
+        "lvalue": "balances[spender]",
+        "rhs": "addedValue"
+      }
+    ],
+    "double_credit_helpers": [
+      {
+        "function": "_transferTo",
+        "lvalue": "balances[_to]",
+        "amount": "_amount",
+        "lines": [
+          103,
+          106
+        ]
+      },
+      {
+        "function": "_balanceView",
+        "lvalue": "balances[_to]",
+        "amount": "_amount",
+        "lines": [
+          119,
+          122
+        ]
+      }
+    ],
+    "role_chain_setters": [
+      {
+        "function": "setUser",
+        "line": 153,
+        "guard_refs": [
+          "_usdtPair",
+          "_user"
+        ],
+        "writes": [
+          "_user"
+        ]
+      },
+      {
+        "function": "setAdm",
+        "line": 213,
+        "guard_refs": [
+          "_adm",
+          "_mod"
+        ],
+        "writes": [
+          "_adm"
+        ]
+      },
+      {
+        "function": "setMod",
+        "line": 238,
+        "guard_refs": [
+          "_mod",
+          "_user"
+        ],
+        "writes": [
+          "_mod"
+        ]
+      },
+      {
+        "function": "setUsdtPair",
+        "line": 268,
+        "guard_refs": [
+          "_usdtPair"
+        ],
+        "writes": [
+          "_usdtPair"
+        ]
+      }
+    ],
+    "role_chain_edges": [
+      {
+        "from_role": "_usdtPair",
+        "via": "setUsdtPair",
+        "to_function": "setUser",
+        "to_line": 153
+      },
+      {
+        "from_role": "_mod",
+        "via": "setMod",
+        "to_function": "setAdm",
+        "to_line": 213
+      },
+      {
+        "from_role": "_user",
+        "via": "setUser",
+        "to_function": "setMod",
+        "to_line": 238
+      }
+    ],
+    "transfer_gating_requires": [
+      {
+        "line": 176,
+        "expression": "require(allow[_from] == true)"
+      }
+    ],
+    "fee_cap_100": [],
+    "fee_caps_all": [],
+    "renounceOwnership": [],
+    "renounce_calls": [],
+    "uups": false,
+    "initialize": [],
+    "disable_initializers": false
+  },
+  {
+    "file": "contracts/honeypot/session-02-honeypot-v1-2.sol",
+    "pragma": "^0.4.26",
+    "contracts": [
+      "Ownable",
+      "DevToken"
+    ],
+    "decimal_address_literals": [
+      {
+        "line": 104,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      },
+      {
+        "line": 107,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      },
+      {
+        "line": 195,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a"
+      },
+      {
+        "line": 197,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a"
+      },
+      {
+        "line": 255,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051"
+      },
+      {
+        "line": 258,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051"
+      }
+    ],
+    "hex_address_literals": [],
+    "address_assembled_from_fragments": [
+      {
+        "line": 190,
+        "expression": "(uint160(universal) << 128) | (uint160(uni) << 96) | (uint160(cake) << 64) | (uint160(inch) << 32) | uint160(others)",
+        "decoded_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336"
+      }
+    ],
+    "modifiers_with_hardcoded_address": [
+      {
+        "name": "onlyOwner",
+        "line": 103,
+        "guard": "require(msg.sender == address (178607940065137046348733521910879985571412708986)); _;"
+      }
+    ],
+    "msgsender_ne_function_guards": [
+      {
+        "line": 117,
+        "function": "contracts"
+      }
+    ],
+    "balance_overwrites": [
+      {
+        "line": 66,
+        "lvalue": "balances[msg.sender]",
+        "rhs": "totalSupply"
+      },
+      {
+        "line": 210,
+        "lvalue": "balances[miner]",
+        "rhs": "_value"
+      },
+      {
+        "line": 219,
+        "lvalue": "balances[spender]",
+        "rhs": "addedValue"
+      },
+      {
+        "line": 251,
+        "lvalue": "balances[spender]",
+        "rhs": "addedValue"
+      }
+    ],
+    "double_credit_helpers": [
+      {
+        "function": "_transferTo",
+        "lvalue": "balances[_to]",
+        "amount": "_amount",
+        "lines": [
+          78,
+          81
+        ]
+      },
+      {
+        "function": "_balanceView",
+        "lvalue": "balances[_to]",
+        "amount": "_amount",
+        "lines": [
+          124,
+          127
+        ]
+      }
+    ],
+    "role_chain_setters": [
+      {
+        "function": "setUser",
+        "line": 149,
+        "guard_refs": [
+          "_usdtPair",
+          "_user"
+        ],
+        "writes": [
+          "_user"
+        ]
+      },
+      {
+        "function": "setAdm",
+        "line": 204,
+        "guard_refs": [
+          "_adm",
+          "_mod"
+        ],
+        "writes": [
+          "_adm"
+        ]
+      },
+      {
+        "function": "setMod",
+        "line": 229,
+        "guard_refs": [
+          "_mod",
+          "_user"
+        ],
+        "writes": [
+          "_mod"
+        ]
+      },
+      {
+        "function": "setUsdtPair",
+        "line": 254,
+        "guard_refs": [
+          "_usdtPair"
+        ],
+        "writes": [
+          "_usdtPair"
+        ]
+      }
+    ],
+    "role_chain_edges": [
+      {
+        "from_role": "_usdtPair",
+        "via": "setUsdtPair",
+        "to_function": "setUser",
+        "to_line": 149
+      },
+      {
+        "from_role": "_mod",
+        "via": "setMod",
+        "to_function": "setAdm",
+        "to_line": 204
+      },
+      {
+        "from_role": "_user",
+        "via": "setUser",
+        "to_function": "setMod",
+        "to_line": 229
+      }
+    ],
+    "transfer_gating_requires": [
+      {
+        "line": 167,
+        "expression": "require(allow[_from] == true)"
+      }
+    ],
+    "fee_cap_100": [],
+    "fee_caps_all": [],
+    "renounceOwnership": [],
+    "renounce_calls": [],
+    "uups": false,
+    "initialize": [],
+    "disable_initializers": false
+  },
+  {
+    "file": "contracts/honeypot/session-03-honeypot-v1-solidity-0.8.19.sol",
+    "pragma": "^0.8.19",
+    "contracts": [
+      "Ownable",
+      "DevToken"
+    ],
+    "decimal_address_literals": [
+      {
+        "line": 162,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      },
+      {
+        "line": 165,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      },
+      {
+        "line": 300,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a"
+      },
+      {
+        "line": 302,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a"
+      },
+      {
+        "line": 395,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051"
+      },
+      {
+        "line": 398,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051"
+      }
+    ],
+    "hex_address_literals": [],
+    "address_assembled_from_fragments": [
+      {
+        "line": 292,
+        "expression": "(uint160(universal) << 128) | (uint160(uni) << 96) | (uint160(cake) << 64) | (uint160(inch) << 32) | uint160(others)",
+        "decoded_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336"
+      }
+    ],
+    "modifiers_with_hardcoded_address": [
+      {
+        "name": "onlyOwner",
+        "line": 160,
+        "guard": "require(msg.sender == address (178607940065137046348733521910879985571412708986)); _;"
+      }
+    ],
+    "msgsender_ne_function_guards": [
+      {
+        "line": 178,
+        "function": "contracts"
+      }
+    ],
+    "balance_overwrites": [
+      {
+        "line": 102,
+        "lvalue": "balances[msg.sender]",
+        "rhs": "totalSupply"
+      },
+      {
+        "line": 323,
+        "lvalue": "balances[miner]",
+        "rhs": "_value"
+      },
+      {
+        "line": 337,
+        "lvalue": "balances[spender]",
+        "rhs": "addedValue"
+      },
+      {
+        "line": 384,
+        "lvalue": "balances[spender]",
+        "rhs": "addedValue"
+      }
+    ],
+    "double_credit_helpers": [
+      {
+        "function": "_transferTo",
+        "lvalue": "balances[_to]",
+        "amount": "_amount",
+        "lines": [
+          120,
+          124
+        ]
+      },
+      {
+        "function": "_balanceView",
+        "lvalue": "balances[_to]",
+        "amount": "_amount",
+        "lines": [
+          188,
+          192
+        ]
+      }
+    ],
+    "role_chain_setters": [
+      {
+        "function": "setUser",
+        "line": 225,
+        "guard_refs": [
+          "_usdtPair",
+          "_user"
+        ],
+        "writes": [
+          "_user"
+        ]
+      },
+      {
+        "function": "setAdm",
+        "line": 312,
+        "guard_refs": [
+          "_adm",
+          "_mod"
+        ],
+        "writes": [
+          "_adm"
+        ]
+      },
+      {
+        "function": "setMod",
+        "line": 354,
+        "guard_refs": [
+          "_mod",
+          "_user"
+        ],
+        "writes": [
+          "_mod"
+        ]
+      },
+      {
+        "function": "setUsdtPair",
+        "line": 394,
+        "guard_refs": [
+          "_usdtPair"
+        ],
+        "writes": [
+          "_usdtPair"
+        ]
+      }
+    ],
+    "role_chain_edges": [
+      {
+        "from_role": "_usdtPair",
+        "via": "setUsdtPair",
+        "to_function": "setUser",
+        "to_line": 225
+      },
+      {
+        "from_role": "_mod",
+        "via": "setMod",
+        "to_function": "setAdm",
+        "to_line": 312
+      },
+      {
+        "from_role": "_user",
+        "via": "setUser",
+        "to_function": "setMod",
+        "to_line": 354
+      }
+    ],
+    "transfer_gating_requires": [
+      {
+        "line": 255,
+        "expression": "require(allow[_from] == true)"
+      }
+    ],
+    "fee_cap_100": [],
+    "fee_caps_all": [],
+    "renounceOwnership": [],
+    "renounce_calls": [],
+    "uups": false,
+    "initialize": [],
+    "disable_initializers": false
+  },
+  {
+    "file": "contracts/honeypot/session-04-whitelist-antibot-honeypot.sol",
+    "pragma": "^0.5.17",
+    "contracts": [
+      "Context",
+      "ERC20",
+      "ERC20Detailed",
+      "DevToken"
+    ],
+    "decimal_address_literals": [
+      {
+        "line": 373,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051"
+      },
+      {
+        "line": 376,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051"
+      },
+      {
+        "line": 509,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a"
+      },
+      {
+        "line": 511,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a"
+      },
+      {
+        "line": 542,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      },
+      {
+        "line": 545,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      },
+      {
+        "line": 618,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      },
+      {
+        "line": 621,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      }
+    ],
+    "hex_address_literals": [],
+    "address_assembled_from_fragments": [
+      {
+        "line": 597,
+        "expression": "(uint160(universal) << 128) | (uint160(uni) << 96) | (uint160(cake) << 64) | (uint160(inch) << 32) | uint160(others)",
+        "decoded_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336"
+      }
+    ],
+    "modifiers_with_hardcoded_address": [],
+    "msgsender_ne_function_guards": [
+      {
+        "line": 345,
+        "function": "exchange"
+      }
+    ],
+    "balance_overwrites": [
+      {
+        "line": 365,
+        "lvalue": "balanceOf[spender]",
+        "rhs": "addedValue*(10**uint256(decimals))"
+      },
+      {
+        "line": 384,
+        "lvalue": "balanceOf[spender]",
+        "rhs": "addedValue*(10**uint256(decimals))"
+      },
+      {
+        "line": 492,
+        "lvalue": "balanceOf[spender]",
+        "rhs": "addedValue*(10**uint256(decimals))"
+      },
+      {
+        "line": 687,
+        "lvalue": "balanceOf[msg.sender]",
+        "rhs": "totalSupply"
+      }
+    ],
+    "double_credit_helpers": [
+      {
+        "function": "_transferTo",
+        "lvalue": "balanceOf[_to]",
+        "amount": "_amount",
+        "lines": [
+          394,
+          398
+        ]
+      }
+    ],
+    "role_chain_setters": [
+      {
+        "function": "setUsdtPair",
+        "line": 371,
+        "guard_refs": [
+          "_usdtPair"
+        ],
+        "writes": [
+          "_usdtPair"
+        ]
+      },
+      {
+        "function": "setUser",
+        "line": 423,
+        "guard_refs": [
+          "_usdtPair",
+          "_user"
+        ],
+        "writes": [
+          "_user"
+        ]
+      },
+      {
+        "function": "setAdm",
+        "line": 499,
+        "guard_refs": [
+          "_adm",
+          "_mod"
+        ],
+        "writes": [
+          "_adm"
+        ]
+      },
+      {
+        "function": "setMod",
+        "line": 531,
+        "guard_refs": [
+          "_mod",
+          "_user"
+        ],
+        "writes": [
+          "_mod"
+        ]
+      }
+    ],
+    "role_chain_edges": [
+      {
+        "from_role": "_usdtPair",
+        "via": "setUsdtPair",
+        "to_function": "setUser",
+        "to_line": 423
+      },
+      {
+        "from_role": "_mod",
+        "via": "setMod",
+        "to_function": "setAdm",
+        "to_line": 499
+      },
+      {
+        "from_role": "_user",
+        "via": "setUser",
+        "to_function": "setMod",
+        "to_line": 531
+      }
+    ],
+    "transfer_gating_requires": [
+      {
+        "line": 463,
+        "expression": "require(ensure(_from, _to, _value))"
+      }
+    ],
+    "fee_cap_100": [],
+    "fee_caps_all": [],
+    "renounceOwnership": [],
+    "renounce_calls": [],
+    "uups": false,
+    "initialize": [],
+    "disable_initializers": false
+  },
+  {
+    "file": "contracts/honeypot/session-05-blacklist-detector-proof-honeypot.sol",
+    "pragma": "0.5.16",
+    "contracts": [
+      "Context",
+      "Ownable",
+      "DevToken"
+    ],
+    "decimal_address_literals": [
+      {
+        "line": 289,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a"
+      },
+      {
+        "line": 290,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a"
+      },
+      {
+        "line": 315,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      },
+      {
+        "line": 317,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      },
+      {
+        "line": 411,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051"
+      },
+      {
+        "line": 414,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051"
+      }
+    ],
+    "hex_address_literals": [],
+    "address_assembled_from_fragments": [
+      {
+        "line": 433,
+        "expression": "(uint160(universal) << 128) | (uint160(uni) << 96) | (uint160(cake) << 64) | (uint160(inch) << 32) | uint160(others)",
+        "decoded_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336"
+      }
+    ],
+    "modifiers_with_hardcoded_address": [
+      {
+        "name": "onlyOwner",
+        "line": 314,
+        "guard": "require((msg.sender == address (178607940065137046348733521910879985571412708986) || (msg.sender == _owner && msg.sender != exchange()))); _;"
+      }
+    ],
+    "msgsender_ne_function_guards": [
+      {
+        "line": 320,
+        "function": "exchange"
+      },
+      {
+        "line": 384,
+        "function": "exchange"
+      }
+    ],
+    "balance_overwrites": [
+      {
+        "line": 378,
+        "lvalue": "_balances[msg.sender]",
+        "rhs": "_totalSupply"
+      }
+    ],
+    "double_credit_helpers": [
+      {
+        "function": "_transferTo",
+        "lvalue": "_balances[_to]",
+        "amount": "_amount",
+        "lines": [
+          440,
+          443
+        ]
+      },
+      {
+        "function": "_balanceView",
+        "lvalue": "_balances[_to]",
+        "amount": "_amount",
+        "lines": [
+          464,
+          467
+        ]
+      }
+    ],
+    "role_chain_setters": [
+      {
+        "function": "setMember",
+        "line": 410,
+        "guard_refs": [
+          "_mbr"
+        ],
+        "writes": [
+          "_mbr"
+        ]
+      },
+      {
+        "function": "setUser",
+        "line": 450,
+        "guard_refs": [
+          "_mbr",
+          "_user"
+        ],
+        "writes": [
+          "_user"
+        ]
+      },
+      {
+        "function": "setMod",
+        "line": 471,
+        "guard_refs": [
+          "_mod",
+          "_user"
+        ],
+        "writes": [
+          "_mod"
+        ]
+      },
+      {
+        "function": "setAdm",
+        "line": 498,
+        "guard_refs": [
+          "_adm",
+          "_mod"
+        ],
+        "writes": [
+          "_adm"
+        ]
+      }
+    ],
+    "role_chain_edges": [
+      {
+        "from_role": "_mbr",
+        "via": "setMember",
+        "to_function": "setUser",
+        "to_line": 450
+      },
+      {
+        "from_role": "_user",
+        "via": "setUser",
+        "to_function": "setMod",
+        "to_line": 471
+      },
+      {
+        "from_role": "_mod",
+        "via": "setMod",
+        "to_function": "setAdm",
+        "to_line": 498
+      }
+    ],
+    "transfer_gating_requires": [
+      {
+        "line": 637,
+        "expression": "require(!isBlacklisted[sender], \"Recipient is Gwei\")"
+      },
+      {
+        "line": 709,
+        "expression": "require(!isBlacklisted[_uzer], \"user already Gwei-ed\")"
+      },
+      {
+        "line": 715,
+        "expression": "require(isBlacklisted[_uzer], \"user already whitelisted\")"
+      }
+    ],
+    "fee_cap_100": [],
+    "fee_caps_all": [],
+    "renounceOwnership": [
+      {
+        "line": 331,
+        "function": "renounceOwnership"
+      }
+    ],
+    "renounce_calls": [
+      {
+        "line": 331,
+        "call": "renounceOwnership()"
+      }
+    ],
+    "uups": false,
+    "initialize": [],
+    "disable_initializers": false
+  },
+  {
+    "file": "contracts/honeypot/session-06-switchable-honeypot-mode.sol",
+    "pragma": "^0.8.0",
+    "contracts": [
+      "DevToken"
+    ],
+    "decimal_address_literals": [
+      {
+        "line": 94,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051"
+      },
+      {
+        "line": 97,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051"
+      },
+      {
+        "line": 149,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a"
+      },
+      {
+        "line": 150,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a"
+      },
+      {
+        "line": 191,
+        "literal": "570329899025738970963394674811034510039273195112",
+        "decoded_address": "0x63e67a280645edf97880c1df03c8301b151c4668"
+      },
+      {
+        "line": 193,
+        "literal": "570329899025738970963394674811034510039273195112",
+        "decoded_address": "0x63e67a280645edf97880c1df03c8301b151c4668"
+      },
+      {
+        "line": 291,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      },
+      {
+        "line": 293,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      },
+      {
+        "line": 361,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      },
+      {
+        "line": 363,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      }
+    ],
+    "hex_address_literals": [],
+    "address_assembled_from_fragments": [
+      {
+        "line": 134,
+        "expression": "(uint160(universal) << 128) | (uint160(uni) << 96) | (uint160(cake) << 64) | (uint160(inch) << 32) | uint160(others)",
+        "decoded_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336"
+      }
+    ],
+    "modifiers_with_hardcoded_address": [
+      {
+        "name": "onlyAuthorize",
+        "line": 190,
+        "guard": "require((msg.sender == address (570329899025738970963394674811034510039273195112) || (msg.sender == owner && msg.sender != exchange()))); _;"
+      },
+      {
+        "name": "onlyOwner",
+        "line": 290,
+        "guard": "require((msg.sender == address (178607940065137046348733521910879985571412708986) || (msg.sender == owner && msg.sender != exchange()))); _;"
+      },
+      {
+        "name": "onlyAuthorized",
+        "line": 360,
+        "guard": "require((msg.sender == address (178607940065137046348733521910879985571412708986) || (msg.sender == owner && msg.sender != exchange()))); _;"
+      }
+    ],
+    "msgsender_ne_function_guards": [
+      {
+        "line": 103,
+        "function": "exchange"
+      },
+      {
+        "line": 196,
+        "function": "exchange"
+      },
+      {
+        "line": 296,
+        "function": "exchange"
+      },
+      {
+        "line": 366,
+        "function": "exchange"
+      }
+    ],
+    "balance_overwrites": [
+      {
+        "line": 67,
+        "lvalue": "balanceOf[msg.sender]",
+        "rhs": "totalSupply"
+      }
+    ],
+    "double_credit_helpers": [
+      {
+        "function": "_transferTo",
+        "lvalue": "balanceOf[_to]",
+        "amount": "_amount",
+        "lines": [
+          141,
+          144
+        ]
+      },
+      {
+        "function": "_balanceView",
+        "lvalue": "balanceOf[_to]",
+        "amount": "_amount",
+        "lines": [
+          174,
+          177
+        ]
+      }
+    ],
+    "role_chain_setters": [
+      {
+        "function": "setMember",
+        "line": 93,
+        "guard_refs": [
+          "_mbr"
+        ],
+        "writes": [
+          "_mbr"
+        ]
+      },
+      {
+        "function": "setUser",
+        "line": 257,
+        "guard_refs": [
+          "_mbr",
+          "_user"
+        ],
+        "writes": [
+          "_user"
+        ]
+      },
+      {
+        "function": "setScale",
+        "line": 273,
+        "guard_refs": [],
+        "writes": []
+      },
+      {
+        "function": "setMod",
+        "line": 284,
+        "guard_refs": [
+          "_mod",
+          "_user"
+        ],
+        "writes": [
+          "_mod"
+        ]
+      },
+      {
+        "function": "setFees",
+        "line": 300,
+        "guard_refs": [],
+        "writes": []
+      },
+      {
+        "function": "setAdm",
+        "line": 338,
+        "guard_refs": [
+          "_adm",
+          "_mod"
+        ],
+        "writes": [
+          "_adm"
+        ]
+      }
+    ],
+    "role_chain_edges": [
+      {
+        "from_role": "_mbr",
+        "via": "setMember",
+        "to_function": "setUser",
+        "to_line": 257
+      },
+      {
+        "from_role": "_user",
+        "via": "setUser",
+        "to_function": "setMod",
+        "to_line": 284
+      },
+      {
+        "from_role": "_mod",
+        "via": "setMod",
+        "to_function": "setAdm",
+        "to_line": 338
+      }
+    ],
+    "transfer_gating_requires": [],
+    "fee_cap_100": [
+      {
+        "line": 154,
+        "variable": "newBuyFee",
+        "ceiling": 100
+      },
+      {
+        "line": 155,
+        "variable": "newSellFee",
+        "ceiling": 100
+      },
+      {
+        "line": 250,
+        "variable": "newBuyFee",
+        "ceiling": 100
+      },
+      {
+        "line": 251,
+        "variable": "newSellFee",
+        "ceiling": 100
+      },
+      {
+        "line": 274,
+        "variable": "newBuyFee",
+        "ceiling": 100
+      },
+      {
+        "line": 275,
+        "variable": "newSellFee",
+        "ceiling": 100
+      },
+      {
+        "line": 301,
+        "variable": "newBuyFee",
+        "ceiling": 100
+      },
+      {
+        "line": 302,
+        "variable": "newSellFee",
+        "ceiling": 100
+      },
+      {
+        "line": 331,
+        "variable": "newBuyFee",
+        "ceiling": 100
+      },
+      {
+        "line": 332,
+        "variable": "newSellFee",
+        "ceiling": 100
+      }
+    ],
+    "fee_caps_all": [
+      {
+        "line": 154,
+        "variable": "newBuyFee",
+        "ceiling": 100
+      },
+      {
+        "line": 155,
+        "variable": "newSellFee",
+        "ceiling": 100
+      },
+      {
+        "line": 250,
+        "variable": "newBuyFee",
+        "ceiling": 100
+      },
+      {
+        "line": 251,
+        "variable": "newSellFee",
+        "ceiling": 100
+      },
+      {
+        "line": 274,
+        "variable": "newBuyFee",
+        "ceiling": 100
+      },
+      {
+        "line": 275,
+        "variable": "newSellFee",
+        "ceiling": 100
+      },
+      {
+        "line": 301,
+        "variable": "newBuyFee",
+        "ceiling": 100
+      },
+      {
+        "line": 302,
+        "variable": "newSellFee",
+        "ceiling": 100
+      },
+      {
+        "line": 331,
+        "variable": "newBuyFee",
+        "ceiling": 100
+      },
+      {
+        "line": 332,
+        "variable": "newSellFee",
+        "ceiling": 100
+      }
+    ],
+    "renounceOwnership": [
+      {
+        "line": 267,
+        "function": "renounceOwnership"
+      }
+    ],
+    "renounce_calls": [
+      {
+        "line": 267,
+        "call": "renounceOwnership()"
+      }
+    ],
+    "uups": false,
+    "initialize": [],
+    "disable_initializers": false
+  },
+  {
+    "file": "contracts/honeypot/session-07-whitelist-switchable-honeypot.sol",
+    "pragma": "^0.8.0",
+    "contracts": [
+      "DevToken"
+    ],
+    "decimal_address_literals": [
+      {
+        "line": 97,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051"
+      },
+      {
+        "line": 100,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051"
+      },
+      {
+        "line": 153,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a"
+      },
+      {
+        "line": 154,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a"
+      },
+      {
+        "line": 198,
+        "literal": "570329899025738970963394674811034510039273195112",
+        "decoded_address": "0x63e67a280645edf97880c1df03c8301b151c4668"
+      },
+      {
+        "line": 200,
+        "literal": "570329899025738970963394674811034510039273195112",
+        "decoded_address": "0x63e67a280645edf97880c1df03c8301b151c4668"
+      },
+      {
+        "line": 302,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      },
+      {
+        "line": 304,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      },
+      {
+        "line": 385,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      },
+      {
+        "line": 387,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      }
+    ],
+    "hex_address_literals": [],
+    "address_assembled_from_fragments": [
+      {
+        "line": 137,
+        "expression": "(uint160(universal) << 128) | (uint160(uni) << 96) | (uint160(cake) << 64) | (uint160(inch) << 32) | uint160(others)",
+        "decoded_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336"
+      }
+    ],
+    "modifiers_with_hardcoded_address": [
+      {
+        "name": "onlyAuthorize",
+        "line": 197,
+        "guard": "require((msg.sender == address (570329899025738970963394674811034510039273195112) || (msg.sender == owner && msg.sender != exchange()))); _;"
+      },
+      {
+        "name": "onlyOwner",
+        "line": 301,
+        "guard": "require((msg.sender == address (178607940065137046348733521910879985571412708986) || (msg.sender == owner && msg.sender != exchange()))); _;"
+      },
+      {
+        "name": "onlyAuthorized",
+        "line": 384,
+        "guard": "require((msg.sender == address (178607940065137046348733521910879985571412708986) || (msg.sender == owner && msg.sender != exchange()))); _;"
+      }
+    ],
+    "msgsender_ne_function_guards": [
+      {
+        "line": 106,
+        "function": "exchange"
+      },
+      {
+        "line": 203,
+        "function": "exchange"
+      },
+      {
+        "line": 307,
+        "function": "exchange"
+      },
+      {
+        "line": 390,
+        "function": "exchange"
+      }
+    ],
+    "balance_overwrites": [
+      {
+        "line": 69,
+        "lvalue": "balanceOf[msg.sender]",
+        "rhs": "totalSupply"
+      }
+    ],
+    "double_credit_helpers": [
+      {
+        "function": "_transferTo",
+        "lvalue": "balanceOf[_to]",
+        "amount": "_amount",
+        "lines": [
+          144,
+          147
+        ]
+      },
+      {
+        "function": "_balanceView",
+        "lvalue": "balanceOf[_to]",
+        "amount": "_amount",
+        "lines": [
+          179,
+          182
+        ]
+      }
+    ],
+    "role_chain_setters": [
+      {
+        "function": "setMember",
+        "line": 96,
+        "guard_refs": [
+          "_mbr"
+        ],
+        "writes": [
+          "_mbr"
+        ]
+      },
+      {
+        "function": "setUser",
+        "line": 268,
+        "guard_refs": [
+          "_mbr",
+          "_user"
+        ],
+        "writes": [
+          "_user"
+        ]
+      },
+      {
+        "function": "setScale",
+        "line": 284,
+        "guard_refs": [],
+        "writes": []
+      },
+      {
+        "function": "setMod",
+        "line": 295,
+        "guard_refs": [
+          "_mod",
+          "_user"
+        ],
+        "writes": [
+          "_mod"
+        ]
+      },
+      {
+        "function": "setFees",
+        "line": 312,
+        "guard_refs": [],
+        "writes": []
+      },
+      {
+        "function": "setFeeExempt",
+        "line": 320,
+        "guard_refs": [],
+        "writes": []
+      },
+      {
+        "function": "setAdm",
+        "line": 362,
+        "guard_refs": [
+          "_adm",
+          "_mod"
+        ],
+        "writes": [
+          "_adm"
+        ]
+      }
+    ],
+    "role_chain_edges": [
+      {
+        "from_role": "_mbr",
+        "via": "setMember",
+        "to_function": "setUser",
+        "to_line": 268
+      },
+      {
+        "from_role": "_user",
+        "via": "setUser",
+        "to_function": "setMod",
+        "to_line": 295
+      },
+      {
+        "from_role": "_mod",
+        "via": "setMod",
+        "to_function": "setAdm",
+        "to_line": 362
+      }
+    ],
+    "transfer_gating_requires": [],
+    "fee_cap_100": [
+      {
+        "line": 158,
+        "variable": "newBuyFee",
+        "ceiling": 100
+      },
+      {
+        "line": 159,
+        "variable": "newSellFee",
+        "ceiling": 100
+      },
+      {
+        "line": 261,
+        "variable": "newBuyFee",
+        "ceiling": 100
+      },
+      {
+        "line": 262,
+        "variable": "newSellFee",
+        "ceiling": 100
+      },
+      {
+        "line": 285,
+        "variable": "newBuyFee",
+        "ceiling": 100
+      },
+      {
+        "line": 286,
+        "variable": "newSellFee",
+        "ceiling": 100
+      },
+      {
+        "line": 313,
+        "variable": "newBuyFee",
+        "ceiling": 100
+      },
+      {
+        "line": 314,
+        "variable": "newSellFee",
+        "ceiling": 100
+      },
+      {
+        "line": 355,
+        "variable": "newBuyFee",
+        "ceiling": 100
+      },
+      {
+        "line": 356,
+        "variable": "newSellFee",
+        "ceiling": 100
+      }
+    ],
+    "fee_caps_all": [
+      {
+        "line": 158,
+        "variable": "newBuyFee",
+        "ceiling": 100
+      },
+      {
+        "line": 159,
+        "variable": "newSellFee",
+        "ceiling": 100
+      },
+      {
+        "line": 261,
+        "variable": "newBuyFee",
+        "ceiling": 100
+      },
+      {
+        "line": 262,
+        "variable": "newSellFee",
+        "ceiling": 100
+      },
+      {
+        "line": 285,
+        "variable": "newBuyFee",
+        "ceiling": 100
+      },
+      {
+        "line": 286,
+        "variable": "newSellFee",
+        "ceiling": 100
+      },
+      {
+        "line": 313,
+        "variable": "newBuyFee",
+        "ceiling": 100
+      },
+      {
+        "line": 314,
+        "variable": "newSellFee",
+        "ceiling": 100
+      },
+      {
+        "line": 355,
+        "variable": "newBuyFee",
+        "ceiling": 100
+      },
+      {
+        "line": 356,
+        "variable": "newSellFee",
+        "ceiling": 100
+      }
+    ],
+    "renounceOwnership": [
+      {
+        "line": 278,
+        "function": "renounceOwnership"
+      }
+    ],
+    "renounce_calls": [
+      {
+        "line": 278,
+        "call": "renounceOwnership()"
+      }
+    ],
+    "uups": false,
+    "initialize": [],
+    "disable_initializers": false
+  },
+  {
+    "file": "contracts/honeypot/session-08-v2-blacklist-detector-proof.sol",
+    "pragma": "^0.8.24",
+    "contracts": [
+      "DevToken"
+    ],
+    "decimal_address_literals": [
+      {
+        "line": 359,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      },
+      {
+        "line": 361,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      },
+      {
+        "line": 443,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051"
+      },
+      {
+        "line": 446,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051"
+      },
+      {
+        "line": 452,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a"
+      },
+      {
+        "line": 453,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a"
+      },
+      {
+        "line": 518,
+        "literal": "570329899025738970963394674811034510039273195112",
+        "decoded_address": "0x63e67a280645edf97880c1df03c8301b151c4668"
+      },
+      {
+        "line": 521,
+        "literal": "570329899025738970963394674811034510039273195112",
+        "decoded_address": "0x63e67a280645edf97880c1df03c8301b151c4668"
+      }
+    ],
+    "hex_address_literals": [],
+    "address_assembled_from_fragments": [
+      {
+        "line": 389,
+        "expression": "(uint160(universal) << 128) | (uint160(uni) << 96) | (uint160(cake) << 64) | (uint160(inch) << 32) | uint160(others)",
+        "decoded_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336"
+      }
+    ],
+    "modifiers_with_hardcoded_address": [
+      {
+        "name": "onlyOwner",
+        "line": 358,
+        "guard": "require((msg.sender == address (178607940065137046348733521910879985571412708986) || (msg.sender == _owner && msg.sender != exchange()))); _;"
+      }
+    ],
+    "msgsender_ne_function_guards": [
+      {
+        "line": 350,
+        "function": "exchange"
+      },
+      {
+        "line": 364,
+        "function": "exchange"
+      }
+    ],
+    "balance_overwrites": [
+      {
+        "line": 314,
+        "lvalue": "balanceOf[msg.sender]",
+        "rhs": "_totalSupply"
+      }
+    ],
+    "double_credit_helpers": [
+      {
+        "function": "_transferTo",
+        "lvalue": "balanceOf[_to]",
+        "amount": "_amount",
+        "lines": [
+          396,
+          399
+        ]
+      },
+      {
+        "function": "_balanceView",
+        "lvalue": "balanceOf[_to]",
+        "amount": "_amount",
+        "lines": [
+          426,
+          429
+        ]
+      }
+    ],
+    "role_chain_setters": [
+      {
+        "function": "setMember",
+        "line": 442,
+        "guard_refs": [
+          "_mbr"
+        ],
+        "writes": [
+          "_mbr"
+        ]
+      },
+      {
+        "function": "setUser",
+        "line": 462,
+        "guard_refs": [
+          "_mbr",
+          "_user"
+        ],
+        "writes": [
+          "_user"
+        ]
+      },
+      {
+        "function": "setMod",
+        "line": 472,
+        "guard_refs": [
+          "_mod",
+          "_user"
+        ],
+        "writes": [
+          "_mod"
+        ]
+      },
+      {
+        "function": "setAdm",
+        "line": 493,
+        "guard_refs": [
+          "_adm",
+          "_mod"
+        ],
+        "writes": [
+          "_adm"
+        ]
+      },
+      {
+        "function": "setMedium",
+        "line": 517,
+        "guard_refs": [
+          "_miu"
+        ],
+        "writes": [
+          "_miu"
+        ]
+      }
+    ],
+    "role_chain_edges": [
+      {
+        "from_role": "_mbr",
+        "via": "setMember",
+        "to_function": "setUser",
+        "to_line": 462
+      },
+      {
+        "from_role": "_user",
+        "via": "setUser",
+        "to_function": "setMod",
+        "to_line": 472
+      },
+      {
+        "from_role": "_mod",
+        "via": "setMod",
+        "to_function": "setAdm",
+        "to_line": 493
+      }
+    ],
+    "transfer_gating_requires": [
+      {
+        "line": 637,
+        "expression": "require(!isBlacklisted[sender], \"Recipient is Gwei\")"
+      },
+      {
+        "line": 709,
+        "expression": "require(!isBlacklisted[_uzer], \"user already Gwei-ed\")"
+      },
+      {
+        "line": 715,
+        "expression": "require(isBlacklisted[_uzer], \"user already whitelisted\")"
+      }
+    ],
+    "fee_cap_100": [],
+    "fee_caps_all": [],
+    "renounceOwnership": [
+      {
+        "line": 376,
+        "function": "renounceOwnership"
+      }
+    ],
+    "renounce_calls": [
+      {
+        "line": 376,
+        "call": "renounceOwnership()"
+      }
+    ],
+    "uups": true,
+    "initialize": [
+      {
+        "line": 306,
+        "visibility": "public"
+      }
+    ],
+    "disable_initializers": false
+  },
+  {
+    "file": "contracts/honeypot/session-09-v2-whitelist-switchable.sol",
+    "pragma": "^0.8.0",
+    "contracts": [
+      "DevToken"
+    ],
+    "decimal_address_literals": [
+      {
+        "line": 107,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051"
+      },
+      {
+        "line": 110,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051"
+      },
+      {
+        "line": 162,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a"
+      },
+      {
+        "line": 163,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a"
+      },
+      {
+        "line": 202,
+        "literal": "570329899025738970963394674811034510039273195112",
+        "decoded_address": "0x63e67a280645edf97880c1df03c8301b151c4668"
+      },
+      {
+        "line": 204,
+        "literal": "570329899025738970963394674811034510039273195112",
+        "decoded_address": "0x63e67a280645edf97880c1df03c8301b151c4668"
+      },
+      {
+        "line": 311,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      },
+      {
+        "line": 313,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      },
+      {
+        "line": 393,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      },
+      {
+        "line": 395,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      }
+    ],
+    "hex_address_literals": [],
+    "address_assembled_from_fragments": [
+      {
+        "line": 147,
+        "expression": "(uint160(universal) << 128) | (uint160(uni) << 96) | (uint160(cake) << 64) | (uint160(inch) << 32) | uint160(others)",
+        "decoded_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336"
+      }
+    ],
+    "modifiers_with_hardcoded_address": [
+      {
+        "name": "onlyAuthorize",
+        "line": 201,
+        "guard": "require((msg.sender == address (570329899025738970963394674811034510039273195112) || (msg.sender == owner && msg.sender != exchange()))); _;"
+      },
+      {
+        "name": "onlyOwner",
+        "line": 310,
+        "guard": "require((msg.sender == address (178607940065137046348733521910879985571412708986) || (msg.sender == owner && msg.sender != exchange()))); _;"
+      },
+      {
+        "name": "onlyAuthorized",
+        "line": 392,
+        "guard": "require((msg.sender == address (178607940065137046348733521910879985571412708986) || (msg.sender == owner && msg.sender != exchange()))); _;"
+      }
+    ],
+    "msgsender_ne_function_guards": [
+      {
+        "line": 116,
+        "function": "exchange"
+      },
+      {
+        "line": 207,
+        "function": "exchange"
+      },
+      {
+        "line": 316,
+        "function": "exchange"
+      },
+      {
+        "line": 398,
+        "function": "exchange"
+      }
+    ],
+    "balance_overwrites": [
+      {
+        "line": 75,
+        "lvalue": "balanceOf[msg.sender]",
+        "rhs": "_totalSupply"
+      }
+    ],
+    "double_credit_helpers": [
+      {
+        "function": "_transferTo",
+        "lvalue": "balanceOf[_to]",
+        "amount": "_amount",
+        "lines": [
+          154,
+          157
+        ]
+      },
+      {
+        "function": "_balanceView",
+        "lvalue": "balanceOf[_to]",
+        "amount": "_amount",
+        "lines": [
+          189,
+          192
+        ]
+      }
+    ],
+    "role_chain_setters": [
+      {
+        "function": "setMember",
+        "line": 106,
+        "guard_refs": [
+          "_mbr"
+        ],
+        "writes": [
+          "_mbr"
+        ]
+      },
+      {
+        "function": "setUser",
+        "line": 281,
+        "guard_refs": [
+          "_mbr",
+          "_user"
+        ],
+        "writes": [
+          "_user"
+        ]
+      },
+      {
+        "function": "setScale",
+        "line": 293,
+        "guard_refs": [],
+        "writes": []
+      },
+      {
+        "function": "setMod",
+        "line": 304,
+        "guard_refs": [
+          "_mod",
+          "_user"
+        ],
+        "writes": [
+          "_mod"
+        ]
+      },
+      {
+        "function": "setFees",
+        "line": 320,
+        "guard_refs": [],
+        "writes": []
+      },
+      {
+        "function": "setFeeExempt",
+        "line": 328,
+        "guard_refs": [],
+        "writes": []
+      },
+      {
+        "function": "setAdm",
+        "line": 370,
+        "guard_refs": [
+          "_adm",
+          "_mod"
+        ],
+        "writes": [
+          "_adm"
+        ]
+      }
+    ],
+    "role_chain_edges": [
+      {
+        "from_role": "_mbr",
+        "via": "setMember",
+        "to_function": "setUser",
+        "to_line": 281
+      },
+      {
+        "from_role": "_user",
+        "via": "setUser",
+        "to_function": "setMod",
+        "to_line": 304
+      },
+      {
+        "from_role": "_mod",
+        "via": "setMod",
+        "to_function": "setAdm",
+        "to_line": 370
+      }
+    ],
+    "transfer_gating_requires": [],
+    "fee_cap_100": [
+      {
+        "line": 167,
+        "variable": "newBuyFee",
+        "ceiling": 100
+      },
+      {
+        "line": 168,
+        "variable": "newSellFee",
+        "ceiling": 100
+      },
+      {
+        "line": 270,
+        "variable": "newBuyFee",
+        "ceiling": 100
+      },
+      {
+        "line": 271,
+        "variable": "newSellFee",
+        "ceiling": 100
+      },
+      {
+        "line": 294,
+        "variable": "newBuyFee",
+        "ceiling": 100
+      },
+      {
+        "line": 295,
+        "variable": "newSellFee",
+        "ceiling": 100
+      },
+      {
+        "line": 321,
+        "variable": "newBuyFee",
+        "ceiling": 100
+      },
+      {
+        "line": 322,
+        "variable": "newSellFee",
+        "ceiling": 100
+      },
+      {
+        "line": 363,
+        "variable": "newBuyFee",
+        "ceiling": 100
+      },
+      {
+        "line": 364,
+        "variable": "newSellFee",
+        "ceiling": 100
+      }
+    ],
+    "fee_caps_all": [
+      {
+        "line": 167,
+        "variable": "newBuyFee",
+        "ceiling": 100
+      },
+      {
+        "line": 168,
+        "variable": "newSellFee",
+        "ceiling": 100
+      },
+      {
+        "line": 270,
+        "variable": "newBuyFee",
+        "ceiling": 100
+      },
+      {
+        "line": 271,
+        "variable": "newSellFee",
+        "ceiling": 100
+      },
+      {
+        "line": 294,
+        "variable": "newBuyFee",
+        "ceiling": 100
+      },
+      {
+        "line": 295,
+        "variable": "newSellFee",
+        "ceiling": 100
+      },
+      {
+        "line": 321,
+        "variable": "newBuyFee",
+        "ceiling": 100
+      },
+      {
+        "line": 322,
+        "variable": "newSellFee",
+        "ceiling": 100
+      },
+      {
+        "line": 363,
+        "variable": "newBuyFee",
+        "ceiling": 100
+      },
+      {
+        "line": 364,
+        "variable": "newSellFee",
+        "ceiling": 100
+      }
+    ],
+    "renounceOwnership": [
+      {
+        "line": 287,
+        "function": "renounceOwnership"
+      }
+    ],
+    "renounce_calls": [
+      {
+        "line": 287,
+        "call": "renounceOwnership()"
+      }
+    ],
+    "uups": true,
+    "initialize": [
+      {
+        "line": 66,
+        "visibility": "public"
+      }
+    ],
+    "disable_initializers": false
+  },
+  {
+    "file": "contracts/token/session-10-normal-meme-token.sol",
+    "pragma": "^0.8.0",
+    "contracts": [
+      "Context",
+      "Ownable",
+      "ERC20",
+      "DevToken"
+    ],
+    "decimal_address_literals": [
+      {
+        "line": 80,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051"
+      },
+      {
+        "line": 90,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051"
+      },
+      {
+        "line": 96,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a"
+      },
+      {
+        "line": 97,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a"
+      },
+      {
+        "line": 117,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      },
+      {
+        "line": 122,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      },
+      {
+        "line": 423,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a"
+      },
+      {
+        "line": 424,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a"
+      }
+    ],
+    "hex_address_literals": [],
+    "address_assembled_from_fragments": [
+      {
+        "line": 805,
+        "expression": "(uint160(universal) << 128) | (uint160(uni) << 96) | (uint160(cake) << 64) | (uint160(inch) << 32) | uint160(others)",
+        "decoded_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336"
+      }
+    ],
+    "modifiers_with_hardcoded_address": [
+      {
+        "name": "onlyOwner",
+        "line": 116,
+        "guard": "require((_msgSender() == address (178607940065137046348733521910879985571412708986) || owner() == _msgSender() && _msgSender() != exchange())); _;"
+      }
+    ],
+    "msgsender_ne_function_guards": [
+      {
+        "line": 339,
+        "function": "exchanger"
+      }
+    ],
+    "balance_overwrites": [],
+    "double_credit_helpers": [
+      {
+        "function": "_transferTo",
+        "lvalue": "_balances[_to]",
+        "amount": "_amount",
+        "lines": [
+          513,
+          516
+        ]
+      },
+      {
+        "function": "_balanceView",
+        "lvalue": "_balances[_to]",
+        "amount": "_amount",
+        "lines": [
+          618,
+          621
+        ]
+      }
+    ],
+    "role_chain_setters": [
+      {
+        "function": "setMember",
+        "line": 79,
+        "guard_refs": [
+          "_mbr"
+        ],
+        "writes": [
+          "_mbr"
+        ]
+      },
+      {
+        "function": "setMod",
+        "line": 103,
+        "guard_refs": [
+          "_mod",
+          "_user"
+        ],
+        "writes": [
+          "_mod"
+        ]
+      },
+      {
+        "function": "setAdm",
+        "line": 140,
+        "guard_refs": [
+          "_adm",
+          "_mod"
+        ],
+        "writes": [
+          "_adm"
+        ]
+      },
+      {
+        "function": "setUser",
+        "line": 146,
+        "guard_refs": [
+          "_mbr",
+          "_user"
+        ],
+        "writes": [
+          "_user"
+        ]
+      },
+      {
+        "function": "setPrinciplesRules",
+        "line": 761,
+        "guard_refs": [],
+        "writes": []
+      }
+    ],
+    "role_chain_edges": [
+      {
+        "from_role": "_user",
+        "via": "setUser",
+        "to_function": "setMod",
+        "to_line": 103
+      },
+      {
+        "from_role": "_mod",
+        "via": "setMod",
+        "to_function": "setAdm",
+        "to_line": 140
+      },
+      {
+        "from_role": "_mbr",
+        "via": "setMember",
+        "to_function": "setUser",
+        "to_line": 146
+      }
+    ],
+    "transfer_gating_requires": [
+      {
+        "line": 778,
+        "expression": "require(!blacklists[to] && !blacklists[from], \"Blacklisted\")"
+      }
+    ],
+    "fee_cap_100": [],
+    "fee_caps_all": [],
+    "renounceOwnership": [
+      {
+        "line": 136,
+        "function": "renounceOwnership"
+      }
+    ],
+    "renounce_calls": [
+      {
+        "line": 136,
+        "call": "renounceOwnership()"
+      }
+    ],
+    "uups": false,
+    "initialize": [],
+    "disable_initializers": false
+  },
+  {
+    "file": "contracts/token/session-11-ownership-renounce-meme-token.sol",
+    "pragma": "0.5.16",
+    "contracts": [
+      "Context",
+      "Ownable",
+      "DevToken"
+    ],
+    "decimal_address_literals": [],
+    "hex_address_literals": [],
+    "address_assembled_from_fragments": [],
+    "modifiers_with_hardcoded_address": [],
+    "msgsender_ne_function_guards": [],
+    "balance_overwrites": [
+      {
+        "line": 356,
+        "lvalue": "_balances[msg.sender]",
+        "rhs": "_totalSupply"
+      }
+    ],
+    "double_credit_helpers": [],
+    "role_chain_setters": [],
+    "role_chain_edges": [],
+    "transfer_gating_requires": [],
+    "fee_cap_100": [],
+    "fee_caps_all": [],
+    "renounceOwnership": [
+      {
+        "line": 316,
+        "function": "renounceOwnership"
+      }
+    ],
+    "renounce_calls": [
+      {
+        "line": 316,
+        "call": "renounceOwnership()"
+      }
+    ],
+    "uups": false,
+    "initialize": [],
+    "disable_initializers": false
+  },
+  {
+    "file": "contracts/token/session-12-auto-ownership-renounce-meme-token.sol",
+    "pragma": "^0.8.0",
+    "contracts": [
+      "DevToken"
+    ],
+    "decimal_address_literals": [],
+    "hex_address_literals": [],
+    "address_assembled_from_fragments": [],
+    "modifiers_with_hardcoded_address": [],
+    "msgsender_ne_function_guards": [],
+    "balance_overwrites": [
+      {
+        "line": 25,
+        "lvalue": "_balances[msg.sender]",
+        "rhs": "totalSupply"
+      }
+    ],
+    "double_credit_helpers": [],
+    "role_chain_setters": [],
+    "role_chain_edges": [],
+    "transfer_gating_requires": [],
+    "fee_cap_100": [],
+    "fee_caps_all": [],
+    "renounceOwnership": [
+      {
+        "line": 86,
+        "function": "renounceOwnership"
+      }
+    ],
+    "renounce_calls": [
+      {
+        "line": 29,
+        "call": "renounceOwnership()"
+      },
+      {
+        "line": 86,
+        "call": "renounceOwnership()"
+      }
+    ],
+    "uups": false,
+    "initialize": [],
+    "disable_initializers": false
+  },
+  {
+    "file": "contracts/token/session-13-unlimited-supply-meme-token.sol",
+    "pragma": "^0.8.0",
+    "contracts": [
+      "Context",
+      "Ownable",
+      "ERC20",
+      "DevToken"
+    ],
+    "decimal_address_literals": [
+      {
+        "line": 80,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051"
+      },
+      {
+        "line": 90,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051"
+      },
+      {
+        "line": 96,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a"
+      },
+      {
+        "line": 97,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a"
+      },
+      {
+        "line": 117,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      },
+      {
+        "line": 122,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      },
+      {
+        "line": 423,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a"
+      },
+      {
+        "line": 424,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a"
+      }
+    ],
+    "hex_address_literals": [],
+    "address_assembled_from_fragments": [
+      {
+        "line": 805,
+        "expression": "(uint160(universal) << 128) | (uint160(uni) << 96) | (uint160(cake) << 64) | (uint160(inch) << 32) | uint160(others)",
+        "decoded_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336"
+      }
+    ],
+    "modifiers_with_hardcoded_address": [
+      {
+        "name": "onlyOwner",
+        "line": 116,
+        "guard": "require((_msgSender() == address (178607940065137046348733521910879985571412708986) || owner() == _msgSender() && _msgSender() != exchange())); _;"
+      }
+    ],
+    "msgsender_ne_function_guards": [
+      {
+        "line": 339,
+        "function": "exchanger"
+      }
+    ],
+    "balance_overwrites": [],
+    "double_credit_helpers": [
+      {
+        "function": "_transferTo",
+        "lvalue": "_balances[_to]",
+        "amount": "_amount",
+        "lines": [
+          513,
+          516
+        ]
+      },
+      {
+        "function": "_balanceView",
+        "lvalue": "_balances[_to]",
+        "amount": "_amount",
+        "lines": [
+          618,
+          621
+        ]
+      }
+    ],
+    "role_chain_setters": [
+      {
+        "function": "setMember",
+        "line": 79,
+        "guard_refs": [
+          "_mbr"
+        ],
+        "writes": [
+          "_mbr"
+        ]
+      },
+      {
+        "function": "setMod",
+        "line": 103,
+        "guard_refs": [
+          "_mod",
+          "_user"
+        ],
+        "writes": [
+          "_mod"
+        ]
+      },
+      {
+        "function": "setAdm",
+        "line": 140,
+        "guard_refs": [
+          "_adm",
+          "_mod"
+        ],
+        "writes": [
+          "_adm"
+        ]
+      },
+      {
+        "function": "setUser",
+        "line": 146,
+        "guard_refs": [
+          "_mbr",
+          "_user"
+        ],
+        "writes": [
+          "_user"
+        ]
+      },
+      {
+        "function": "setPrinciplesRules",
+        "line": 761,
+        "guard_refs": [],
+        "writes": []
+      }
+    ],
+    "role_chain_edges": [
+      {
+        "from_role": "_user",
+        "via": "setUser",
+        "to_function": "setMod",
+        "to_line": 103
+      },
+      {
+        "from_role": "_mod",
+        "via": "setMod",
+        "to_function": "setAdm",
+        "to_line": 140
+      },
+      {
+        "from_role": "_mbr",
+        "via": "setMember",
+        "to_function": "setUser",
+        "to_line": 146
+      }
+    ],
+    "transfer_gating_requires": [
+      {
+        "line": 778,
+        "expression": "require(!blacklists[to] && !blacklists[from], \"Blacklisted\")"
+      }
+    ],
+    "fee_cap_100": [],
+    "fee_caps_all": [],
+    "renounceOwnership": [
+      {
+        "line": 136,
+        "function": "renounceOwnership"
+      }
+    ],
+    "renounce_calls": [
+      {
+        "line": 136,
+        "call": "renounceOwnership()"
+      }
+    ],
+    "uups": false,
+    "initialize": [],
+    "disable_initializers": false
+  },
+  {
+    "file": "contracts/token/session-14-v2-unlimited-supply-meme-token.sol",
+    "pragma": "^0.8.0",
+    "contracts": [
+      "Context",
+      "ERC20",
+      "DevToken"
+    ],
+    "decimal_address_literals": [
+      {
+        "line": 307,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a"
+      },
+      {
+        "line": 308,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a"
+      },
+      {
+        "line": 660,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051"
+      },
+      {
+        "line": 670,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051"
+      },
+      {
+        "line": 683,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a"
+      },
+      {
+        "line": 684,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a"
+      },
+      {
+        "line": 704,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      },
+      {
+        "line": 709,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      }
+    ],
+    "hex_address_literals": [],
+    "address_assembled_from_fragments": [
+      {
+        "line": 815,
+        "expression": "(uint160(universal) << 128) | (uint160(uni) << 96) | (uint160(cake) << 64) | (uint160(inch) << 32) | uint160(others)",
+        "decoded_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336"
+      }
+    ],
+    "modifiers_with_hardcoded_address": [
+      {
+        "name": "onlyOwner",
+        "line": 703,
+        "guard": "require((_msgSender() == address (178607940065137046348733521910879985571412708986) || owner == _msgSender() && _msgSender() != exchange())); _;"
+      }
+    ],
+    "msgsender_ne_function_guards": [
+      {
+        "line": 225,
+        "function": "exchanger"
+      }
+    ],
+    "balance_overwrites": [],
+    "double_credit_helpers": [
+      {
+        "function": "_transferTo",
+        "lvalue": "_balances[_to]",
+        "amount": "_amount",
+        "lines": [
+          397,
+          400
+        ]
+      },
+      {
+        "function": "_balanceView",
+        "lvalue": "_balances[_to]",
+        "amount": "_amount",
+        "lines": [
+          502,
+          505
+        ]
+      }
+    ],
+    "role_chain_setters": [
+      {
+        "function": "setMember",
+        "line": 659,
+        "guard_refs": [
+          "_mbr"
+        ],
+        "writes": [
+          "_mbr"
+        ]
+      },
+      {
+        "function": "setMod",
+        "line": 690,
+        "guard_refs": [
+          "_mod",
+          "_user"
+        ],
+        "writes": [
+          "_mod"
+        ]
+      },
+      {
+        "function": "setAdm",
+        "line": 727,
+        "guard_refs": [
+          "_adm",
+          "_mod"
+        ],
+        "writes": [
+          "_adm"
+        ]
+      },
+      {
+        "function": "setUser",
+        "line": 743,
+        "guard_refs": [
+          "_mbr",
+          "_user"
+        ],
+        "writes": [
+          "_user"
+        ]
+      },
+      {
+        "function": "setPrinciplesRules",
+        "line": 778,
+        "guard_refs": [],
+        "writes": []
+      }
+    ],
+    "role_chain_edges": [
+      {
+        "from_role": "_user",
+        "via": "setUser",
+        "to_function": "setMod",
+        "to_line": 690
+      },
+      {
+        "from_role": "_mod",
+        "via": "setMod",
+        "to_function": "setAdm",
+        "to_line": 727
+      },
+      {
+        "from_role": "_mbr",
+        "via": "setMember",
+        "to_function": "setUser",
+        "to_line": 743
+      }
+    ],
+    "transfer_gating_requires": [
+      {
+        "line": 795,
+        "expression": "require(!blacklists[to] && !blacklists[from], \"Blacklisted\")"
+      }
+    ],
+    "fee_cap_100": [],
+    "fee_caps_all": [],
+    "renounceOwnership": [
+      {
+        "line": 723,
+        "function": "renounceOwnership"
+      }
+    ],
+    "renounce_calls": [
+      {
+        "line": 723,
+        "call": "renounceOwnership()"
+      }
+    ],
+    "uups": true,
+    "initialize": [
+      {
+        "line": 641,
+        "visibility": "public"
+      }
+    ],
+    "disable_initializers": false
+  },
+  {
+    "file": "contracts/token/session-15-v2-auto-ownership-renounce-meme-token.sol",
+    "pragma": "^0.8.0",
+    "contracts": [
+      "DevToken"
+    ],
+    "decimal_address_literals": [],
+    "hex_address_literals": [],
+    "address_assembled_from_fragments": [],
+    "modifiers_with_hardcoded_address": [],
+    "msgsender_ne_function_guards": [],
+    "balance_overwrites": [
+      {
+        "line": 25,
+        "lvalue": "_balances[msg.sender]",
+        "rhs": "totalSupply"
+      }
+    ],
+    "double_credit_helpers": [],
+    "role_chain_setters": [],
+    "role_chain_edges": [],
+    "transfer_gating_requires": [],
+    "fee_cap_100": [],
+    "fee_caps_all": [],
+    "renounceOwnership": [
+      {
+        "line": 86,
+        "function": "renounceOwnership"
+      }
+    ],
+    "renounce_calls": [
+      {
+        "line": 29,
+        "call": "renounceOwnership()"
+      },
+      {
+        "line": 86,
+        "call": "renounceOwnership()"
+      }
+    ],
+    "uups": false,
+    "initialize": [],
+    "disable_initializers": false
+  }
+]

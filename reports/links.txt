@@ -1,0 +1,5 @@
+Markdown files checked: 29
+Internal file links checked: 243
+Anchor links checked: 96
+External links counted (not fetched): 9
+Broken links: 0

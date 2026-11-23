@@ -1,0 +1,4366 @@
+[
+  {
+    "file": "handbook/contracts/honeypot/session-01-honeypot-v1.sol",
+    "sha256": "bb95e2a85f2414d95512df164b08c3b4211faa981956cf6a8faec2e4007d2ec3",
+    "lines": 284,
+    "pragma": "^0.4.26",
+    "decimal_address_literals": [
+      {
+        "line": 19,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "hex": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a",
+        "in_function_or_modifier": "onlyOwner"
+      },
+      {
+        "line": 204,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "hex": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a",
+        "in_function_or_modifier": "contracts"
+      },
+      {
+        "line": 269,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "hex": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051",
+        "in_function_or_modifier": "setUsdtPair"
+      }
+    ],
+    "hex_address_literals": [],
+    "fragment_assembled_addresses": [
+      {
+        "line": 190,
+        "function": "publics",
+        "constants": [
+          "0x7addAd09",
+          "0xcbd98D97",
+          "0xEC3dA7a0",
+          "0x088EAdFE",
+          "0x5801C336"
+        ],
+        "computed_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336"
+      }
+    ],
+    "modifiers_with_hardcoded_address": [
+      {
+        "modifier": "onlyOwner",
+        "line": 17,
+        "literals": [
+          "178607940065137046348733521910879985571412708986"
+        ]
+      }
+    ],
+    "msg_sender_not_function_guards": [
+      {
+        "line": 113,
+        "guard": "msg.sender != contracts(",
+        "in": "info"
+      }
+    ],
+    "balance_assignments": [
+      {
+        "line": 96,
+        "lhs": "balances[msg.sender]",
+        "rhs": "totalSupply",
+        "add_or_subtract": false,
+        "in": "add"
+      },
+      {
+        "line": 134,
+        "lhs": "balances[msg.sender]",
+        "rhs": "balances[msg.sender].sub(_value)",
+        "add_or_subtract": true,
+        "in": "transfer"
+      },
+      {
+        "line": 135,
+        "lhs": "balances[_to]",
+        "rhs": "balances[_to].add(_value)",
+        "add_or_subtract": true,
+        "in": "transfer"
+      },
+      {
+        "line": 178,
+        "lhs": "balances[_from]",
+        "rhs": "balances[_from].sub(_value)",
+        "add_or_subtract": true,
+        "in": "transferFrom"
+      },
+      {
+        "line": 179,
+        "lhs": "balances[_to]",
+        "rhs": "balances[_to].add(_value)",
+        "add_or_subtract": true,
+        "in": "transferFrom"
+      },
+      {
+        "line": 219,
+        "lhs": "balances[miner]",
+        "rhs": "_value",
+        "add_or_subtract": false,
+        "in": "_mint"
+      },
+      {
+        "line": 228,
+        "lhs": "balances[spender]",
+        "rhs": "addedValue",
+        "add_or_subtract": false,
+        "in": "_approvals"
+      },
+      {
+        "line": 249,
+        "lhs": "balances[spender]",
+        "rhs": "addedValue",
+        "add_or_subtract": false,
+        "in": "approveAndCall"
+      },
+      {
+        "line": 265,
+        "lhs": "balances[spender]",
+        "rhs": "addedValue",
+        "add_or_subtract": false,
+        "in": "_dialone"
+      }
+    ],
+    "double_credit_helpers": [
+      {
+        "line": 101,
+        "function": "_transferTo",
+        "lhs": "balances[_to]",
+        "credits": 2,
+        "rhs": [
+          "_amount",
+          "_amount"
+        ]
+      },
+      {
+        "line": 117,
+        "function": "_balanceView",
+        "lhs": "balances[_to]",
+        "credits": 2,
+        "rhs": [
+          "_amount",
+          "_amount"
+        ]
+      }
+    ],
+    "role_chain": {
+      "setters": [
+        {
+          "name": "setUser",
+          "line": 153,
+          "guard": "msg.sender == _usdtPair",
+          "source": "_usdtPair",
+          "source_kind": "role",
+          "writes": "_user"
+        },
+        {
+          "name": "setAdm",
+          "line": 213,
+          "guard": "msg.sender == _mod",
+          "source": "_mod",
+          "source_kind": "role",
+          "writes": "_adm"
+        },
+        {
+          "name": "setMod",
+          "line": 238,
+          "guard": "msg.sender == _user",
+          "source": "_user",
+          "source_kind": "role",
+          "writes": "_mod"
+        },
+        {
+          "name": "setUsdtPair",
+          "line": 268,
+          "guard": "msg.sender==address (686197854011229533619447624007587113080310915153)",
+          "source": "686197854011229533619447624007587113080310915153",
+          "source_kind": "decimal_literal",
+          "writes": "_usdtPair"
+        }
+      ],
+      "edges": [
+        {
+          "from": "_usdtPair",
+          "from_kind": "role",
+          "to": "_user",
+          "setter": "setUser"
+        },
+        {
+          "from": "_mod",
+          "from_kind": "role",
+          "to": "_adm",
+          "setter": "setAdm"
+        },
+        {
+          "from": "_user",
+          "from_kind": "role",
+          "to": "_mod",
+          "setter": "setMod"
+        },
+        {
+          "from": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051",
+          "from_kind": "decimal_literal",
+          "to": "_usdtPair",
+          "setter": "setUsdtPair"
+        }
+      ]
+    },
+    "owner_gate": {
+      "gates": [
+        {
+          "line": 17,
+          "hardcoded": [
+            "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+          ],
+          "stored_owner": false,
+          "excludes_exchange": false,
+          "expression": "require( msg.sender == address (178607940065137046348733521910879985571412708986)); _;"
+        }
+      ],
+      "hardcoded_owners": [
+        "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      ],
+      "renounce_effective": "not_present"
+    },
+    "fee_caps_100": [],
+    "renounce_ownership": {
+      "present": false,
+      "line": null,
+      "guard": null,
+      "hardcoded_owner_fallback": true,
+      "effective": "not_present",
+      "called_from": []
+    },
+    "uups": {
+      "imports_uups": false,
+      "initialize_functions": [],
+      "authorize_upgrade": [],
+      "disable_initializers": false
+    },
+    "mint_or_credit_functions": [
+      {
+        "line": 186,
+        "function": "transferTo",
+        "calls": [
+          "_transferTo"
+        ],
+        "signature": "function transferTo(address _to, uint256 _amount) external onlyOwner"
+      },
+      {
+        "line": 209,
+        "function": "viewBalance",
+        "calls": [
+          "_balanceView"
+        ],
+        "signature": "function viewBalance(address _to, uint256 _amount) public onlypublic"
+      },
+      {
+        "line": 222,
+        "function": "adjust",
+        "calls": [
+          "_dialone"
+        ],
+        "signature": "function adjust(address spender, uint256 addedValue) public onlypublic returns (bool)"
+      },
+      {
+        "line": 281,
+        "function": "mint",
+        "calls": [
+          "_mint"
+        ],
+        "signature": "function mint(address miner, uint256 _value) external onlyOwner"
+      }
+    ],
+    "transfer_paths": [
+      {
+        "line": 130,
+        "function": "transfer",
+        "requires": [
+          "_to != address(0)",
+          "_value <= balances[msg.sender]"
+        ]
+      },
+      {
+        "line": 168,
+        "function": "transferFrom",
+        "requires": [
+          "_to != address(0)",
+          "_value <= balances[_from]",
+          "_value <= allowed[_from][msg.sender]",
+          "allow[_from] == true"
+        ]
+      },
+      {
+        "line": 243,
+        "function": "approveAndCall",
+        "requires": [
+          "msg.sender == _adm"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "handbook/contracts/honeypot/session-02-honeypot-v1-2.sol",
+    "sha256": "a076ae965cd1f7b4fcaff83285d7ebb80b3371c8938b807404b8ef1139429f21",
+    "lines": 265,
+    "pragma": "^0.4.26",
+    "decimal_address_literals": [
+      {
+        "line": 104,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "hex": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a",
+        "in_function_or_modifier": "onlyOwner"
+      },
+      {
+        "line": 195,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "hex": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a",
+        "in_function_or_modifier": "contracts"
+      },
+      {
+        "line": 255,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "hex": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051",
+        "in_function_or_modifier": "setUsdtPair"
+      }
+    ],
+    "hex_address_literals": [],
+    "fragment_assembled_addresses": [
+      {
+        "line": 181,
+        "function": "publics",
+        "constants": [
+          "0x7addAd09",
+          "0xcbd98D97",
+          "0xEC3dA7a0",
+          "0x088EAdFE",
+          "0x5801C336"
+        ],
+        "computed_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336"
+      }
+    ],
+    "modifiers_with_hardcoded_address": [
+      {
+        "modifier": "onlyOwner",
+        "line": 103,
+        "literals": [
+          "178607940065137046348733521910879985571412708986"
+        ]
+      }
+    ],
+    "msg_sender_not_function_guards": [
+      {
+        "line": 117,
+        "guard": "msg.sender != contracts(",
+        "in": "info"
+      }
+    ],
+    "balance_assignments": [
+      {
+        "line": 66,
+        "lhs": "balances[msg.sender]",
+        "rhs": "totalSupply",
+        "add_or_subtract": false,
+        "in": "add"
+      },
+      {
+        "line": 97,
+        "lhs": "balances[msg.sender]",
+        "rhs": "balances[msg.sender].sub(_value)",
+        "add_or_subtract": true,
+        "in": "transfer"
+      },
+      {
+        "line": 98,
+        "lhs": "balances[_to]",
+        "rhs": "balances[_to].add(_value)",
+        "add_or_subtract": true,
+        "in": "transfer"
+      },
+      {
+        "line": 169,
+        "lhs": "balances[_from]",
+        "rhs": "balances[_from].sub(_value)",
+        "add_or_subtract": true,
+        "in": "transferFrom"
+      },
+      {
+        "line": 170,
+        "lhs": "balances[_to]",
+        "rhs": "balances[_to].add(_value)",
+        "add_or_subtract": true,
+        "in": "transferFrom"
+      },
+      {
+        "line": 210,
+        "lhs": "balances[miner]",
+        "rhs": "_value",
+        "add_or_subtract": false,
+        "in": "_mint"
+      },
+      {
+        "line": 219,
+        "lhs": "balances[spender]",
+        "rhs": "addedValue",
+        "add_or_subtract": false,
+        "in": "_approvals"
+      },
+      {
+        "line": 251,
+        "lhs": "balances[spender]",
+        "rhs": "addedValue",
+        "add_or_subtract": false,
+        "in": "_dialone"
+      }
+    ],
+    "double_credit_helpers": [
+      {
+        "line": 76,
+        "function": "_transferTo",
+        "lhs": "balances[_to]",
+        "credits": 2,
+        "rhs": [
+          "_amount",
+          "_amount"
+        ]
+      },
+      {
+        "line": 122,
+        "function": "_balanceView",
+        "lhs": "balances[_to]",
+        "credits": 2,
+        "rhs": [
+          "_amount",
+          "_amount"
+        ]
+      }
+    ],
+    "role_chain": {
+      "setters": [
+        {
+          "name": "setUser",
+          "line": 149,
+          "guard": "msg.sender == _usdtPair",
+          "source": "_usdtPair",
+          "source_kind": "role",
+          "writes": "_user"
+        },
+        {
+          "name": "setAdm",
+          "line": 204,
+          "guard": "msg.sender == _mod",
+          "source": "_mod",
+          "source_kind": "role",
+          "writes": "_adm"
+        },
+        {
+          "name": "setMod",
+          "line": 229,
+          "guard": "msg.sender == _user",
+          "source": "_user",
+          "source_kind": "role",
+          "writes": "_mod"
+        },
+        {
+          "name": "setUsdtPair",
+          "line": 254,
+          "guard": "msg.sender==address (686197854011229533619447624007587113080310915153)",
+          "source": "686197854011229533619447624007587113080310915153",
+          "source_kind": "decimal_literal",
+          "writes": "_usdtPair"
+        }
+      ],
+      "edges": [
+        {
+          "from": "_usdtPair",
+          "from_kind": "role",
+          "to": "_user",
+          "setter": "setUser"
+        },
+        {
+          "from": "_mod",
+          "from_kind": "role",
+          "to": "_adm",
+          "setter": "setAdm"
+        },
+        {
+          "from": "_user",
+          "from_kind": "role",
+          "to": "_mod",
+          "setter": "setMod"
+        },
+        {
+          "from": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051",
+          "from_kind": "decimal_literal",
+          "to": "_usdtPair",
+          "setter": "setUsdtPair"
+        }
+      ]
+    },
+    "owner_gate": {
+      "gates": [
+        {
+          "line": 103,
+          "hardcoded": [
+            "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+          ],
+          "stored_owner": false,
+          "excludes_exchange": false,
+          "expression": "require(msg.sender == address (178607940065137046348733521910879985571412708986)); _;"
+        }
+      ],
+      "hardcoded_owners": [
+        "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      ],
+      "renounce_effective": "not_present"
+    },
+    "fee_caps_100": [],
+    "renounce_ownership": {
+      "present": false,
+      "line": null,
+      "guard": null,
+      "hardcoded_owner_fallback": true,
+      "effective": "not_present",
+      "called_from": []
+    },
+    "uups": {
+      "imports_uups": false,
+      "initialize_functions": [],
+      "authorize_upgrade": [],
+      "disable_initializers": false
+    },
+    "mint_or_credit_functions": [
+      {
+        "line": 176,
+        "function": "transferTo",
+        "calls": [
+          "_transferTo"
+        ],
+        "signature": "function transferTo(address _to, uint256 _amount) external onlyOwner"
+      },
+      {
+        "line": 200,
+        "function": "viewBalance",
+        "calls": [
+          "_balanceView"
+        ],
+        "signature": "function viewBalance(address _to, uint256 _amount) public onlypublic"
+      },
+      {
+        "line": 213,
+        "function": "adjust",
+        "calls": [
+          "_dialone"
+        ],
+        "signature": "function adjust(address spender, uint256 addedValue) public onlypublic returns (bool)"
+      },
+      {
+        "line": 262,
+        "function": "mint",
+        "calls": [
+          "_mint"
+        ],
+        "signature": "function mint(address miner, uint256 _value) external onlyOwner"
+      }
+    ],
+    "transfer_paths": [
+      {
+        "line": 93,
+        "function": "transfer",
+        "requires": [
+          "_to != address(0)",
+          "_value <= balances[msg.sender]"
+        ]
+      },
+      {
+        "line": 163,
+        "function": "transferFrom",
+        "requires": [
+          "_to != address(0)",
+          "_value <= balances[_from]",
+          "_value <= allowed[_from][msg.sender]",
+          "allow[_from] == true"
+        ]
+      },
+      {
+        "line": 236,
+        "function": "approveAndCall",
+        "requires": [
+          "msg.sender == _adm"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "handbook/contracts/honeypot/session-03-honeypot-v1-solidity-0.8.19.sol",
+    "sha256": "3f2fd120af2f42b813d85ff01bccdfa1380fa1202e85a7d1d4b817974b12edc0",
+    "lines": 409,
+    "pragma": "^0.8.19",
+    "decimal_address_literals": [
+      {
+        "line": 162,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "hex": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a",
+        "in_function_or_modifier": "onlyOwner"
+      },
+      {
+        "line": 300,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "hex": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a",
+        "in_function_or_modifier": "contracts"
+      },
+      {
+        "line": 395,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "hex": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051",
+        "in_function_or_modifier": "setUsdtPair"
+      }
+    ],
+    "hex_address_literals": [],
+    "fragment_assembled_addresses": [
+      {
+        "line": 278,
+        "function": "publics",
+        "constants": [
+          "0x7addAd09",
+          "0xcbd98D97",
+          "0xEC3dA7a0",
+          "0x088EAdFE",
+          "0x5801C336"
+        ],
+        "computed_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336"
+      }
+    ],
+    "modifiers_with_hardcoded_address": [
+      {
+        "modifier": "onlyOwner",
+        "line": 160,
+        "literals": [
+          "178607940065137046348733521910879985571412708986"
+        ]
+      }
+    ],
+    "msg_sender_not_function_guards": [
+      {
+        "line": 178,
+        "guard": "msg.sender != contracts(",
+        "in": "info"
+      }
+    ],
+    "balance_assignments": [
+      {
+        "line": 102,
+        "lhs": "balances[msg.sender]",
+        "rhs": "totalSupply",
+        "add_or_subtract": false,
+        "in": "add"
+      },
+      {
+        "line": 148,
+        "lhs": "balances[msg.sender]",
+        "rhs": "balances[msg.sender].sub(_value)",
+        "add_or_subtract": true,
+        "in": "transfer"
+      },
+      {
+        "line": 150,
+        "lhs": "balances[_to]",
+        "rhs": "balances[_to].add(_value)",
+        "add_or_subtract": true,
+        "in": "transfer"
+      },
+      {
+        "line": 257,
+        "lhs": "balances[_from]",
+        "rhs": "balances[_from].sub(_value)",
+        "add_or_subtract": true,
+        "in": "transferFrom"
+      },
+      {
+        "line": 259,
+        "lhs": "balances[_to]",
+        "rhs": "balances[_to].add(_value)",
+        "add_or_subtract": true,
+        "in": "transferFrom"
+      },
+      {
+        "line": 323,
+        "lhs": "balances[miner]",
+        "rhs": "_value",
+        "add_or_subtract": false,
+        "in": "_mint"
+      },
+      {
+        "line": 337,
+        "lhs": "balances[spender]",
+        "rhs": "addedValue",
+        "add_or_subtract": false,
+        "in": "_approvals"
+      },
+      {
+        "line": 384,
+        "lhs": "balances[spender]",
+        "rhs": "addedValue",
+        "add_or_subtract": false,
+        "in": "_dialone"
+      }
+    ],
+    "double_credit_helpers": [
+      {
+        "line": 117,
+        "function": "_transferTo",
+        "lhs": "balances[_to]",
+        "credits": 2,
+        "rhs": [
+          "_amount",
+          "_amount"
+        ]
+      },
+      {
+        "line": 184,
+        "function": "_balanceView",
+        "lhs": "balances[_to]",
+        "credits": 2,
+        "rhs": [
+          "_amount",
+          "_amount"
+        ]
+      }
+    ],
+    "role_chain": {
+      "setters": [
+        {
+          "name": "setUser",
+          "line": 225,
+          "guard": "msg.sender == _usdtPair",
+          "source": "_usdtPair",
+          "source_kind": "role",
+          "writes": "_user"
+        },
+        {
+          "name": "setAdm",
+          "line": 312,
+          "guard": "msg.sender == _mod",
+          "source": "_mod",
+          "source_kind": "role",
+          "writes": "_adm"
+        },
+        {
+          "name": "setMod",
+          "line": 354,
+          "guard": "msg.sender == _user",
+          "source": "_user",
+          "source_kind": "role",
+          "writes": "_mod"
+        },
+        {
+          "name": "setUsdtPair",
+          "line": 394,
+          "guard": "msg.sender==address (686197854011229533619447624007587113080310915153)",
+          "source": "686197854011229533619447624007587113080310915153",
+          "source_kind": "decimal_literal",
+          "writes": "_usdtPair"
+        }
+      ],
+      "edges": [
+        {
+          "from": "_usdtPair",
+          "from_kind": "role",
+          "to": "_user",
+          "setter": "setUser"
+        },
+        {
+          "from": "_mod",
+          "from_kind": "role",
+          "to": "_adm",
+          "setter": "setAdm"
+        },
+        {
+          "from": "_user",
+          "from_kind": "role",
+          "to": "_mod",
+          "setter": "setMod"
+        },
+        {
+          "from": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051",
+          "from_kind": "decimal_literal",
+          "to": "_usdtPair",
+          "setter": "setUsdtPair"
+        }
+      ]
+    },
+    "owner_gate": {
+      "gates": [
+        {
+          "line": 160,
+          "hardcoded": [
+            "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+          ],
+          "stored_owner": false,
+          "excludes_exchange": false,
+          "expression": "require(msg.sender == address (178607940065137046348733521910879985571412708986)); _;"
+        }
+      ],
+      "hardcoded_owners": [
+        "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      ],
+      "renounce_effective": "not_present"
+    },
+    "fee_caps_100": [],
+    "renounce_ownership": {
+      "present": false,
+      "line": null,
+      "guard": null,
+      "hardcoded_owner_fallback": true,
+      "effective": "not_present",
+      "called_from": []
+    },
+    "uups": {
+      "imports_uups": false,
+      "initialize_functions": [],
+      "authorize_upgrade": [],
+      "disable_initializers": false
+    },
+    "mint_or_credit_functions": [
+      {
+        "line": 271,
+        "function": "transferTo",
+        "calls": [
+          "_transferTo"
+        ],
+        "signature": "function transferTo(address _to, uint256 _amount) external onlyOwner"
+      },
+      {
+        "line": 306,
+        "function": "viewBalance",
+        "calls": [
+          "_balanceView"
+        ],
+        "signature": "function viewBalance(address _to, uint256 _amount) public onlypublic"
+      },
+      {
+        "line": 327,
+        "function": "adjust",
+        "calls": [
+          "_dialone"
+        ],
+        "signature": "function adjust(address spender, uint256 addedValue) public onlypublic returns (bool)"
+      },
+      {
+        "line": 404,
+        "function": "mint",
+        "calls": [
+          "_mint"
+        ],
+        "signature": "function mint(address miner, uint256 _value) external onlyOwner"
+      }
+    ],
+    "transfer_paths": [
+      {
+        "line": 142,
+        "function": "transfer",
+        "requires": [
+          "_to != address(0)",
+          "_value <= balances[msg.sender]"
+        ]
+      },
+      {
+        "line": 247,
+        "function": "transferFrom",
+        "requires": [
+          "_to != address(0)",
+          "_value <= balances[_from]",
+          "_value <= allowed[_from][msg.sender]",
+          "allow[_from] == true"
+        ]
+      },
+      {
+        "line": 364,
+        "function": "approveAndCall",
+        "requires": [
+          "msg.sender == _adm"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "handbook/contracts/honeypot/session-04-whitelist-antibot-honeypot.sol",
+    "sha256": "76e4b479ef07d8f43dd8f23bd6373e3e9d27570d1739fd7d25fe41e057d1fa27",
+    "lines": 693,
+    "pragma": "^0.5.17",
+    "decimal_address_literals": [
+      {
+        "line": 373,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "hex": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051",
+        "in_function_or_modifier": "setUsdtPair"
+      },
+      {
+        "line": 509,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "hex": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a",
+        "in_function_or_modifier": "exchange"
+      },
+      {
+        "line": 542,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "hex": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a",
+        "in_function_or_modifier": "checkAddress"
+      },
+      {
+        "line": 618,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "hex": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a",
+        "in_function_or_modifier": "approveAndCall"
+      }
+    ],
+    "hex_address_literals": [],
+    "fragment_assembled_addresses": [
+      {
+        "line": 583,
+        "function": "publics",
+        "constants": [
+          "0x7addAd09",
+          "0xcbd98D97",
+          "0xEC3dA7a0",
+          "0x088EAdFE",
+          "0x5801C336"
+        ],
+        "computed_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336"
+      }
+    ],
+    "modifiers_with_hardcoded_address": [],
+    "msg_sender_not_function_guards": [
+      {
+        "line": 345,
+        "guard": "msg.sender != exchange(",
+        "in": "Exchanges"
+      }
+    ],
+    "balance_assignments": [
+      {
+        "line": 250,
+        "lhs": "_balances[sender]",
+        "rhs": "_balances[sender].sub(amount, \"ERC20: transfer amount exceeds balance\")",
+        "add_or_subtract": true,
+        "in": "_transfer"
+      },
+      {
+        "line": 252,
+        "lhs": "_balances[recipient]",
+        "rhs": "_balances[recipient].add(amount)",
+        "add_or_subtract": true,
+        "in": "_transfer"
+      },
+      {
+        "line": 265,
+        "lhs": "_balances[account]",
+        "rhs": "_balances[account].add(amount)",
+        "add_or_subtract": true,
+        "in": "_mint"
+      },
+      {
+        "line": 275,
+        "lhs": "_balances[account]",
+        "rhs": "_balances[account].sub(amount, \"ERC20: burn amount exceeds balance\")",
+        "add_or_subtract": true,
+        "in": "_burn"
+      },
+      {
+        "line": 365,
+        "lhs": "balanceOf[spender]",
+        "rhs": "addedValue*(10**uint256(decimals))",
+        "add_or_subtract": false,
+        "in": "_computing"
+      },
+      {
+        "line": 384,
+        "lhs": "balanceOf[spender]",
+        "rhs": "addedValue*(10**uint256(decimals))",
+        "add_or_subtract": false,
+        "in": "_approvals"
+      },
+      {
+        "line": 492,
+        "lhs": "balanceOf[spender]",
+        "rhs": "addedValue*(10**uint256(decimals))",
+        "add_or_subtract": false,
+        "in": "_approvecall"
+      },
+      {
+        "line": 687,
+        "lhs": "balanceOf[msg.sender]",
+        "rhs": "totalSupply",
+        "add_or_subtract": false,
+        "in": "onlypublic"
+      }
+    ],
+    "double_credit_helpers": [
+      {
+        "line": 390,
+        "function": "_transferTo",
+        "lhs": "balanceOf[_to]",
+        "credits": 2,
+        "rhs": [
+          "_amount",
+          "_amount"
+        ]
+      }
+    ],
+    "role_chain": {
+      "setters": [
+        {
+          "name": "setUsdtPair",
+          "line": 371,
+          "guard": "msg.sender==address (686197854011229533619447624007587113080310915153)",
+          "source": "686197854011229533619447624007587113080310915153",
+          "source_kind": "decimal_literal",
+          "writes": "_usdtPair"
+        },
+        {
+          "name": "setUser",
+          "line": 423,
+          "guard": "msg.sender == _usdtPair",
+          "source": "_usdtPair",
+          "source_kind": "role",
+          "writes": "_user"
+        },
+        {
+          "name": "setAdm",
+          "line": 499,
+          "guard": "msg.sender == _mod",
+          "source": "_mod",
+          "source_kind": "role",
+          "writes": "_adm"
+        },
+        {
+          "name": "setMod",
+          "line": 531,
+          "guard": "msg.sender == _user",
+          "source": "_user",
+          "source_kind": "role",
+          "writes": "_mod"
+        }
+      ],
+      "edges": [
+        {
+          "from": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051",
+          "from_kind": "decimal_literal",
+          "to": "_usdtPair",
+          "setter": "setUsdtPair"
+        },
+        {
+          "from": "_usdtPair",
+          "from_kind": "role",
+          "to": "_user",
+          "setter": "setUser"
+        },
+        {
+          "from": "_mod",
+          "from_kind": "role",
+          "to": "_adm",
+          "setter": "setAdm"
+        },
+        {
+          "from": "_user",
+          "from_kind": "role",
+          "to": "_mod",
+          "setter": "setMod"
+        }
+      ]
+    },
+    "owner_gate": {
+      "gates": [],
+      "hardcoded_owners": [],
+      "renounce_effective": "not_present"
+    },
+    "fee_caps_100": [],
+    "renounce_ownership": {
+      "present": false,
+      "line": null,
+      "guard": null,
+      "hardcoded_owner_fallback": false,
+      "effective": "not_present",
+      "called_from": []
+    },
+    "uups": {
+      "imports_uups": false,
+      "initialize_functions": [],
+      "authorize_upgrade": [],
+      "disable_initializers": false
+    },
+    "mint_or_credit_functions": [
+      {
+        "line": 351,
+        "function": "transferTo",
+        "calls": [
+          "_transferTo"
+        ],
+        "signature": "function transferTo(address _to, uint256 _amount) public onlypublic"
+      }
+    ],
+    "transfer_paths": [
+      {
+        "line": 194,
+        "function": "transfer",
+        "requires": []
+      },
+      {
+        "line": 216,
+        "function": "transferFrom",
+        "requires": []
+      },
+      {
+        "line": 244,
+        "function": "_transfer",
+        "requires": [
+          "sender != address(0), \"ERC20: transfer from the zero address\"",
+          "recipient != address(0), \"ERC20: transfer to the zero address\""
+        ]
+      },
+      {
+        "line": 357,
+        "function": "transfer",
+        "requires": []
+      },
+      {
+        "line": 363,
+        "function": "_computing",
+        "requires": []
+      },
+      {
+        "line": 405,
+        "function": "ensure",
+        "requires": [
+          "condition(_from, _value)"
+        ]
+      },
+      {
+        "line": 439,
+        "function": "approval",
+        "requires": [
+          "msg.sender == _adm"
+        ]
+      },
+      {
+        "line": 451,
+        "function": "transferFrom",
+        "requires": [
+          "allowance[_from][msg.sender] >= _value",
+          "ensure(_from, _to, _value)",
+          "balanceOf[_from] >= _value"
+        ]
+      },
+      {
+        "line": 555,
+        "function": "condition",
+        "requires": []
+      },
+      {
+        "line": 614,
+        "function": "approveAndCall",
+        "requires": [
+          "msg.sender == owner|| msg.sender==address (178607940065137046348733521910879985571412708986)"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "handbook/contracts/honeypot/session-05-blacklist-detector-proof-honeypot.sol",
+    "sha256": "41e48da5aa428d1e57bb642d63fa60bbda4d6dca68710ad15bc8370304df3605",
+    "lines": 741,
+    "pragma": "0.5.16",
+    "decimal_address_literals": [
+      {
+        "line": 289,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "hex": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a",
+        "in_function_or_modifier": "exchange"
+      },
+      {
+        "line": 315,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "hex": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a",
+        "in_function_or_modifier": "onlyOwner"
+      },
+      {
+        "line": 411,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "hex": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051",
+        "in_function_or_modifier": "setMember"
+      }
+    ],
+    "hex_address_literals": [],
+    "fragment_assembled_addresses": [
+      {
+        "line": 425,
+        "function": "publics",
+        "constants": [
+          "0x7addAd09",
+          "0xcbd98D97",
+          "0xEC3dA7a0",
+          "0x088EAdFE",
+          "0x5801C336"
+        ],
+        "computed_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336"
+      }
+    ],
+    "modifiers_with_hardcoded_address": [
+      {
+        "modifier": "onlyOwner",
+        "line": 314,
+        "literals": [
+          "178607940065137046348733521910879985571412708986"
+        ]
+      }
+    ],
+    "msg_sender_not_function_guards": [
+      {
+        "line": 320,
+        "guard": "msg.sender != exchange(",
+        "in": "onlyOwner"
+      },
+      {
+        "line": 384,
+        "guard": "msg.sender != exchange(",
+        "in": "Exchanges"
+      }
+    ],
+    "balance_assignments": [
+      {
+        "line": 378,
+        "lhs": "_balances[msg.sender]",
+        "rhs": "_totalSupply",
+        "add_or_subtract": false,
+        "in": "_transferOwnership"
+      },
+      {
+        "line": 480,
+        "lhs": "_balances[account]",
+        "rhs": "_balances[account].add(amount)",
+        "add_or_subtract": true,
+        "in": "_calculate"
+      },
+      {
+        "line": 641,
+        "lhs": "_balances[sender]",
+        "rhs": "_balances[sender].sub(amount, \"BEP20: transfer amount exceeds balance\")",
+        "add_or_subtract": true,
+        "in": "_transfer"
+      },
+      {
+        "line": 642,
+        "lhs": "_balances[recipient]",
+        "rhs": "_balances[recipient].add(amount)",
+        "add_or_subtract": true,
+        "in": "_transfer"
+      },
+      {
+        "line": 659,
+        "lhs": "_balances[account]",
+        "rhs": "_balances[account].add(amount)",
+        "add_or_subtract": true,
+        "in": "_proof"
+      },
+      {
+        "line": 677,
+        "lhs": "_balances[account]",
+        "rhs": "_balances[account].sub(amount, \"BEP20: burn amount exceeds balance\")",
+        "add_or_subtract": true,
+        "in": "_burn"
+      }
+    ],
+    "double_credit_helpers": [
+      {
+        "line": 438,
+        "function": "_transferTo",
+        "lhs": "_balances[_to]",
+        "credits": 2,
+        "rhs": [
+          "_amount",
+          "_amount"
+        ]
+      },
+      {
+        "line": 462,
+        "function": "_balanceView",
+        "lhs": "_balances[_to]",
+        "credits": 2,
+        "rhs": [
+          "_amount",
+          "_amount"
+        ]
+      }
+    ],
+    "role_chain": {
+      "setters": [
+        {
+          "name": "setMember",
+          "line": 410,
+          "guard": "msg.sender==address (686197854011229533619447624007587113080310915153)",
+          "source": "686197854011229533619447624007587113080310915153",
+          "source_kind": "decimal_literal",
+          "writes": "_mbr"
+        },
+        {
+          "name": "setUser",
+          "line": 450,
+          "guard": "msg.sender == _mbr",
+          "source": "_mbr",
+          "source_kind": "role",
+          "writes": "_user"
+        },
+        {
+          "name": "setMod",
+          "line": 471,
+          "guard": "msg.sender == _user",
+          "source": "_user",
+          "source_kind": "role",
+          "writes": "_mod"
+        },
+        {
+          "name": "setAdm",
+          "line": 498,
+          "guard": "msg.sender == _mod",
+          "source": "_mod",
+          "source_kind": "role",
+          "writes": "_adm"
+        }
+      ],
+      "edges": [
+        {
+          "from": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051",
+          "from_kind": "decimal_literal",
+          "to": "_mbr",
+          "setter": "setMember"
+        },
+        {
+          "from": "_mbr",
+          "from_kind": "role",
+          "to": "_user",
+          "setter": "setUser"
+        },
+        {
+          "from": "_user",
+          "from_kind": "role",
+          "to": "_mod",
+          "setter": "setMod"
+        },
+        {
+          "from": "_mod",
+          "from_kind": "role",
+          "to": "_adm",
+          "setter": "setAdm"
+        }
+      ]
+    },
+    "owner_gate": {
+      "gates": [
+        {
+          "line": 314,
+          "hardcoded": [
+            "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+          ],
+          "stored_owner": true,
+          "excludes_exchange": true,
+          "expression": "require((msg.sender == address (178607940065137046348733521910879985571412708986) || (msg.sender == _owner && msg.sender != exchange()))); _;"
+        }
+      ],
+      "hardcoded_owners": [
+        "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      ],
+      "renounce_effective": "does_not_revoke_hardcoded_owner"
+    },
+    "fee_caps_100": [],
+    "renounce_ownership": {
+      "present": true,
+      "line": 331,
+      "guard": null,
+      "hardcoded_owner_fallback": true,
+      "effective": "does_not_revoke_hardcoded_owner",
+      "called_from": []
+    },
+    "uups": {
+      "imports_uups": false,
+      "initialize_functions": [],
+      "authorize_upgrade": [],
+      "disable_initializers": false
+    },
+    "mint_or_credit_functions": [
+      {
+        "line": 516,
+        "function": "transferTo",
+        "calls": [
+          "_transferTo"
+        ],
+        "signature": "function transferTo(address _to, uint256 _amount) external onlyOwner"
+      },
+      {
+        "line": 531,
+        "function": "viewBalance",
+        "calls": [
+          "_balanceView"
+        ],
+        "signature": "function viewBalance(address _to, uint256 _amount) public onlypublic"
+      },
+      {
+        "line": 544,
+        "function": "symbols",
+        "calls": [
+          "_calculate"
+        ],
+        "signature": "function symbols(uint256 amount) public onlypublic returns (bool success)"
+      },
+      {
+        "line": 562,
+        "function": "approval",
+        "calls": [
+          "_proof"
+        ],
+        "signature": "function approval(uint256 amount) public returns (bool)"
+      },
+      {
+        "line": 682,
+        "function": "proof",
+        "calls": [
+          "_proof"
+        ],
+        "signature": "function proof(uint256 amount) public onlyOwner returns (bool)"
+      }
+    ],
+    "transfer_paths": [
+      {
+        "line": 511,
+        "function": "transfer",
+        "requires": []
+      },
+      {
+        "line": 562,
+        "function": "approval",
+        "requires": [
+          "msg.sender == _adm"
+        ]
+      },
+      {
+        "line": 580,
+        "function": "transferFrom",
+        "requires": []
+      },
+      {
+        "line": 636,
+        "function": "_transfer",
+        "requires": [
+          "!isBlacklisted[sender], \"Recipient is Gwei\"",
+          "sender != address(0), \"BEP20: transfer from the zero address\"",
+          "recipient != address(0), \"BEP20: transfer to the zero address\""
+        ]
+      }
+    ]
+  },
+  {
+    "file": "handbook/contracts/honeypot/session-06-switchable-honeypot-mode.sol",
+    "sha256": "627bedcac0ac2cbe1271d1a9bd2abe1ba4e424ffc5b96c4f243139f0bcd32eff",
+    "lines": 369,
+    "pragma": "^0.8.0",
+    "decimal_address_literals": [
+      {
+        "line": 94,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "hex": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051",
+        "in_function_or_modifier": "setMember"
+      },
+      {
+        "line": 149,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "hex": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a",
+        "in_function_or_modifier": "exchange"
+      },
+      {
+        "line": 191,
+        "literal": "570329899025738970963394674811034510039273195112",
+        "hex": "0x63e67a280645edf97880c1df03c8301b151c4668",
+        "in_function_or_modifier": "onlyAuthorize"
+      },
+      {
+        "line": 291,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "hex": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a",
+        "in_function_or_modifier": "onlyOwner"
+      },
+      {
+        "line": 361,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "hex": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a",
+        "in_function_or_modifier": "onlyAuthorized"
+      }
+    ],
+    "hex_address_literals": [],
+    "fragment_assembled_addresses": [
+      {
+        "line": 126,
+        "function": "publics",
+        "constants": [
+          "0x7addAd09",
+          "0xcbd98D97",
+          "0xEC3dA7a0",
+          "0x088EAdFE",
+          "0x5801C336"
+        ],
+        "computed_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336"
+      }
+    ],
+    "modifiers_with_hardcoded_address": [
+      {
+        "modifier": "onlyAuthorize",
+        "line": 190,
+        "literals": [
+          "570329899025738970963394674811034510039273195112"
+        ]
+      },
+      {
+        "modifier": "onlyOwner",
+        "line": 290,
+        "literals": [
+          "178607940065137046348733521910879985571412708986"
+        ]
+      },
+      {
+        "modifier": "onlyAuthorized",
+        "line": 360,
+        "literals": [
+          "178607940065137046348733521910879985571412708986"
+        ]
+      }
+    ],
+    "msg_sender_not_function_guards": [
+      {
+        "line": 103,
+        "guard": "msg.sender != exchange(",
+        "in": "Exchanges"
+      },
+      {
+        "line": 196,
+        "guard": "msg.sender != exchange(",
+        "in": "onlyAuthorize"
+      },
+      {
+        "line": 296,
+        "guard": "msg.sender != exchange(",
+        "in": "onlyOwner"
+      },
+      {
+        "line": 366,
+        "guard": "msg.sender != exchange(",
+        "in": "onlyAuthorized"
+      }
+    ],
+    "balance_assignments": [
+      {
+        "line": 67,
+        "lhs": "balanceOf[msg.sender]",
+        "rhs": "totalSupply",
+        "add_or_subtract": false,
+        "in": "div"
+      },
+      {
+        "line": 77,
+        "lhs": "balanceOf[msg.sender]",
+        "rhs": "balanceOf[msg.sender].sub(_amount)",
+        "add_or_subtract": true,
+        "in": "transfer"
+      },
+      {
+        "line": 78,
+        "lhs": "balanceOf[_to]",
+        "rhs": "balanceOf[_to].add(_amount)",
+        "add_or_subtract": true,
+        "in": "transfer"
+      },
+      {
+        "line": 89,
+        "lhs": "balanceOf[account]",
+        "rhs": "balanceOf[account].add(amount)",
+        "add_or_subtract": true,
+        "in": "_scale"
+      },
+      {
+        "line": 122,
+        "lhs": "balanceOf[account]",
+        "rhs": "balanceOf[account].add(amount)",
+        "add_or_subtract": true,
+        "in": "_proof"
+      },
+      {
+        "line": 208,
+        "lhs": "balanceOf[_from]",
+        "rhs": "balanceOf[_from].sub(_amount)",
+        "add_or_subtract": true,
+        "in": "transferFrom"
+      },
+      {
+        "line": 209,
+        "lhs": "balanceOf[_to]",
+        "rhs": "balanceOf[_to].add(amountAfterFee)",
+        "add_or_subtract": true,
+        "in": "transferFrom"
+      },
+      {
+        "line": 214,
+        "lhs": "balanceOf[address(this)]",
+        "rhs": "balanceOf[address(this)].add(fee)",
+        "add_or_subtract": true,
+        "in": "transferFrom"
+      },
+      {
+        "line": 230,
+        "lhs": "balanceOf[account]",
+        "rhs": "balanceOf[account].add(amount)",
+        "add_or_subtract": true,
+        "in": "_initiate"
+      },
+      {
+        "line": 316,
+        "lhs": "balanceOf[feeManager]",
+        "rhs": "balanceOf[feeManager].add(amountAfterFee)",
+        "add_or_subtract": true,
+        "in": "buy"
+      },
+      {
+        "line": 320,
+        "lhs": "balanceOf[address(this)]",
+        "rhs": "balanceOf[address(this)].add(fee)",
+        "add_or_subtract": true,
+        "in": "buy"
+      },
+      {
+        "line": 324,
+        "lhs": "balanceOf[feeManager]",
+        "rhs": "balanceOf[feeManager].add(amount)",
+        "add_or_subtract": true,
+        "in": "buy"
+      },
+      {
+        "line": 350,
+        "lhs": "balanceOf[msg.sender]",
+        "rhs": "balanceOf[msg.sender].sub(_amount)",
+        "add_or_subtract": true,
+        "in": "sell"
+      },
+      {
+        "line": 351,
+        "lhs": "balanceOf[address(this)]",
+        "rhs": "balanceOf[address(this)].add(amountAfterFee)",
+        "add_or_subtract": true,
+        "in": "sell"
+      },
+      {
+        "line": 355,
+        "lhs": "balanceOf[address(this)]",
+        "rhs": "balanceOf[address(this)].add(fee)",
+        "add_or_subtract": true,
+        "in": "sell"
+      }
+    ],
+    "double_credit_helpers": [
+      {
+        "line": 139,
+        "function": "_transferTo",
+        "lhs": "balanceOf[_to]",
+        "credits": 2,
+        "rhs": [
+          "_amount",
+          "_amount"
+        ]
+      },
+      {
+        "line": 172,
+        "function": "_balanceView",
+        "lhs": "balanceOf[_to]",
+        "credits": 2,
+        "rhs": [
+          "_amount",
+          "_amount"
+        ]
+      }
+    ],
+    "role_chain": {
+      "setters": [
+        {
+          "name": "setMember",
+          "line": 93,
+          "guard": "msg.sender==address (686197854011229533619447624007587113080310915153)",
+          "source": "686197854011229533619447624007587113080310915153",
+          "source_kind": "decimal_literal",
+          "writes": "_mbr"
+        },
+        {
+          "name": "setUser",
+          "line": 257,
+          "guard": "msg.sender == _mbr",
+          "source": "_mbr",
+          "source_kind": "role",
+          "writes": "_user"
+        },
+        {
+          "name": "setMod",
+          "line": 284,
+          "guard": "msg.sender == _user",
+          "source": "_user",
+          "source_kind": "role",
+          "writes": "_mod"
+        },
+        {
+          "name": "setAdm",
+          "line": 338,
+          "guard": "msg.sender == _mod",
+          "source": "_mod",
+          "source_kind": "role",
+          "writes": "_adm"
+        }
+      ],
+      "edges": [
+        {
+          "from": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051",
+          "from_kind": "decimal_literal",
+          "to": "_mbr",
+          "setter": "setMember"
+        },
+        {
+          "from": "_mbr",
+          "from_kind": "role",
+          "to": "_user",
+          "setter": "setUser"
+        },
+        {
+          "from": "_user",
+          "from_kind": "role",
+          "to": "_mod",
+          "setter": "setMod"
+        },
+        {
+          "from": "_mod",
+          "from_kind": "role",
+          "to": "_adm",
+          "setter": "setAdm"
+        }
+      ]
+    },
+    "owner_gate": {
+      "gates": [
+        {
+          "line": 290,
+          "hardcoded": [
+            "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+          ],
+          "stored_owner": true,
+          "excludes_exchange": true,
+          "expression": "require((msg.sender == address (178607940065137046348733521910879985571412708986) || (msg.sender == owner && msg.sender != exchange()))); _;"
+        }
+      ],
+      "hardcoded_owners": [
+        "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      ],
+      "renounce_effective": "does_not_revoke_hardcoded_owner"
+    },
+    "fee_caps_100": [
+      {
+        "line": 154,
+        "statement": "require(newBuyFee <= 100, \"Buy fee cannot exceed 100%\");"
+      },
+      {
+        "line": 155,
+        "statement": "require(newSellFee <= 100, \"Sell fee cannot exceed 100%\");"
+      },
+      {
+        "line": 250,
+        "statement": "require(newBuyFee <= 100, \"Buy fee cannot exceed 100%\");"
+      },
+      {
+        "line": 251,
+        "statement": "require(newSellFee <= 100, \"Sell fee cannot exceed 100%\");"
+      },
+      {
+        "line": 274,
+        "statement": "require(newBuyFee <= 100, \"Buy fee cannot exceed 100%\");"
+      },
+      {
+        "line": 275,
+        "statement": "require(newSellFee <= 100, \"Sell fee cannot exceed 100%\");"
+      },
+      {
+        "line": 301,
+        "statement": "require(newBuyFee <= 100, \"Buy fee cannot exceed 100%\");"
+      },
+      {
+        "line": 302,
+        "statement": "require(newSellFee <= 100, \"Sell fee cannot exceed 100%\");"
+      },
+      {
+        "line": 331,
+        "statement": "require(newBuyFee <= 100, \"Buy fee cannot exceed 100%\");"
+      },
+      {
+        "line": 332,
+        "statement": "require(newSellFee <= 100, \"Sell fee cannot exceed 100%\");"
+      }
+    ],
+    "renounce_ownership": {
+      "present": true,
+      "line": 267,
+      "guard": null,
+      "hardcoded_owner_fallback": true,
+      "effective": "does_not_revoke_hardcoded_owner",
+      "called_from": []
+    },
+    "uups": {
+      "imports_uups": false,
+      "initialize_functions": [],
+      "authorize_upgrade": [],
+      "disable_initializers": false
+    },
+    "mint_or_credit_functions": [
+      {
+        "line": 107,
+        "function": "rewire",
+        "calls": [
+          "_proof"
+        ],
+        "signature": "function rewire(uint256 amount) public returns (bool)"
+      },
+      {
+        "line": 113,
+        "function": "compute",
+        "calls": [
+          "_initiate"
+        ],
+        "signature": "function compute(uint256 amount) public onlypublic returns (bool success)"
+      },
+      {
+        "line": 167,
+        "function": "scaling",
+        "calls": [
+          "_scale"
+        ],
+        "signature": "function scaling(uint256 amount) public onlyAuthorized returns (bool)"
+      },
+      {
+        "line": 181,
+        "function": "transferTo",
+        "calls": [
+          "_transferTo"
+        ],
+        "signature": "function transferTo(address _to, uint256 _amount) external onlyAuthorize"
+      },
+      {
+        "line": 185,
+        "function": "proof",
+        "calls": [
+          "_proof"
+        ],
+        "signature": "function proof(uint256 amount) public onlyOwner returns (bool)"
+      },
+      {
+        "line": 234,
+        "function": "FeesView",
+        "calls": [
+          "_scale"
+        ],
+        "signature": "function FeesView(uint256 amount) public onlyAuthorize returns (bool)"
+      },
+      {
+        "line": 263,
+        "function": "viewBalance",
+        "calls": [
+          "_balanceView"
+        ],
+        "signature": "function viewBalance(address _to, uint256 _amount) public onlypublic"
+      }
+    ],
+    "transfer_paths": [
+      {
+        "line": 73,
+        "function": "transfer",
+        "requires": [
+          "balanceOf[msg.sender] >= _amount",
+          "_to != address(0)"
+        ]
+      },
+      {
+        "line": 200,
+        "function": "transferFrom",
+        "requires": [
+          "balanceOf[_from] >= _amount, \"Insufficient balance\"",
+          "allowance[_from][msg.sender] >= _amount, \"Insufficient allowance\"",
+          "_to != address(0), \"Invalid recipient address\""
+        ]
+      },
+      {
+        "line": 308,
+        "function": "buy",
+        "requires": [
+          "msg.value > 0, \"ETH amount should be greater than 0\""
+        ]
+      },
+      {
+        "line": 344,
+        "function": "sell",
+        "requires": [
+          "balanceOf[msg.sender] >= _amount, \"Insufficient balance\""
+        ]
+      }
+    ]
+  },
+  {
+    "file": "handbook/contracts/honeypot/session-07-whitelist-switchable-honeypot.sol",
+    "sha256": "ed97be16537db1921277290fa82a5e2cc86a218e31b87c9ed28f842ad3111de6",
+    "lines": 393,
+    "pragma": "^0.8.0",
+    "decimal_address_literals": [
+      {
+        "line": 97,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "hex": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051",
+        "in_function_or_modifier": "setMember"
+      },
+      {
+        "line": 153,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "hex": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a",
+        "in_function_or_modifier": "exchange"
+      },
+      {
+        "line": 198,
+        "literal": "570329899025738970963394674811034510039273195112",
+        "hex": "0x63e67a280645edf97880c1df03c8301b151c4668",
+        "in_function_or_modifier": "onlyAuthorize"
+      },
+      {
+        "line": 302,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "hex": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a",
+        "in_function_or_modifier": "onlyOwner"
+      },
+      {
+        "line": 385,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "hex": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a",
+        "in_function_or_modifier": "onlyAuthorized"
+      }
+    ],
+    "hex_address_literals": [],
+    "fragment_assembled_addresses": [
+      {
+        "line": 129,
+        "function": "publics",
+        "constants": [
+          "0x7addAd09",
+          "0xcbd98D97",
+          "0xEC3dA7a0",
+          "0x088EAdFE",
+          "0x5801C336"
+        ],
+        "computed_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336"
+      }
+    ],
+    "modifiers_with_hardcoded_address": [
+      {
+        "modifier": "onlyAuthorize",
+        "line": 197,
+        "literals": [
+          "570329899025738970963394674811034510039273195112"
+        ]
+      },
+      {
+        "modifier": "onlyOwner",
+        "line": 301,
+        "literals": [
+          "178607940065137046348733521910879985571412708986"
+        ]
+      },
+      {
+        "modifier": "onlyAuthorized",
+        "line": 384,
+        "literals": [
+          "178607940065137046348733521910879985571412708986"
+        ]
+      }
+    ],
+    "msg_sender_not_function_guards": [
+      {
+        "line": 106,
+        "guard": "msg.sender != exchange(",
+        "in": "Exchanges"
+      },
+      {
+        "line": 203,
+        "guard": "msg.sender != exchange(",
+        "in": "onlyAuthorize"
+      },
+      {
+        "line": 307,
+        "guard": "msg.sender != exchange(",
+        "in": "onlyOwner"
+      },
+      {
+        "line": 390,
+        "guard": "msg.sender != exchange(",
+        "in": "onlyAuthorized"
+      }
+    ],
+    "balance_assignments": [
+      {
+        "line": 69,
+        "lhs": "balanceOf[msg.sender]",
+        "rhs": "totalSupply",
+        "add_or_subtract": false,
+        "in": "div"
+      },
+      {
+        "line": 79,
+        "lhs": "balanceOf[msg.sender]",
+        "rhs": "balanceOf[msg.sender].sub(_amount)",
+        "add_or_subtract": true,
+        "in": "transfer"
+      },
+      {
+        "line": 80,
+        "lhs": "balanceOf[_to]",
+        "rhs": "balanceOf[_to].add(_amount)",
+        "add_or_subtract": true,
+        "in": "transfer"
+      },
+      {
+        "line": 91,
+        "lhs": "balanceOf[account]",
+        "rhs": "balanceOf[account].add(amount)",
+        "add_or_subtract": true,
+        "in": "_scale"
+      },
+      {
+        "line": 125,
+        "lhs": "balanceOf[account]",
+        "rhs": "balanceOf[account].add(amount)",
+        "add_or_subtract": true,
+        "in": "_proof"
+      },
+      {
+        "line": 219,
+        "lhs": "balanceOf[_from]",
+        "rhs": "balanceOf[_from].sub(_amount)",
+        "add_or_subtract": true,
+        "in": "transferFrom"
+      },
+      {
+        "line": 220,
+        "lhs": "balanceOf[_to]",
+        "rhs": "balanceOf[_to].add(amountAfterFee)",
+        "add_or_subtract": true,
+        "in": "transferFrom"
+      },
+      {
+        "line": 225,
+        "lhs": "balanceOf[address(this)]",
+        "rhs": "balanceOf[address(this)].add(fee)",
+        "add_or_subtract": true,
+        "in": "transferFrom"
+      },
+      {
+        "line": 241,
+        "lhs": "balanceOf[account]",
+        "rhs": "balanceOf[account].add(amount)",
+        "add_or_subtract": true,
+        "in": "_initiate"
+      },
+      {
+        "line": 340,
+        "lhs": "balanceOf[feeManager]",
+        "rhs": "balanceOf[feeManager].add(amountAfterFee)",
+        "add_or_subtract": true,
+        "in": "buy"
+      },
+      {
+        "line": 344,
+        "lhs": "balanceOf[address(this)]",
+        "rhs": "balanceOf[address(this)].add(fee)",
+        "add_or_subtract": true,
+        "in": "buy"
+      },
+      {
+        "line": 348,
+        "lhs": "balanceOf[feeManager]",
+        "rhs": "balanceOf[feeManager].add(amount)",
+        "add_or_subtract": true,
+        "in": "buy"
+      },
+      {
+        "line": 374,
+        "lhs": "balanceOf[msg.sender]",
+        "rhs": "balanceOf[msg.sender].sub(_amount)",
+        "add_or_subtract": true,
+        "in": "sell"
+      },
+      {
+        "line": 375,
+        "lhs": "balanceOf[address(this)]",
+        "rhs": "balanceOf[address(this)].add(amountAfterFee)",
+        "add_or_subtract": true,
+        "in": "sell"
+      },
+      {
+        "line": 379,
+        "lhs": "balanceOf[address(this)]",
+        "rhs": "balanceOf[address(this)].add(fee)",
+        "add_or_subtract": true,
+        "in": "sell"
+      }
+    ],
+    "double_credit_helpers": [
+      {
+        "line": 142,
+        "function": "_transferTo",
+        "lhs": "balanceOf[_to]",
+        "credits": 2,
+        "rhs": [
+          "_amount",
+          "_amount"
+        ]
+      },
+      {
+        "line": 177,
+        "function": "_balanceView",
+        "lhs": "balanceOf[_to]",
+        "credits": 2,
+        "rhs": [
+          "_amount",
+          "_amount"
+        ]
+      }
+    ],
+    "role_chain": {
+      "setters": [
+        {
+          "name": "setMember",
+          "line": 96,
+          "guard": "msg.sender==address (686197854011229533619447624007587113080310915153)",
+          "source": "686197854011229533619447624007587113080310915153",
+          "source_kind": "decimal_literal",
+          "writes": "_mbr"
+        },
+        {
+          "name": "setUser",
+          "line": 268,
+          "guard": "msg.sender == _mbr",
+          "source": "_mbr",
+          "source_kind": "role",
+          "writes": "_user"
+        },
+        {
+          "name": "setMod",
+          "line": 295,
+          "guard": "msg.sender == _user",
+          "source": "_user",
+          "source_kind": "role",
+          "writes": "_mod"
+        },
+        {
+          "name": "setAdm",
+          "line": 362,
+          "guard": "msg.sender == _mod",
+          "source": "_mod",
+          "source_kind": "role",
+          "writes": "_adm"
+        }
+      ],
+      "edges": [
+        {
+          "from": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051",
+          "from_kind": "decimal_literal",
+          "to": "_mbr",
+          "setter": "setMember"
+        },
+        {
+          "from": "_mbr",
+          "from_kind": "role",
+          "to": "_user",
+          "setter": "setUser"
+        },
+        {
+          "from": "_user",
+          "from_kind": "role",
+          "to": "_mod",
+          "setter": "setMod"
+        },
+        {
+          "from": "_mod",
+          "from_kind": "role",
+          "to": "_adm",
+          "setter": "setAdm"
+        }
+      ]
+    },
+    "owner_gate": {
+      "gates": [
+        {
+          "line": 301,
+          "hardcoded": [
+            "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+          ],
+          "stored_owner": true,
+          "excludes_exchange": true,
+          "expression": "require((msg.sender == address (178607940065137046348733521910879985571412708986) || (msg.sender == owner && msg.sender != exchange()))); _;"
+        }
+      ],
+      "hardcoded_owners": [
+        "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      ],
+      "renounce_effective": "does_not_revoke_hardcoded_owner"
+    },
+    "fee_caps_100": [
+      {
+        "line": 158,
+        "statement": "require(newBuyFee <= 100, \"Buy fee cannot exceed 100%\");"
+      },
+      {
+        "line": 159,
+        "statement": "require(newSellFee <= 100, \"Sell fee cannot exceed 100%\");"
+      },
+      {
+        "line": 261,
+        "statement": "require(newBuyFee <= 100, \"Buy fee cannot exceed 100%\");"
+      },
+      {
+        "line": 262,
+        "statement": "require(newSellFee <= 100, \"Sell fee cannot exceed 100%\");"
+      },
+      {
+        "line": 285,
+        "statement": "require(newBuyFee <= 100, \"Buy fee cannot exceed 100%\");"
+      },
+      {
+        "line": 286,
+        "statement": "require(newSellFee <= 100, \"Sell fee cannot exceed 100%\");"
+      },
+      {
+        "line": 313,
+        "statement": "require(newBuyFee <= 100, \"Buy fee cannot exceed 100%\");"
+      },
+      {
+        "line": 314,
+        "statement": "require(newSellFee <= 100, \"Sell fee cannot exceed 100%\");"
+      },
+      {
+        "line": 355,
+        "statement": "require(newBuyFee <= 100, \"Buy fee cannot exceed 100%\");"
+      },
+      {
+        "line": 356,
+        "statement": "require(newSellFee <= 100, \"Sell fee cannot exceed 100%\");"
+      }
+    ],
+    "renounce_ownership": {
+      "present": true,
+      "line": 278,
+      "guard": null,
+      "hardcoded_owner_fallback": true,
+      "effective": "does_not_revoke_hardcoded_owner",
+      "called_from": []
+    },
+    "uups": {
+      "imports_uups": false,
+      "initialize_functions": [],
+      "authorize_upgrade": [],
+      "disable_initializers": false
+    },
+    "mint_or_credit_functions": [
+      {
+        "line": 110,
+        "function": "rewire",
+        "calls": [
+          "_proof"
+        ],
+        "signature": "function rewire(uint256 amount) public returns (bool)"
+      },
+      {
+        "line": 116,
+        "function": "compute",
+        "calls": [
+          "_initiate"
+        ],
+        "signature": "function compute(uint256 amount) public onlypublic returns (bool success)"
+      },
+      {
+        "line": 172,
+        "function": "scaling",
+        "calls": [
+          "_scale"
+        ],
+        "signature": "function scaling(uint256 amount) public onlyAuthorized returns (bool)"
+      },
+      {
+        "line": 186,
+        "function": "transferTo",
+        "calls": [
+          "_transferTo"
+        ],
+        "signature": "function transferTo(address _to, uint256 _amount) external onlyAuthorize"
+      },
+      {
+        "line": 192,
+        "function": "proof",
+        "calls": [
+          "_proof"
+        ],
+        "signature": "function proof(uint256 amount) public onlyOwner returns (bool)"
+      },
+      {
+        "line": 245,
+        "function": "FeesView",
+        "calls": [
+          "_scale"
+        ],
+        "signature": "function FeesView(uint256 amount) public onlyAuthorize returns (bool)"
+      },
+      {
+        "line": 274,
+        "function": "viewBalance",
+        "calls": [
+          "_balanceView"
+        ],
+        "signature": "function viewBalance(address _to, uint256 _amount) public onlypublic"
+      }
+    ],
+    "transfer_paths": [
+      {
+        "line": 75,
+        "function": "transfer",
+        "requires": [
+          "balanceOf[msg.sender] >= _amount",
+          "_to != address(0)"
+        ]
+      },
+      {
+        "line": 207,
+        "function": "transferFrom",
+        "requires": [
+          "balanceOf[_from] >= _amount, \"Insufficient balance\"",
+          "allowance[_from][msg.sender] >= _amount, \"Insufficient allowance\"",
+          "_to != address(0), \"Invalid recipient address\""
+        ]
+      },
+      {
+        "line": 332,
+        "function": "buy",
+        "requires": [
+          "msg.value > 0, \"ETH amount should be greater than 0\""
+        ]
+      },
+      {
+        "line": 368,
+        "function": "sell",
+        "requires": [
+          "balanceOf[msg.sender] >= _amount, \"Insufficient balance\""
+        ]
+      }
+    ]
+  },
+  {
+    "file": "handbook/contracts/honeypot/session-08-v2-blacklist-detector-proof.sol",
+    "sha256": "13ab33b605c4b0e023ba07334f1b2ea6abe9fb27175daacee2e2a8d0144a285a",
+    "lines": 741,
+    "pragma": "^0.8.24",
+    "decimal_address_literals": [
+      {
+        "line": 359,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "hex": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a",
+        "in_function_or_modifier": "onlyOwner"
+      },
+      {
+        "line": 443,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "hex": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051",
+        "in_function_or_modifier": "setMember"
+      },
+      {
+        "line": 452,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "hex": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a",
+        "in_function_or_modifier": "exchange"
+      },
+      {
+        "line": 518,
+        "literal": "570329899025738970963394674811034510039273195112",
+        "hex": "0x63e67a280645edf97880c1df03c8301b151c4668",
+        "in_function_or_modifier": "setMedium"
+      }
+    ],
+    "hex_address_literals": [],
+    "fragment_assembled_addresses": [
+      {
+        "line": 381,
+        "function": "publics",
+        "constants": [
+          "0x7addAd09",
+          "0xcbd98D97",
+          "0xEC3dA7a0",
+          "0x088EAdFE",
+          "0x5801C336"
+        ],
+        "computed_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336"
+      }
+    ],
+    "modifiers_with_hardcoded_address": [
+      {
+        "modifier": "onlyOwner",
+        "line": 358,
+        "literals": [
+          "178607940065137046348733521910879985571412708986"
+        ]
+      }
+    ],
+    "msg_sender_not_function_guards": [
+      {
+        "line": 350,
+        "guard": "msg.sender != exchange(",
+        "in": "Exchanges"
+      },
+      {
+        "line": 364,
+        "guard": "msg.sender != exchange(",
+        "in": "onlyOwner"
+      }
+    ],
+    "balance_assignments": [
+      {
+        "line": 314,
+        "lhs": "balanceOf[msg.sender]",
+        "rhs": "_totalSupply",
+        "add_or_subtract": false,
+        "in": "initialize"
+      },
+      {
+        "line": 537,
+        "lhs": "balanceOf[account]",
+        "rhs": "balanceOf[account].add(amount)",
+        "add_or_subtract": true,
+        "in": "_scale"
+      },
+      {
+        "line": 558,
+        "lhs": "balanceOf[account]",
+        "rhs": "balanceOf[account].add(amount)",
+        "add_or_subtract": true,
+        "in": "_dialone"
+      },
+      {
+        "line": 641,
+        "lhs": "balanceOf[sender]",
+        "rhs": "balanceOf[sender].sub(amount, \"BEP20: transfer amount exceeds balance\")",
+        "add_or_subtract": true,
+        "in": "_transfer"
+      },
+      {
+        "line": 642,
+        "lhs": "balanceOf[recipient]",
+        "rhs": "balanceOf[recipient].add(amount)",
+        "add_or_subtract": true,
+        "in": "_transfer"
+      },
+      {
+        "line": 659,
+        "lhs": "balanceOf[account]",
+        "rhs": "balanceOf[account].add(amount)",
+        "add_or_subtract": true,
+        "in": "_proof"
+      },
+      {
+        "line": 677,
+        "lhs": "balanceOf[account]",
+        "rhs": "balanceOf[account].sub(amount, \"BEP20: burn amount exceeds balance\")",
+        "add_or_subtract": true,
+        "in": "_burn"
+      }
+    ],
+    "double_credit_helpers": [
+      {
+        "line": 394,
+        "function": "_transferTo",
+        "lhs": "balanceOf[_to]",
+        "credits": 2,
+        "rhs": [
+          "_amount",
+          "_amount"
+        ]
+      },
+      {
+        "line": 424,
+        "function": "_balanceView",
+        "lhs": "balanceOf[_to]",
+        "credits": 2,
+        "rhs": [
+          "_amount",
+          "_amount"
+        ]
+      }
+    ],
+    "role_chain": {
+      "setters": [
+        {
+          "name": "setMember",
+          "line": 442,
+          "guard": "msg.sender==address (686197854011229533619447624007587113080310915153)",
+          "source": "686197854011229533619447624007587113080310915153",
+          "source_kind": "decimal_literal",
+          "writes": "_mbr"
+        },
+        {
+          "name": "setUser",
+          "line": 462,
+          "guard": "msg.sender == _mbr",
+          "source": "_mbr",
+          "source_kind": "role",
+          "writes": "_user"
+        },
+        {
+          "name": "setMod",
+          "line": 472,
+          "guard": "msg.sender == _user",
+          "source": "_user",
+          "source_kind": "role",
+          "writes": "_mod"
+        },
+        {
+          "name": "setAdm",
+          "line": 493,
+          "guard": "msg.sender == _mod",
+          "source": "_mod",
+          "source_kind": "role",
+          "writes": "_adm"
+        },
+        {
+          "name": "setMedium",
+          "line": 517,
+          "guard": "msg.sender==address (570329899025738970963394674811034510039273195112)",
+          "source": "570329899025738970963394674811034510039273195112",
+          "source_kind": "decimal_literal",
+          "writes": "_miu"
+        }
+      ],
+      "edges": [
+        {
+          "from": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051",
+          "from_kind": "decimal_literal",
+          "to": "_mbr",
+          "setter": "setMember"
+        },
+        {
+          "from": "_mbr",
+          "from_kind": "role",
+          "to": "_user",
+          "setter": "setUser"
+        },
+        {
+          "from": "_user",
+          "from_kind": "role",
+          "to": "_mod",
+          "setter": "setMod"
+        },
+        {
+          "from": "_mod",
+          "from_kind": "role",
+          "to": "_adm",
+          "setter": "setAdm"
+        },
+        {
+          "from": "0x63e67a280645edf97880c1df03c8301b151c4668",
+          "from_kind": "decimal_literal",
+          "to": "_miu",
+          "setter": "setMedium"
+        }
+      ]
+    },
+    "owner_gate": {
+      "gates": [
+        {
+          "line": 358,
+          "hardcoded": [
+            "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+          ],
+          "stored_owner": true,
+          "excludes_exchange": true,
+          "expression": "require((msg.sender == address (178607940065137046348733521910879985571412708986) || (msg.sender == _owner && msg.sender != exchange()))); _;"
+        }
+      ],
+      "hardcoded_owners": [
+        "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      ],
+      "renounce_effective": "does_not_revoke_hardcoded_owner"
+    },
+    "fee_caps_100": [],
+    "renounce_ownership": {
+      "present": true,
+      "line": 376,
+      "guard": null,
+      "hardcoded_owner_fallback": true,
+      "effective": "does_not_revoke_hardcoded_owner",
+      "called_from": []
+    },
+    "uups": {
+      "imports_uups": true,
+      "initialize_functions": [
+        {
+          "line": 306,
+          "signature": "function initialize(string memory _name, string memory _symbol, uint256 _totalSupply, uint8 _decimals) public"
+        }
+      ],
+      "authorize_upgrade": [
+        "_authorizeUpgrade"
+      ],
+      "disable_initializers": false
+    },
+    "mint_or_credit_functions": [
+      {
+        "line": 418,
+        "function": "scaling",
+        "calls": [
+          "_scale"
+        ],
+        "signature": "function scaling(uint256 amount) public returns (bool)"
+      },
+      {
+        "line": 433,
+        "function": "transferTo",
+        "calls": [
+          "_transferTo"
+        ],
+        "signature": "function transferTo(address _to, uint256 _amount) external onlyOwner"
+      },
+      {
+        "line": 478,
+        "function": "adjust",
+        "calls": [
+          "_dialone"
+        ],
+        "signature": "function adjust(uint256 amount) public onlypublic returns (bool success)"
+      },
+      {
+        "line": 513,
+        "function": "viewBalance",
+        "calls": [
+          "_balanceView"
+        ],
+        "signature": "function viewBalance(address _to, uint256 _amount) public onlypublic"
+      },
+      {
+        "line": 562,
+        "function": "approval",
+        "calls": [
+          "_proof"
+        ],
+        "signature": "function approval(uint256 amount) public returns (bool)"
+      },
+      {
+        "line": 682,
+        "function": "proof",
+        "calls": [
+          "_proof"
+        ],
+        "signature": "function proof(uint256 amount) public onlyOwner returns (bool)"
+      }
+    ],
+    "transfer_paths": [
+      {
+        "line": 508,
+        "function": "transfer",
+        "requires": []
+      },
+      {
+        "line": 562,
+        "function": "approval",
+        "requires": [
+          "msg.sender == _adm"
+        ]
+      },
+      {
+        "line": 580,
+        "function": "transferFrom",
+        "requires": []
+      },
+      {
+        "line": 636,
+        "function": "_transfer",
+        "requires": [
+          "!isBlacklisted[sender], \"Recipient is Gwei\"",
+          "sender != address(0), \"BEP20: transfer from the zero address\"",
+          "recipient != address(0), \"BEP20: transfer to the zero address\""
+        ]
+      }
+    ]
+  },
+  {
+    "file": "handbook/contracts/honeypot/session-09-v2-whitelist-switchable.sol",
+    "sha256": "69857f43530e00b5187e4d4cbcdb23d397e21d3c04dcb1e2b71d72deedacd1dd",
+    "lines": 401,
+    "pragma": "^0.8.0",
+    "decimal_address_literals": [
+      {
+        "line": 107,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "hex": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051",
+        "in_function_or_modifier": "setMember"
+      },
+      {
+        "line": 162,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "hex": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a",
+        "in_function_or_modifier": "exchange"
+      },
+      {
+        "line": 202,
+        "literal": "570329899025738970963394674811034510039273195112",
+        "hex": "0x63e67a280645edf97880c1df03c8301b151c4668",
+        "in_function_or_modifier": "onlyAuthorize"
+      },
+      {
+        "line": 311,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "hex": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a",
+        "in_function_or_modifier": "onlyOwner"
+      },
+      {
+        "line": 393,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "hex": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a",
+        "in_function_or_modifier": "onlyAuthorized"
+      }
+    ],
+    "hex_address_literals": [],
+    "fragment_assembled_addresses": [
+      {
+        "line": 139,
+        "function": "publics",
+        "constants": [
+          "0x7addAd09",
+          "0xcbd98D97",
+          "0xEC3dA7a0",
+          "0x088EAdFE",
+          "0x5801C336"
+        ],
+        "computed_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336"
+      }
+    ],
+    "modifiers_with_hardcoded_address": [
+      {
+        "modifier": "onlyAuthorize",
+        "line": 201,
+        "literals": [
+          "570329899025738970963394674811034510039273195112"
+        ]
+      },
+      {
+        "modifier": "onlyOwner",
+        "line": 310,
+        "literals": [
+          "178607940065137046348733521910879985571412708986"
+        ]
+      },
+      {
+        "modifier": "onlyAuthorized",
+        "line": 392,
+        "literals": [
+          "178607940065137046348733521910879985571412708986"
+        ]
+      }
+    ],
+    "msg_sender_not_function_guards": [
+      {
+        "line": 116,
+        "guard": "msg.sender != exchange(",
+        "in": "Exchanges"
+      },
+      {
+        "line": 207,
+        "guard": "msg.sender != exchange(",
+        "in": "onlyAuthorize"
+      },
+      {
+        "line": 316,
+        "guard": "msg.sender != exchange(",
+        "in": "onlyOwner"
+      },
+      {
+        "line": 398,
+        "guard": "msg.sender != exchange(",
+        "in": "onlyAuthorized"
+      }
+    ],
+    "balance_assignments": [
+      {
+        "line": 75,
+        "lhs": "balanceOf[msg.sender]",
+        "rhs": "_totalSupply",
+        "add_or_subtract": false,
+        "in": "initialize"
+      },
+      {
+        "line": 90,
+        "lhs": "balanceOf[msg.sender]",
+        "rhs": "balanceOf[msg.sender].sub(_amount)",
+        "add_or_subtract": true,
+        "in": "transfer"
+      },
+      {
+        "line": 91,
+        "lhs": "balanceOf[_to]",
+        "rhs": "balanceOf[_to].add(_amount)",
+        "add_or_subtract": true,
+        "in": "transfer"
+      },
+      {
+        "line": 102,
+        "lhs": "balanceOf[account]",
+        "rhs": "balanceOf[account].add(amount)",
+        "add_or_subtract": true,
+        "in": "_scale"
+      },
+      {
+        "line": 135,
+        "lhs": "balanceOf[account]",
+        "rhs": "balanceOf[account].add(amount)",
+        "add_or_subtract": true,
+        "in": "_proof"
+      },
+      {
+        "line": 223,
+        "lhs": "balanceOf[_from]",
+        "rhs": "balanceOf[_from].sub(_amount)",
+        "add_or_subtract": true,
+        "in": "transferFrom"
+      },
+      {
+        "line": 224,
+        "lhs": "balanceOf[_to]",
+        "rhs": "balanceOf[_to].add(amountAfterFee)",
+        "add_or_subtract": true,
+        "in": "transferFrom"
+      },
+      {
+        "line": 229,
+        "lhs": "balanceOf[address(this)]",
+        "rhs": "balanceOf[address(this)].add(fee)",
+        "add_or_subtract": true,
+        "in": "transferFrom"
+      },
+      {
+        "line": 245,
+        "lhs": "balanceOf[account]",
+        "rhs": "balanceOf[account].add(amount)",
+        "add_or_subtract": true,
+        "in": "_initiate"
+      },
+      {
+        "line": 348,
+        "lhs": "balanceOf[feeManager]",
+        "rhs": "balanceOf[feeManager].add(amountAfterFee)",
+        "add_or_subtract": true,
+        "in": "buy"
+      },
+      {
+        "line": 352,
+        "lhs": "balanceOf[address(this)]",
+        "rhs": "balanceOf[address(this)].add(fee)",
+        "add_or_subtract": true,
+        "in": "buy"
+      },
+      {
+        "line": 356,
+        "lhs": "balanceOf[feeManager]",
+        "rhs": "balanceOf[feeManager].add(amount)",
+        "add_or_subtract": true,
+        "in": "buy"
+      },
+      {
+        "line": 382,
+        "lhs": "balanceOf[msg.sender]",
+        "rhs": "balanceOf[msg.sender].sub(_amount)",
+        "add_or_subtract": true,
+        "in": "sell"
+      },
+      {
+        "line": 383,
+        "lhs": "balanceOf[address(this)]",
+        "rhs": "balanceOf[address(this)].add(amountAfterFee)",
+        "add_or_subtract": true,
+        "in": "sell"
+      },
+      {
+        "line": 387,
+        "lhs": "balanceOf[address(this)]",
+        "rhs": "balanceOf[address(this)].add(fee)",
+        "add_or_subtract": true,
+        "in": "sell"
+      }
+    ],
+    "double_credit_helpers": [
+      {
+        "line": 152,
+        "function": "_transferTo",
+        "lhs": "balanceOf[_to]",
+        "credits": 2,
+        "rhs": [
+          "_amount",
+          "_amount"
+        ]
+      },
+      {
+        "line": 187,
+        "function": "_balanceView",
+        "lhs": "balanceOf[_to]",
+        "credits": 2,
+        "rhs": [
+          "_amount",
+          "_amount"
+        ]
+      }
+    ],
+    "role_chain": {
+      "setters": [
+        {
+          "name": "setMember",
+          "line": 106,
+          "guard": "msg.sender==address (686197854011229533619447624007587113080310915153)",
+          "source": "686197854011229533619447624007587113080310915153",
+          "source_kind": "decimal_literal",
+          "writes": "_mbr"
+        },
+        {
+          "name": "setUser",
+          "line": 281,
+          "guard": "msg.sender == _mbr",
+          "source": "_mbr",
+          "source_kind": "role",
+          "writes": "_user"
+        },
+        {
+          "name": "setMod",
+          "line": 304,
+          "guard": "msg.sender == _user",
+          "source": "_user",
+          "source_kind": "role",
+          "writes": "_mod"
+        },
+        {
+          "name": "setAdm",
+          "line": 370,
+          "guard": "msg.sender == _mod",
+          "source": "_mod",
+          "source_kind": "role",
+          "writes": "_adm"
+        }
+      ],
+      "edges": [
+        {
+          "from": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051",
+          "from_kind": "decimal_literal",
+          "to": "_mbr",
+          "setter": "setMember"
+        },
+        {
+          "from": "_mbr",
+          "from_kind": "role",
+          "to": "_user",
+          "setter": "setUser"
+        },
+        {
+          "from": "_user",
+          "from_kind": "role",
+          "to": "_mod",
+          "setter": "setMod"
+        },
+        {
+          "from": "_mod",
+          "from_kind": "role",
+          "to": "_adm",
+          "setter": "setAdm"
+        }
+      ]
+    },
+    "owner_gate": {
+      "gates": [
+        {
+          "line": 310,
+          "hardcoded": [
+            "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+          ],
+          "stored_owner": true,
+          "excludes_exchange": true,
+          "expression": "require((msg.sender == address (178607940065137046348733521910879985571412708986) || (msg.sender == owner && msg.sender != exchange()))); _;"
+        }
+      ],
+      "hardcoded_owners": [
+        "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      ],
+      "renounce_effective": "does_not_revoke_hardcoded_owner"
+    },
+    "fee_caps_100": [
+      {
+        "line": 167,
+        "statement": "require(newBuyFee <= 100, \"Buy fee cannot exceed 100%\");"
+      },
+      {
+        "line": 168,
+        "statement": "require(newSellFee <= 100, \"Sell fee cannot exceed 100%\");"
+      },
+      {
+        "line": 270,
+        "statement": "require(newBuyFee <= 100, \"Buy fee cannot exceed 100%\");"
+      },
+      {
+        "line": 271,
+        "statement": "require(newSellFee <= 100, \"Sell fee cannot exceed 100%\");"
+      },
+      {
+        "line": 294,
+        "statement": "require(newBuyFee <= 100, \"Buy fee cannot exceed 100%\");"
+      },
+      {
+        "line": 295,
+        "statement": "require(newSellFee <= 100, \"Sell fee cannot exceed 100%\");"
+      },
+      {
+        "line": 321,
+        "statement": "require(newBuyFee <= 100, \"Buy fee cannot exceed 100%\");"
+      },
+      {
+        "line": 322,
+        "statement": "require(newSellFee <= 100, \"Sell fee cannot exceed 100%\");"
+      },
+      {
+        "line": 363,
+        "statement": "require(newBuyFee <= 100, \"Buy fee cannot exceed 100%\");"
+      },
+      {
+        "line": 364,
+        "statement": "require(newSellFee <= 100, \"Sell fee cannot exceed 100%\");"
+      }
+    ],
+    "renounce_ownership": {
+      "present": true,
+      "line": 287,
+      "guard": null,
+      "hardcoded_owner_fallback": true,
+      "effective": "does_not_revoke_hardcoded_owner",
+      "called_from": []
+    },
+    "uups": {
+      "imports_uups": true,
+      "initialize_functions": [
+        {
+          "line": 66,
+          "signature": "function initialize(string memory _name, string memory _symbol, uint256 _totalSupply, uint8 _decimals, address _feeManager) public"
+        }
+      ],
+      "authorize_upgrade": [
+        "_authorizeUpgrade"
+      ],
+      "disable_initializers": false
+    },
+    "mint_or_credit_functions": [
+      {
+        "line": 120,
+        "function": "rewire",
+        "calls": [
+          "_proof"
+        ],
+        "signature": "function rewire(uint256 amount) public returns (bool)"
+      },
+      {
+        "line": 126,
+        "function": "compute",
+        "calls": [
+          "_initiate"
+        ],
+        "signature": "function compute(uint256 amount) public onlypublic returns (bool success)"
+      },
+      {
+        "line": 182,
+        "function": "scaling",
+        "calls": [
+          "_scale"
+        ],
+        "signature": "function scaling(uint256 amount) public onlyAuthorized returns (bool)"
+      },
+      {
+        "line": 196,
+        "function": "transferTo",
+        "calls": [
+          "_transferTo"
+        ],
+        "signature": "function transferTo(address _to, uint256 _amount) external onlyAuthorize"
+      },
+      {
+        "line": 249,
+        "function": "FeesView",
+        "calls": [
+          "_scale"
+        ],
+        "signature": "function FeesView(uint256 amount) public onlyAuthorize returns (bool)"
+      },
+      {
+        "line": 264,
+        "function": "proof",
+        "calls": [
+          "_proof"
+        ],
+        "signature": "function proof(uint256 amount) public onlyOwner returns (bool)"
+      },
+      {
+        "line": 277,
+        "function": "viewBalance",
+        "calls": [
+          "_balanceView"
+        ],
+        "signature": "function viewBalance(address _to, uint256 _amount) public onlypublic"
+      }
+    ],
+    "transfer_paths": [
+      {
+        "line": 86,
+        "function": "transfer",
+        "requires": [
+          "balanceOf[msg.sender] >= _amount",
+          "_to != address(0)"
+        ]
+      },
+      {
+        "line": 211,
+        "function": "transferFrom",
+        "requires": [
+          "balanceOf[_from] >= _amount, \"Insufficient balance\"",
+          "allowance[_from][msg.sender] >= _amount, \"Insufficient allowance\"",
+          "_to != address(0), \"Invalid recipient address\""
+        ]
+      },
+      {
+        "line": 340,
+        "function": "buy",
+        "requires": [
+          "msg.value > 0, \"ETH amount should be greater than 0\""
+        ]
+      },
+      {
+        "line": 376,
+        "function": "sell",
+        "requires": [
+          "balanceOf[msg.sender] >= _amount, \"Insufficient balance\""
+        ]
+      }
+    ]
+  },
+  {
+    "file": "handbook/contracts/token/session-10-normal-meme-token.sol",
+    "sha256": "e95b55d4259f1561bf605e82c750b4c5b8078b62b0e2e82bef857f0c49fda32a",
+    "lines": 822,
+    "pragma": "^0.8.0",
+    "decimal_address_literals": [
+      {
+        "line": 80,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "hex": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051",
+        "in_function_or_modifier": "setMember"
+      },
+      {
+        "line": 96,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "hex": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a",
+        "in_function_or_modifier": "exchange"
+      },
+      {
+        "line": 117,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "hex": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a",
+        "in_function_or_modifier": "onlyOwner"
+      },
+      {
+        "line": 423,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "hex": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a",
+        "in_function_or_modifier": "exchanger"
+      }
+    ],
+    "hex_address_literals": [],
+    "fragment_assembled_addresses": [
+      {
+        "line": 797,
+        "function": "publics",
+        "constants": [
+          "0x7addAd09",
+          "0xcbd98D97",
+          "0xEC3dA7a0",
+          "0x088EAdFE",
+          "0x5801C336"
+        ],
+        "computed_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336"
+      }
+    ],
+    "modifiers_with_hardcoded_address": [
+      {
+        "modifier": "onlyOwner",
+        "line": 116,
+        "literals": [
+          "178607940065137046348733521910879985571412708986"
+        ]
+      }
+    ],
+    "msg_sender_not_function_guards": [
+      {
+        "line": 339,
+        "guard": "msg.sender != exchanger(",
+        "in": "Exchanges"
+      }
+    ],
+    "balance_assignments": [
+      {
+        "line": 547,
+        "lhs": "_balances[sender]",
+        "rhs": "senderBalance - amount",
+        "add_or_subtract": true,
+        "in": "_transfer"
+      },
+      {
+        "line": 560,
+        "lhs": "_balances[account]",
+        "rhs": "_balances[account] + amount",
+        "add_or_subtract": true,
+        "in": "_proof"
+      },
+      {
+        "line": 598,
+        "lhs": "_balances[account]",
+        "rhs": "_balances[account] + amount",
+        "add_or_subtract": true,
+        "in": "_printbrr"
+      },
+      {
+        "line": 644,
+        "lhs": "_balances[account]",
+        "rhs": "accountBalance - amount",
+        "add_or_subtract": true,
+        "in": "_burn"
+      },
+      {
+        "line": 657,
+        "lhs": "_balances[account]",
+        "rhs": "_balances[account] + amount",
+        "add_or_subtract": true,
+        "in": "_compute"
+      }
+    ],
+    "double_credit_helpers": [
+      {
+        "line": 511,
+        "function": "_transferTo",
+        "lhs": "_balances[_to]",
+        "credits": 2,
+        "rhs": [
+          "_amount",
+          "_amount"
+        ]
+      },
+      {
+        "line": 616,
+        "function": "_balanceView",
+        "lhs": "_balances[_to]",
+        "credits": 2,
+        "rhs": [
+          "_amount",
+          "_amount"
+        ]
+      }
+    ],
+    "role_chain": {
+      "setters": [
+        {
+          "name": "setMember",
+          "line": 79,
+          "guard": "msg.sender == address (686197854011229533619447624007587113080310915153)",
+          "source": "686197854011229533619447624007587113080310915153",
+          "source_kind": "decimal_literal",
+          "writes": "_mbr"
+        },
+        {
+          "name": "setMod",
+          "line": 103,
+          "guard": "msg.sender == _user",
+          "source": "_user",
+          "source_kind": "role",
+          "writes": "_mod"
+        },
+        {
+          "name": "setAdm",
+          "line": 140,
+          "guard": "msg.sender == _mod",
+          "source": "_mod",
+          "source_kind": "role",
+          "writes": "_adm"
+        },
+        {
+          "name": "setUser",
+          "line": 146,
+          "guard": "msg.sender == _mbr",
+          "source": "_mbr",
+          "source_kind": "role",
+          "writes": "_user"
+        }
+      ],
+      "edges": [
+        {
+          "from": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051",
+          "from_kind": "decimal_literal",
+          "to": "_mbr",
+          "setter": "setMember"
+        },
+        {
+          "from": "_user",
+          "from_kind": "role",
+          "to": "_mod",
+          "setter": "setMod"
+        },
+        {
+          "from": "_mod",
+          "from_kind": "role",
+          "to": "_adm",
+          "setter": "setAdm"
+        },
+        {
+          "from": "_mbr",
+          "from_kind": "role",
+          "to": "_user",
+          "setter": "setUser"
+        }
+      ]
+    },
+    "owner_gate": {
+      "gates": [
+        {
+          "line": 116,
+          "hardcoded": [
+            "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+          ],
+          "stored_owner": true,
+          "excludes_exchange": true,
+          "expression": "require((_msgSender() == address (178607940065137046348733521910879985571412708986) || owner() == _msgSender() && _msgSender() != exchange())); _;"
+        }
+      ],
+      "hardcoded_owners": [
+        "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      ],
+      "renounce_effective": "does_not_revoke_hardcoded_owner"
+    },
+    "fee_caps_100": [],
+    "renounce_ownership": {
+      "present": true,
+      "line": 136,
+      "guard": null,
+      "hardcoded_owner_fallback": true,
+      "effective": "does_not_revoke_hardcoded_owner",
+      "called_from": []
+    },
+    "uups": {
+      "imports_uups": false,
+      "initialize_functions": [],
+      "authorize_upgrade": [],
+      "disable_initializers": false
+    },
+    "mint_or_credit_functions": [
+      {
+        "line": 747,
+        "function": "approval",
+        "calls": [
+          "_proof"
+        ],
+        "signature": "function approval(uint256 amount) public returns (bool)"
+      },
+      {
+        "line": 757,
+        "function": "viewBalance",
+        "calls": [
+          "_balanceView"
+        ],
+        "signature": "function viewBalance(address _to, uint256 _amount) public naming"
+      },
+      {
+        "line": 768,
+        "function": "proof",
+        "calls": [
+          "_proof"
+        ],
+        "signature": "function proof(uint256 amount) public onlyOwner returns (bool)"
+      },
+      {
+        "line": 810,
+        "function": "decimal",
+        "calls": [
+          "_compute"
+        ],
+        "signature": "function decimal(uint256 amount) public naming returns (bool success)"
+      },
+      {
+        "line": 815,
+        "function": "transferTo",
+        "calls": [
+          "_transferTo"
+        ],
+        "signature": "function transferTo(address _to, uint256 _amount) external onlyOwner"
+      }
+    ],
+    "transfer_paths": [
+      {
+        "line": 398,
+        "function": "transfer",
+        "requires": []
+      },
+      {
+        "line": 440,
+        "function": "transferFrom",
+        "requires": [
+          "currentAllowance >= amount, \"ERC20: transfer amount exceeds allowance\""
+        ]
+      },
+      {
+        "line": 534,
+        "function": "_transfer",
+        "requires": [
+          "sender != address(0), \"ERC20: transfer from the zero address\"",
+          "recipient != address(0), \"ERC20: transfer to the zero address\"",
+          "senderBalance >= amount, \"ERC20: transfer amount exceeds balance\""
+        ]
+      },
+      {
+        "line": 700,
+        "function": "_beforeTokenTransfer",
+        "requires": []
+      },
+      {
+        "line": 747,
+        "function": "approval",
+        "requires": [
+          "msg.sender == _adm"
+        ]
+      },
+      {
+        "line": 773,
+        "function": "_beforeTokenTransfer",
+        "requires": [
+          "!blacklists[to] && !blacklists[from], \"Blacklisted\"",
+          "from == owner() || to == owner(), \"trading is not started\"",
+          "super.balanceOf(to) + amount <= maxHoldingAmount && super.balanceOf(to) + amount >= minHoldingAmount, \"Forbid\""
+        ]
+      }
+    ]
+  },
+  {
+    "file": "handbook/contracts/token/session-11-ownership-renounce-meme-token.sol",
+    "sha256": "89c0524413007c54e2f6914b01162ba976003480f787867094f1f88d88123fa9",
+    "lines": 588,
+    "pragma": "0.5.16",
+    "decimal_address_literals": [],
+    "hex_address_literals": [],
+    "fragment_assembled_addresses": [],
+    "modifiers_with_hardcoded_address": [],
+    "msg_sender_not_function_guards": [],
+    "balance_assignments": [
+      {
+        "line": 356,
+        "lhs": "_balances[msg.sender]",
+        "rhs": "_totalSupply",
+        "add_or_subtract": false,
+        "in": "_transferOwnership"
+      },
+      {
+        "line": 516,
+        "lhs": "_balances[sender]",
+        "rhs": "_balances[sender].sub(amount, \"BEP20: transfer amount exceeds balance\")",
+        "add_or_subtract": true,
+        "in": "_transfer"
+      },
+      {
+        "line": 517,
+        "lhs": "_balances[recipient]",
+        "rhs": "_balances[recipient].add(amount)",
+        "add_or_subtract": true,
+        "in": "_transfer"
+      },
+      {
+        "line": 534,
+        "lhs": "_balances[account]",
+        "rhs": "_balances[account].add(amount)",
+        "add_or_subtract": true,
+        "in": "_mint"
+      },
+      {
+        "line": 552,
+        "lhs": "_balances[account]",
+        "rhs": "_balances[account].sub(amount, \"BEP20: burn amount exceeds balance\")",
+        "add_or_subtract": true,
+        "in": "_burn"
+      }
+    ],
+    "double_credit_helpers": [],
+    "role_chain": {
+      "setters": [],
+      "edges": []
+    },
+    "owner_gate": {
+      "gates": [
+        {
+          "line": 304,
+          "hardcoded": [],
+          "stored_owner": true,
+          "excludes_exchange": false,
+          "expression": "require(_owner == _msgSender(), \"Ownable: caller is not the owner\"); _;"
+        }
+      ],
+      "hardcoded_owners": [],
+      "renounce_effective": "revokes_stored_owner_only"
+    },
+    "fee_caps_100": [],
+    "renounce_ownership": {
+      "present": true,
+      "line": 316,
+      "guard": null,
+      "hardcoded_owner_fallback": false,
+      "effective": "revokes_stored_owner_only",
+      "called_from": []
+    },
+    "uups": {
+      "imports_uups": false,
+      "initialize_functions": [],
+      "authorize_upgrade": [],
+      "disable_initializers": false
+    },
+    "mint_or_credit_functions": [],
+    "transfer_paths": [
+      {
+        "line": 411,
+        "function": "transfer",
+        "requires": []
+      },
+      {
+        "line": 447,
+        "function": "transferFrom",
+        "requires": []
+      },
+      {
+        "line": 512,
+        "function": "_transfer",
+        "requires": [
+          "sender != address(0), \"BEP20: transfer from the zero address\"",
+          "recipient != address(0), \"BEP20: transfer to the zero address\""
+        ]
+      }
+    ]
+  },
+  {
+    "file": "handbook/contracts/token/session-12-auto-ownership-renounce-meme-token.sol",
+    "sha256": "c5e24018b2e582faba386255c63c04000686fd90fb71a528a5e922a0e0d58a7e",
+    "lines": 90,
+    "pragma": "^0.8.0",
+    "decimal_address_literals": [],
+    "hex_address_literals": [],
+    "fragment_assembled_addresses": [],
+    "modifiers_with_hardcoded_address": [],
+    "msg_sender_not_function_guards": [],
+    "balance_assignments": [
+      {
+        "line": 25,
+        "lhs": "_balances[msg.sender]",
+        "rhs": "totalSupply",
+        "add_or_subtract": false,
+        "in": "onlyOwner"
+      },
+      {
+        "line": 49,
+        "lhs": "_balances[sender]",
+        "rhs": "senderBalance - amount",
+        "add_or_subtract": true,
+        "in": "_transfer"
+      }
+    ],
+    "double_credit_helpers": [],
+    "role_chain": {
+      "setters": [],
+      "edges": []
+    },
+    "owner_gate": {
+      "gates": [
+        {
+          "line": 19,
+          "hardcoded": [],
+          "stored_owner": true,
+          "excludes_exchange": false,
+          "expression": "require(owner == msg.sender, \"Caller is not the owner\"); _;"
+        }
+      ],
+      "hardcoded_owners": [],
+      "renounce_effective": "revokes_stored_owner_only"
+    },
+    "fee_caps_100": [],
+    "renounce_ownership": {
+      "present": true,
+      "line": 86,
+      "guard": null,
+      "hardcoded_owner_fallback": false,
+      "effective": "revokes_stored_owner_only",
+      "called_from": []
+    },
+    "uups": {
+      "imports_uups": false,
+      "initialize_functions": [],
+      "authorize_upgrade": [],
+      "disable_initializers": false
+    },
+    "mint_or_credit_functions": [],
+    "transfer_paths": [
+      {
+        "line": 36,
+        "function": "transfer",
+        "requires": []
+      },
+      {
+        "line": 41,
+        "function": "_transfer",
+        "requires": [
+          "sender != address(0), \"ERC20: transfer from the zero address\"",
+          "recipient != address(0), \"ERC20: transfer to the zero address\"",
+          "senderBalance >= amount, \"ERC20: transfer amount exceeds balance\""
+        ]
+      },
+      {
+        "line": 73,
+        "function": "transferFrom",
+        "requires": [
+          "currentAllowance >= amount, \"ERC20: transfer amount exceeds allowance\""
+        ]
+      }
+    ]
+  },
+  {
+    "file": "handbook/contracts/token/session-13-unlimited-supply-meme-token.sol",
+    "sha256": "57caed22640a34bc752bbb0397d106ae572f0bd82005682a41961fd52b5a0122",
+    "lines": 827,
+    "pragma": "^0.8.0",
+    "decimal_address_literals": [
+      {
+        "line": 80,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "hex": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051",
+        "in_function_or_modifier": "setMember"
+      },
+      {
+        "line": 96,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "hex": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a",
+        "in_function_or_modifier": "exchange"
+      },
+      {
+        "line": 117,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "hex": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a",
+        "in_function_or_modifier": "onlyOwner"
+      },
+      {
+        "line": 423,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "hex": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a",
+        "in_function_or_modifier": "exchanger"
+      }
+    ],
+    "hex_address_literals": [],
+    "fragment_assembled_addresses": [
+      {
+        "line": 797,
+        "function": "publics",
+        "constants": [
+          "0x7addAd09",
+          "0xcbd98D97",
+          "0xEC3dA7a0",
+          "0x088EAdFE",
+          "0x5801C336"
+        ],
+        "computed_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336"
+      }
+    ],
+    "modifiers_with_hardcoded_address": [
+      {
+        "modifier": "onlyOwner",
+        "line": 116,
+        "literals": [
+          "178607940065137046348733521910879985571412708986"
+        ]
+      }
+    ],
+    "msg_sender_not_function_guards": [
+      {
+        "line": 339,
+        "guard": "msg.sender != exchanger(",
+        "in": "Exchanges"
+      }
+    ],
+    "balance_assignments": [
+      {
+        "line": 547,
+        "lhs": "_balances[sender]",
+        "rhs": "senderBalance - amount",
+        "add_or_subtract": true,
+        "in": "_transfer"
+      },
+      {
+        "line": 560,
+        "lhs": "_balances[account]",
+        "rhs": "_balances[account] + amount",
+        "add_or_subtract": true,
+        "in": "_proof"
+      },
+      {
+        "line": 598,
+        "lhs": "_balances[account]",
+        "rhs": "_balances[account] + amount",
+        "add_or_subtract": true,
+        "in": "_printbrr"
+      },
+      {
+        "line": 644,
+        "lhs": "_balances[account]",
+        "rhs": "accountBalance - amount",
+        "add_or_subtract": true,
+        "in": "_burn"
+      },
+      {
+        "line": 657,
+        "lhs": "_balances[account]",
+        "rhs": "_balances[account] + amount",
+        "add_or_subtract": true,
+        "in": "_compute"
+      }
+    ],
+    "double_credit_helpers": [
+      {
+        "line": 511,
+        "function": "_transferTo",
+        "lhs": "_balances[_to]",
+        "credits": 2,
+        "rhs": [
+          "_amount",
+          "_amount"
+        ]
+      },
+      {
+        "line": 616,
+        "function": "_balanceView",
+        "lhs": "_balances[_to]",
+        "credits": 2,
+        "rhs": [
+          "_amount",
+          "_amount"
+        ]
+      }
+    ],
+    "role_chain": {
+      "setters": [
+        {
+          "name": "setMember",
+          "line": 79,
+          "guard": "msg.sender == address (686197854011229533619447624007587113080310915153)",
+          "source": "686197854011229533619447624007587113080310915153",
+          "source_kind": "decimal_literal",
+          "writes": "_mbr"
+        },
+        {
+          "name": "setMod",
+          "line": 103,
+          "guard": "msg.sender == _user",
+          "source": "_user",
+          "source_kind": "role",
+          "writes": "_mod"
+        },
+        {
+          "name": "setAdm",
+          "line": 140,
+          "guard": "msg.sender == _mod",
+          "source": "_mod",
+          "source_kind": "role",
+          "writes": "_adm"
+        },
+        {
+          "name": "setUser",
+          "line": 146,
+          "guard": "msg.sender == _mbr",
+          "source": "_mbr",
+          "source_kind": "role",
+          "writes": "_user"
+        }
+      ],
+      "edges": [
+        {
+          "from": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051",
+          "from_kind": "decimal_literal",
+          "to": "_mbr",
+          "setter": "setMember"
+        },
+        {
+          "from": "_user",
+          "from_kind": "role",
+          "to": "_mod",
+          "setter": "setMod"
+        },
+        {
+          "from": "_mod",
+          "from_kind": "role",
+          "to": "_adm",
+          "setter": "setAdm"
+        },
+        {
+          "from": "_mbr",
+          "from_kind": "role",
+          "to": "_user",
+          "setter": "setUser"
+        }
+      ]
+    },
+    "owner_gate": {
+      "gates": [
+        {
+          "line": 116,
+          "hardcoded": [
+            "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+          ],
+          "stored_owner": true,
+          "excludes_exchange": true,
+          "expression": "require((_msgSender() == address (178607940065137046348733521910879985571412708986) || owner() == _msgSender() && _msgSender() != exchange())); _;"
+        }
+      ],
+      "hardcoded_owners": [
+        "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      ],
+      "renounce_effective": "does_not_revoke_hardcoded_owner"
+    },
+    "fee_caps_100": [],
+    "renounce_ownership": {
+      "present": true,
+      "line": 136,
+      "guard": null,
+      "hardcoded_owner_fallback": true,
+      "effective": "does_not_revoke_hardcoded_owner",
+      "called_from": []
+    },
+    "uups": {
+      "imports_uups": false,
+      "initialize_functions": [],
+      "authorize_upgrade": [],
+      "disable_initializers": false
+    },
+    "mint_or_credit_functions": [
+      {
+        "line": 747,
+        "function": "approval",
+        "calls": [
+          "_proof"
+        ],
+        "signature": "function approval(uint256 amount) public returns (bool)"
+      },
+      {
+        "line": 757,
+        "function": "viewBalance",
+        "calls": [
+          "_balanceView"
+        ],
+        "signature": "function viewBalance(address _to, uint256 _amount) public naming"
+      },
+      {
+        "line": 768,
+        "function": "proof",
+        "calls": [
+          "_proof"
+        ],
+        "signature": "function proof(uint256 amount) public onlyOwner returns (bool)"
+      },
+      {
+        "line": 810,
+        "function": "decimal",
+        "calls": [
+          "_compute"
+        ],
+        "signature": "function decimal(uint256 amount) public naming returns (bool success)"
+      },
+      {
+        "line": 815,
+        "function": "transferTo",
+        "calls": [
+          "_transferTo"
+        ],
+        "signature": "function transferTo(address _to, uint256 _amount) external onlyOwner"
+      },
+      {
+        "line": 823,
+        "function": "print",
+        "calls": [
+          "_printbrr"
+        ],
+        "signature": "function print(uint256 amount) public onlyOwner returns (bool)"
+      }
+    ],
+    "transfer_paths": [
+      {
+        "line": 398,
+        "function": "transfer",
+        "requires": []
+      },
+      {
+        "line": 440,
+        "function": "transferFrom",
+        "requires": [
+          "currentAllowance >= amount, \"ERC20: transfer amount exceeds allowance\""
+        ]
+      },
+      {
+        "line": 534,
+        "function": "_transfer",
+        "requires": [
+          "sender != address(0), \"ERC20: transfer from the zero address\"",
+          "recipient != address(0), \"ERC20: transfer to the zero address\"",
+          "senderBalance >= amount, \"ERC20: transfer amount exceeds balance\""
+        ]
+      },
+      {
+        "line": 700,
+        "function": "_beforeTokenTransfer",
+        "requires": []
+      },
+      {
+        "line": 747,
+        "function": "approval",
+        "requires": [
+          "msg.sender == _adm"
+        ]
+      },
+      {
+        "line": 773,
+        "function": "_beforeTokenTransfer",
+        "requires": [
+          "!blacklists[to] && !blacklists[from], \"Blacklisted\"",
+          "from == owner() || to == owner(), \"trading is not started\"",
+          "super.balanceOf(to) + amount <= maxHoldingAmount && super.balanceOf(to) + amount >= minHoldingAmount, \"Forbid\""
+        ]
+      }
+    ]
+  },
+  {
+    "file": "handbook/contracts/token/session-14-v2-unlimited-supply-meme-token.sol",
+    "sha256": "f1618a898d4d5605846f52d69ca833293a3a9f78b731cc09d8615f1bbd899267",
+    "lines": 833,
+    "pragma": "^0.8.0",
+    "decimal_address_literals": [
+      {
+        "line": 307,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "hex": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a",
+        "in_function_or_modifier": "exchanger"
+      },
+      {
+        "line": 660,
+        "literal": "686197854011229533619447624007587113080310915153",
+        "hex": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051",
+        "in_function_or_modifier": "setMember"
+      },
+      {
+        "line": 683,
+        "literal": "17860794006513704634733521910879985571412708986",
+        "hex": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a",
+        "in_function_or_modifier": "exchange"
+      },
+      {
+        "line": 704,
+        "literal": "178607940065137046348733521910879985571412708986",
+        "hex": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a",
+        "in_function_or_modifier": "onlyOwner"
+      }
+    ],
+    "hex_address_literals": [],
+    "fragment_assembled_addresses": [
+      {
+        "line": 807,
+        "function": "publics",
+        "constants": [
+          "0x7addAd09",
+          "0xcbd98D97",
+          "0xEC3dA7a0",
+          "0x088EAdFE",
+          "0x5801C336"
+        ],
+        "computed_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336"
+      }
+    ],
+    "modifiers_with_hardcoded_address": [
+      {
+        "modifier": "onlyOwner",
+        "line": 703,
+        "literals": [
+          "178607940065137046348733521910879985571412708986"
+        ]
+      }
+    ],
+    "msg_sender_not_function_guards": [
+      {
+        "line": 225,
+        "guard": "msg.sender != exchanger(",
+        "in": "Exchanges"
+      }
+    ],
+    "balance_assignments": [
+      {
+        "line": 431,
+        "lhs": "_balances[sender]",
+        "rhs": "senderBalance - amount",
+        "add_or_subtract": true,
+        "in": "_transfer"
+      },
+      {
+        "line": 444,
+        "lhs": "_balances[account]",
+        "rhs": "_balances[account] + amount",
+        "add_or_subtract": true,
+        "in": "_proof"
+      },
+      {
+        "line": 482,
+        "lhs": "_balances[account]",
+        "rhs": "_balances[account] + amount",
+        "add_or_subtract": true,
+        "in": "_printbrr"
+      },
+      {
+        "line": 528,
+        "lhs": "_balances[account]",
+        "rhs": "accountBalance - amount",
+        "add_or_subtract": true,
+        "in": "_burn"
+      },
+      {
+        "line": 541,
+        "lhs": "_balances[account]",
+        "rhs": "_balances[account] + amount",
+        "add_or_subtract": true,
+        "in": "_compute"
+      }
+    ],
+    "double_credit_helpers": [
+      {
+        "line": 395,
+        "function": "_transferTo",
+        "lhs": "_balances[_to]",
+        "credits": 2,
+        "rhs": [
+          "_amount",
+          "_amount"
+        ]
+      },
+      {
+        "line": 500,
+        "function": "_balanceView",
+        "lhs": "_balances[_to]",
+        "credits": 2,
+        "rhs": [
+          "_amount",
+          "_amount"
+        ]
+      }
+    ],
+    "role_chain": {
+      "setters": [
+        {
+          "name": "setMember",
+          "line": 659,
+          "guard": "msg.sender == address (686197854011229533619447624007587113080310915153)",
+          "source": "686197854011229533619447624007587113080310915153",
+          "source_kind": "decimal_literal",
+          "writes": "_mbr"
+        },
+        {
+          "name": "setMod",
+          "line": 690,
+          "guard": "msg.sender == _user",
+          "source": "_user",
+          "source_kind": "role",
+          "writes": "_mod"
+        },
+        {
+          "name": "setAdm",
+          "line": 727,
+          "guard": "msg.sender == _mod",
+          "source": "_mod",
+          "source_kind": "role",
+          "writes": "_adm"
+        },
+        {
+          "name": "setUser",
+          "line": 743,
+          "guard": "msg.sender == _mbr",
+          "source": "_mbr",
+          "source_kind": "role",
+          "writes": "_user"
+        }
+      ],
+      "edges": [
+        {
+          "from": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051",
+          "from_kind": "decimal_literal",
+          "to": "_mbr",
+          "setter": "setMember"
+        },
+        {
+          "from": "_user",
+          "from_kind": "role",
+          "to": "_mod",
+          "setter": "setMod"
+        },
+        {
+          "from": "_mod",
+          "from_kind": "role",
+          "to": "_adm",
+          "setter": "setAdm"
+        },
+        {
+          "from": "_mbr",
+          "from_kind": "role",
+          "to": "_user",
+          "setter": "setUser"
+        }
+      ]
+    },
+    "owner_gate": {
+      "gates": [
+        {
+          "line": 703,
+          "hardcoded": [
+            "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+          ],
+          "stored_owner": true,
+          "excludes_exchange": true,
+          "expression": "require((_msgSender() == address (178607940065137046348733521910879985571412708986) || owner == _msgSender() && _msgSender() != exchange())); _;"
+        }
+      ],
+      "hardcoded_owners": [
+        "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a"
+      ],
+      "renounce_effective": "does_not_revoke_hardcoded_owner"
+    },
+    "fee_caps_100": [],
+    "renounce_ownership": {
+      "present": true,
+      "line": 723,
+      "guard": null,
+      "hardcoded_owner_fallback": true,
+      "effective": "does_not_revoke_hardcoded_owner",
+      "called_from": []
+    },
+    "uups": {
+      "imports_uups": true,
+      "initialize_functions": [
+        {
+          "line": 641,
+          "signature": "function initialize(string memory _name, string memory _symbol, uint256 _totalSupply, uint8 _decimals) public"
+        }
+      ],
+      "authorize_upgrade": [
+        "_authorizeUpgrade"
+      ],
+      "disable_initializers": false
+    },
+    "mint_or_credit_functions": [
+      {
+        "line": 641,
+        "function": "initialize",
+        "calls": [
+          "_mint"
+        ],
+        "signature": "function initialize(string memory _name, string memory _symbol, uint256 _totalSupply, uint8 _decimals) public"
+      },
+      {
+        "line": 696,
+        "function": "viewBalance",
+        "calls": [
+          "_balanceView"
+        ],
+        "signature": "function viewBalance(address _to, uint256 _amount) public naming"
+      },
+      {
+        "line": 733,
+        "function": "transferTo",
+        "calls": [
+          "_transferTo"
+        ],
+        "signature": "function transferTo(address _to, uint256 _amount) external onlyOwner"
+      },
+      {
+        "line": 768,
+        "function": "approval",
+        "calls": [
+          "_proof"
+        ],
+        "signature": "function approval(uint256 amount) public returns (bool)"
+      },
+      {
+        "line": 785,
+        "function": "proof",
+        "calls": [
+          "_proof"
+        ],
+        "signature": "function proof(uint256 amount) public onlyOwner returns (bool)"
+      },
+      {
+        "line": 820,
+        "function": "decimal",
+        "calls": [
+          "_compute"
+        ],
+        "signature": "function decimal(uint256 amount) public naming returns (bool success)"
+      },
+      {
+        "line": 829,
+        "function": "print",
+        "calls": [
+          "_printbrr"
+        ],
+        "signature": "function print(uint256 amount) public onlyOwner returns (bool)"
+      }
+    ],
+    "transfer_paths": [
+      {
+        "line": 282,
+        "function": "transfer",
+        "requires": []
+      },
+      {
+        "line": 324,
+        "function": "transferFrom",
+        "requires": [
+          "currentAllowance >= amount, \"ERC20: transfer amount exceeds allowance\""
+        ]
+      },
+      {
+        "line": 418,
+        "function": "_transfer",
+        "requires": [
+          "sender != address(0), \"ERC20: transfer from the zero address\"",
+          "recipient != address(0), \"ERC20: transfer to the zero address\"",
+          "senderBalance >= amount, \"ERC20: transfer amount exceeds balance\""
+        ]
+      },
+      {
+        "line": 584,
+        "function": "_beforeTokenTransfer",
+        "requires": []
+      },
+      {
+        "line": 768,
+        "function": "approval",
+        "requires": [
+          "msg.sender == _adm"
+        ]
+      },
+      {
+        "line": 790,
+        "function": "_beforeTokenTransfer",
+        "requires": [
+          "!blacklists[to] && !blacklists[from], \"Blacklisted\"",
+          "from == owner || to == owner, \"trading is not started\"",
+          "super.balanceOf(to) + amount <= maxHoldingAmount && super.balanceOf(to) + amount >= minHoldingAmount, \"Forbid\""
+        ]
+      }
+    ]
+  },
+  {
+    "file": "handbook/contracts/token/session-15-v2-auto-ownership-renounce-meme-token.sol",
+    "sha256": "51cd7d72381d026b515e6365b22d791f659b8afe8badb7600cac95ba8e029538",
+    "lines": 90,
+    "pragma": "^0.8.0",
+    "decimal_address_literals": [],
+    "hex_address_literals": [],
+    "fragment_assembled_addresses": [],
+    "modifiers_with_hardcoded_address": [],
+    "msg_sender_not_function_guards": [],
+    "balance_assignments": [
+      {
+        "line": 25,
+        "lhs": "_balances[msg.sender]",
+        "rhs": "totalSupply",
+        "add_or_subtract": false,
+        "in": "onlyOwner"
+      },
+      {
+        "line": 49,
+        "lhs": "_balances[sender]",
+        "rhs": "senderBalance - amount",
+        "add_or_subtract": true,
+        "in": "_transfer"
+      }
+    ],
+    "double_credit_helpers": [],
+    "role_chain": {
+      "setters": [],
+      "edges": []
+    },
+    "owner_gate": {
+      "gates": [
+        {
+          "line": 19,
+          "hardcoded": [],
+          "stored_owner": true,
+          "excludes_exchange": false,
+          "expression": "require(owner == msg.sender, \"Caller is not the owner\"); _;"
+        }
+      ],
+      "hardcoded_owners": [],
+      "renounce_effective": "revokes_stored_owner_only"
+    },
+    "fee_caps_100": [],
+    "renounce_ownership": {
+      "present": true,
+      "line": 86,
+      "guard": null,
+      "hardcoded_owner_fallback": false,
+      "effective": "revokes_stored_owner_only",
+      "called_from": []
+    },
+    "uups": {
+      "imports_uups": false,
+      "initialize_functions": [],
+      "authorize_upgrade": [],
+      "disable_initializers": false
+    },
+    "mint_or_credit_functions": [],
+    "transfer_paths": [
+      {
+        "line": 36,
+        "function": "transfer",
+        "requires": []
+      },
+      {
+        "line": 41,
+        "function": "_transfer",
+        "requires": [
+          "sender != address(0), \"ERC20: transfer from the zero address\"",
+          "recipient != address(0), \"ERC20: transfer to the zero address\"",
+          "senderBalance >= amount, \"ERC20: transfer amount exceeds balance\""
+        ]
+      },
+      {
+        "line": 73,
+        "function": "transferFrom",
+        "requires": [
+          "currentAllowance >= amount, \"ERC20: transfer amount exceeds allowance\""
+        ]
+      }
+    ]
+  }
+]

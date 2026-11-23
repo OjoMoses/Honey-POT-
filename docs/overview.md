@@ -1,36 +1,41 @@
 # Documentation Overview
 
-This repository contains smart-contract artifacts and security-research documentation. It has been organized into a documentation-first structure.
+Each question has one home. Pages are generated from the fact table in `tools/gen_handbook.py` where noted.
 
-## Structure
+```text
+README.md                    findings, verified index, layout
+docs/
+├── SECURITY.md              responsible use
+├── overview.md              this page
+├── analysis/
+│   ├── control-plane.md     privilege encoding and IOC table
+│   └── errata.md            corrections; duplicate-file mapping
+├── reference/
+│   ├── math.md              equations + worked examples
+│   ├── taxonomy.md          T1–T9, B1–B4; severity model
+│   ├── classic-honeypots.md catalog (sources not attached)
+│   └── glossary.md          terms and references
+├── guides/
+│   ├── detection-playbook.md procedure, scanner, fork test, reporting
+│   ├── getting-started.md   orientation
+│   ├── liquidity-lifecycle.md pool concepts
+│   └── risk-indicators.md   red-flag checklist
+└── contracts/               one generated page per session (1–15)
+```
 
-- `contracts/` - Solidity contract artifacts, organized by category.
-- `docs/contracts/` - Per-contract documentation pages.
-- `docs/guides/` - Neutral research/analysis guides.
-- `docs/SECURITY.md` - Responsible-use and safety notes.
+## Reading paths
 
-## Scope
+* **New to honeypots:** [getting-started](guides/getting-started.md) → [taxonomy](reference/taxonomy.md) → [detection playbook](guides/detection-playbook.md) → [control plane](analysis/control-plane.md).
+* **Quantitative:** [math](reference/math.md) → any [session page](contracts/) → [liquidity lifecycle](guides/liquidity-lifecycle.md).
+* **Teaching the classics:** [classic honeypots](reference/classic-honeypots.md) → [math §6](reference/math.md#6-classic-honeypot-arithmetic) (sources not attached).
 
-The contracts in this repository include honeypot-pattern examples and other token contract variants. They are documented for defensive analysis, detection research, and education. They must not be used for fraud, deception, or unauthorized harm.
+## Conventions
 
-## Sessions
+* Sessions are numbered 1–15 as in `contracts/`. The root-level `Session 1…4 - Upgraded V2 …` files use a different numbering; see the [errata mapping](analysis/errata.md#naming-collisions).
+* Labels **A, B, C, D, P** denote the recurring fixed or assembled addresses in the [control-plane table](analysis/control-plane.md#11-privileged-addresses-written-as-decimal-integers).
+* Threat IDs are defined in the [taxonomy](reference/taxonomy.md). Equations use GitHub-flavoured `$…$` / `$$…$$`.
+* Every contract claim is tied to a source line or scanner output; unresolvable questions are stated as limitations.
 
-- [Session 1 - Honeypot Token (V1)](contracts/session-01-honeypot-v1.md)
-- [Session 2 - Honeypot Token (V1.2)](contracts/session-02-honeypot-v1-2.md)
-- [Session 3 - Honeypot Token (V1, Solidity 0.8.19)](contracts/session-03-honeypot-v1-solidity-0.8.19.md)
-- [Session 4 - Whitelist + Anti-Bot Honeypot](contracts/session-04-whitelist-antibot-honeypot.md)
-- [Session 5 - Blacklist + Detector-Proof Honeypot](contracts/session-05-blacklist-detector-proof-honeypot.md)
-- [Session 6 - Switchable Honeypot Mode](contracts/session-06-switchable-honeypot-mode.md)
-- [Session 7 - Whitelist + Switchable Honeypot Mode](contracts/session-07-whitelist-switchable-honeypot.md)
-- [Session 8 - Upgraded V2 Blacklist + Detector-Proof Honeypot](contracts/session-08-v2-blacklist-detector-proof.md)
-- [Session 9 - Upgraded V2 Whitelist + Switchable Honeypot](contracts/session-09-v2-whitelist-switchable.md)
-- [Session 10 - Normal Meme Token (Non-Honeypot Example)](contracts/session-10-normal-meme-token.md)
-- [Session 11 - Ownership-Renounce Meme Token](contracts/session-11-ownership-renounce-meme-token.md)
-- [Session 12 - Automatic Ownership-Renounce Meme Token](contracts/session-12-auto-ownership-renounce-meme-token.md)
-- [Session 13 - Unlimited Supply Printing Meme Token](contracts/session-13-unlimited-supply-meme-token.md)
-- [Session 14 - Upgraded V2 Unlimited Supply Printing Meme Token](contracts/session-14-v2-unlimited-supply-meme-token.md)
-- [Session 15 - Upgraded V2 Automatic Ownership-Renounce Meme Token](contracts/session-15-v2-auto-ownership-renounce-meme-token.md)
+## Maintenance
 
-## Contact
-
-For auditing and financial security, you can get in touch at [HackSprint](https://hacksprint.net/?v=5eb6b3df0442).
+Edit `tools/gen_handbook.py` (the single fact table), rerun it, then rerun the scanner, number verification and link checker. Do not hand-edit generated session pages or the README index.
