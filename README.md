@@ -24,23 +24,14 @@ Honey-POT-/
 
 ## Root Contents
 
-### Session Notes (Sequenced)
+### Upgraded Code Sessions (Syntax/Code Files)
 
 | Session | File |
 |---|---|
-| Session 1 | [Session 1 - Honeypot Scanner Detector Proof.md](Session%201%20-%20Honeypot%20Scanner%20Detector%20Proof.md) |
-| Session 2 | [Session 2 - Antibot Whitelist Honeypot Token.md](Session%202%20-%20Antibot%20Whitelist%20Honeypot%20Token.md) |
-| Session 3 | [Session 3 - Switch On-Off Honeypot Mode.md](Session%203%20-%20Switch%20On-Off%20Honeypot%20Mode.md) |
-| Session 4 | [Session 4 - Whitelist Switch On-Off Honeypot Mode.md](Session%204%20-%20Whitelist%20Switch%20On-Off%20Honeypot%20Mode.md) |
-| Session 5 | [Session 5 - Upgraded V2 Blacklist Honeypot Detector Proof.md](Session%205%20-%20Upgraded%20V2%20Blacklist%20Honeypot%20Detector%20Proof.md) |
-| Session 6 | [Session 6 - Upgraded V2 Whitelist Switch On-Off Honeypot Mode.md](Session%206%20-%20Upgraded%20V2%20Whitelist%20Switch%20On-Off%20Honeypot%20Mode.md) |
-| Session 7 | [Session 7 - Normal Meme Token Non-Honeypot.md](Session%207%20-%20Normal%20Meme%20Token%20Non-Honeypot.md) |
-| Session 8 | [Session 8 - Ownership Renounce Normal Meme Token.md](Session%208%20-%20Ownership%20Renounce%20Normal%20Meme%20Token.md) |
-| Session 9 | [Session 9 - Automatic Ownership Renounce Low Gas Fee Meme Token.md](Session%209%20-%20Automatic%20Ownership%20Renounce%20Low%20Gas%20Fee%20Meme%20Token.md) |
-| Session 10 | [Session 10 - Unlimited Supply Printing Normal Meme Token.md](Session%2010%20-%20Unlimited%20Supply%20Printing%20Normal%20Meme%20Token.md) |
-| Session 11 | [Session 11 - Upgraded V2 Automatic Ownership Renounce Meme Token.md](Session%2011%20-%20Upgraded%20V2%20Automatic%20Ownership%20Renounce%20Meme%20Token.md) |
-| Session 12 | [Session 12 - Upgraded V2 Unlimited Supply Printing Meme Token.md](Session%2012%20-%20Upgraded%20V2%20Unlimited%20Supply%20Printing%20Meme%20Token.md) |
-| Session 13 | [Session 13 - Create Token Solana.md](Session%2013%20-%20Create%20Token%20Solana.md) |
+| Session 1 | [Session 1 - Upgraded V2 Blacklist Honeypot Detector Proof.sol](Session%201%20-%20Upgraded%20V2%20Blacklist%20Honeypot%20Detector%20Proof.sol) |
+| Session 2 | [Session 2 - Upgraded V2 Whitelist Switch On-Off Honeypot Mode.sol](Session%202%20-%20Upgraded%20V2%20Whitelist%20Switch%20On-Off%20Honeypot%20Mode.sol) |
+| Session 3 | [Session 3 - Upgraded V2 Automatic Ownership Renounce Meme Token.sol](Session%203%20-%20Upgraded%20V2%20Automatic%20Ownership%20Renounce%20Meme%20Token.sol) |
+| Session 4 | [Session 4 - Upgraded V2 Unlimited Supply Printing Meme Token.sol](Session%204%20-%20Upgraded%20V2%20Unlimited%20Supply%20Printing%20Meme%20Token.sol) |
 
 ### Original Artifact Files (Root)
 
@@ -51,14 +42,10 @@ The root also retains the original source/reference files, including contract ar
 - `honeypot-scanner-detector-proof-token`
 - `switch on&off honeypot mode-honeypot-scanner-detector-proof-token`
 - `whitelist-switch on&off honeypot mode-honeypot-scanner-detector-proof-token`
-- `Upgraded V2-Blacklist-Honeypot-Detector-Proof-Token-Code`
-- `Upgraded V2-whitelist-switch on&off honeypot mode-honeypot-scanner-detector-proof-token`
 - `normal-meme-pepe-token-non honeypot-code`
 - `ownership renounce-normal-meme-token-non honeypot-code`
 - `automatic ownership renounce-normal-low gas fee-meme-token-non honeypot-code`
 - `unlimited supply printing-normal-meme-token-non honeypot-code`
-- `Upgraded V2-automatic ownership renounce-normal-low gas fee-meme-token-non honeypot-code`
-- `Upgraded V2-unlimited supply printing-normal-meme-token-non honeypot-code`
 - `beginner-guide`, `add-remove-liquidity-in-decentralized exchanges`, `how-to-token-marketing`
 
 ## Documentation
