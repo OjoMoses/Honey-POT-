@@ -17,9 +17,8 @@ Honey-POT-/
 │   ├── SECURITY.md             # Responsible-use and safety notes
 │   ├── contracts/              # Per-contract session reference docs
 │   └── guides/                 # Neutral research/analysis guides
-├── Session 1 - ... .md         # Sequenced tutorial/session notes (root)
-├── ...                         # Original contract/source artifact files (root)
-└── beginner-guide, ...         # Original guide/reference files (root)
+├── Session 1 - ... .sol        # Upgraded V2 code session files (root)
+└── ...                         # Original contract/source artifact files (root)
 ```
 
 ## Root Contents
@@ -35,7 +34,7 @@ Honey-POT-/
 
 ### Original Artifact Files (Root)
 
-The root also retains the original source/reference files, including contract artifacts and guides:
+The root also retains original contract/source artifact files:
 
 - `honeypot-smart-contract`, `honeypot-smart-contract-0.8.19`, `honeypot-contract-V1.2`
 - `whitelist-antibot-smart-contract`
