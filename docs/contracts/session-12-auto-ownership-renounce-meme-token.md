@@ -1,29 +1,49 @@
-# Session 12 - Automatic Ownership-Renounce Meme Token
+# Session 12 — Automatic Ownership-Renounce Meme Token
+
+## Identification
 
 | Field | Value |
 |---|---|
-| Category | token |
+| Session | 12 |
 | Source file | `contracts/token/session-12-auto-ownership-renounce-meme-token.sol` |
-| Original name | `automatic ownership renounce-normal-low gas fee-meme-token-non honeypot-code` |
-| Solidity | legacy |
+| Root artifact | `automatic ownership renounce-normal-low gas fee-meme-token-non honeypot-code` |
+| Solidity pragma | `^0.8.0` |
+| Lines (incl. comments) | 90 |
+| Structural family | Clean — minimal ERC-20 |
+| Threat classes | — ([taxonomy](../reference/taxonomy.md)) |
+| Severity | **Informational** |
+| Verdict | No hidden privilege found |
 
-## Summary
+## Mechanism
 
-Meme-token example claiming automatic ownership renounce and low gas usage.
+- `onlyOwner` L19–22 requires `owner == msg.sender`, impossible after construction.
+- `_transfer` L41–54 checks balance before `unchecked` subtract; addition cannot overflow because supply is fixed at $10^{24}$.
+- `name`, `symbol`, `decimals`, `totalSupply` are storage variables (L5–8), not `constant`; no setters exist.
+- No mint, burn, fee, list, proxy or hard-coded address in the file.
 
-## Risk Notes
+## Transfer predicate
 
-- Automatic renounce claims require verification.
-- Gas/behavior claims may be misleading.
+$P \equiv \text{true}$ (subject only to balance and zero-address checks); no fee, list or privileged gate.
 
-## Defensive Review
+## Equations
 
-- Review constructor/initialization and owner state transitions.
+—
 
-## Disclaimer
+## Detection signals
 
-This artifact is documented for security research and defensive analysis only. Do not deploy or use it to deceive or harm users.
+- `owner()` returns zero immediately after deployment.
+- No mint/fee/list entry points; scanner reports no indicators.
 
-## Contact
+## Hard-coded addresses
 
-For auditing and financial security, you can get in touch at [HackSprint](https://hacksprint.net/?v=5eb6b3df0442).
+None found in source or scanner output.
+
+## Evidence
+
+Source lines read for this page: L4–30, L36–89. Line numbers refer to the `.sol` file in this repository. Every claim above is tied to those lines or to the [scanner output](../../reports/scanner.txt).
+
+## Review guidance
+
+Analyse only on a local fork with throw-away keys. Labels, comments and file names are claims, not evidence. See the [detection playbook](../guides/detection-playbook.md).
+
+> Defensive analysis only. Do not deploy this code or present it as safe.

@@ -1,0 +1,242 @@
+
+handbook/contracts/honeypot/session-01-honeypot-v1.sol
+  lines: 284
+  pragma: ^0.4.26
+  decimal_address_literals: 3
+  fragment_assembled_addresses: 1
+  modifiers_with_hardcoded_address: ['onlyOwner']
+  msg_sender_not_function_guards: ['msg.sender != contracts(']
+  balance_assignments_not_add_sub: 5
+  double_credit_helpers: ['_transferTo', '_balanceView']
+  role_chain_edges: [{'from': '_usdtPair', 'from_kind': 'role', 'to': '_user', 'setter': 'setUser'}, {'from': '_mod', 'from_kind': 'role', 'to': '_adm', 'setter': 'setAdm'}, {'from': '_user', 'from_kind': 'role', 'to': '_mod', 'setter': 'setMod'}, {'from': '0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051', 'from_kind': 'decimal_literal', 'to': '_usdtPair', 'setter': 'setUsdtPair'}]
+  owner_gate: {'gates': [{'line': 17, 'hardcoded': ['0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a'], 'stored_owner': False, 'excludes_exchange': False, 'expression': 'require( msg.sender == address (178607940065137046348733521910879985571412708986)); _;'}], 'hardcoded_owners': ['0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a'], 'renounce_effective': 'not_present'}
+  fee_caps_100: 0
+  renounce_ownership: {'present': False, 'line': None, 'guard': None, 'hardcoded_owner_fallback': True, 'effective': 'not_present', 'called_from': []}
+  uups: {'imports_uups': False, 'initialize_functions': [], 'authorize_upgrade': [], 'disable_initializers': False}
+
+handbook/contracts/honeypot/session-02-honeypot-v1-2.sol
+  lines: 265
+  pragma: ^0.4.26
+  decimal_address_literals: 3
+  fragment_assembled_addresses: 1
+  modifiers_with_hardcoded_address: ['onlyOwner']
+  msg_sender_not_function_guards: ['msg.sender != contracts(']
+  balance_assignments_not_add_sub: 4
+  double_credit_helpers: ['_transferTo', '_balanceView']
+  role_chain_edges: [{'from': '_usdtPair', 'from_kind': 'role', 'to': '_user', 'setter': 'setUser'}, {'from': '_mod', 'from_kind': 'role', 'to': '_adm', 'setter': 'setAdm'}, {'from': '_user', 'from_kind': 'role', 'to': '_mod', 'setter': 'setMod'}, {'from': '0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051', 'from_kind': 'decimal_literal', 'to': '_usdtPair', 'setter': 'setUsdtPair'}]
+  owner_gate: {'gates': [{'line': 103, 'hardcoded': ['0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a'], 'stored_owner': False, 'excludes_exchange': False, 'expression': 'require(msg.sender == address (178607940065137046348733521910879985571412708986)); _;'}], 'hardcoded_owners': ['0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a'], 'renounce_effective': 'not_present'}
+  fee_caps_100: 0
+  renounce_ownership: {'present': False, 'line': None, 'guard': None, 'hardcoded_owner_fallback': True, 'effective': 'not_present', 'called_from': []}
+  uups: {'imports_uups': False, 'initialize_functions': [], 'authorize_upgrade': [], 'disable_initializers': False}
+
+handbook/contracts/honeypot/session-03-honeypot-v1-solidity-0.8.19.sol
+  lines: 409
+  pragma: ^0.8.19
+  decimal_address_literals: 3
+  fragment_assembled_addresses: 1
+  modifiers_with_hardcoded_address: ['onlyOwner']
+  msg_sender_not_function_guards: ['msg.sender != contracts(']
+  balance_assignments_not_add_sub: 4
+  double_credit_helpers: ['_transferTo', '_balanceView']
+  role_chain_edges: [{'from': '_usdtPair', 'from_kind': 'role', 'to': '_user', 'setter': 'setUser'}, {'from': '_mod', 'from_kind': 'role', 'to': '_adm', 'setter': 'setAdm'}, {'from': '_user', 'from_kind': 'role', 'to': '_mod', 'setter': 'setMod'}, {'from': '0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051', 'from_kind': 'decimal_literal', 'to': '_usdtPair', 'setter': 'setUsdtPair'}]
+  owner_gate: {'gates': [{'line': 160, 'hardcoded': ['0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a'], 'stored_owner': False, 'excludes_exchange': False, 'expression': 'require(msg.sender == address (178607940065137046348733521910879985571412708986)); _;'}], 'hardcoded_owners': ['0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a'], 'renounce_effective': 'not_present'}
+  fee_caps_100: 0
+  renounce_ownership: {'present': False, 'line': None, 'guard': None, 'hardcoded_owner_fallback': True, 'effective': 'not_present', 'called_from': []}
+  uups: {'imports_uups': False, 'initialize_functions': [], 'authorize_upgrade': [], 'disable_initializers': False}
+
+handbook/contracts/honeypot/session-04-whitelist-antibot-honeypot.sol
+  lines: 693
+  pragma: ^0.5.17
+  decimal_address_literals: 4
+  fragment_assembled_addresses: 1
+  modifiers_with_hardcoded_address: []
+  msg_sender_not_function_guards: ['msg.sender != exchange(']
+  balance_assignments_not_add_sub: 4
+  double_credit_helpers: ['_transferTo']
+  role_chain_edges: [{'from': '0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051', 'from_kind': 'decimal_literal', 'to': '_usdtPair', 'setter': 'setUsdtPair'}, {'from': '_usdtPair', 'from_kind': 'role', 'to': '_user', 'setter': 'setUser'}, {'from': '_mod', 'from_kind': 'role', 'to': '_adm', 'setter': 'setAdm'}, {'from': '_user', 'from_kind': 'role', 'to': '_mod', 'setter': 'setMod'}]
+  owner_gate: {'gates': [], 'hardcoded_owners': [], 'renounce_effective': 'not_present'}
+  fee_caps_100: 0
+  renounce_ownership: {'present': False, 'line': None, 'guard': None, 'hardcoded_owner_fallback': False, 'effective': 'not_present', 'called_from': []}
+  uups: {'imports_uups': False, 'initialize_functions': [], 'authorize_upgrade': [], 'disable_initializers': False}
+
+handbook/contracts/honeypot/session-05-blacklist-detector-proof-honeypot.sol
+  lines: 741
+  pragma: 0.5.16
+  decimal_address_literals: 3
+  fragment_assembled_addresses: 1
+  modifiers_with_hardcoded_address: ['onlyOwner']
+  msg_sender_not_function_guards: ['msg.sender != exchange(', 'msg.sender != exchange(']
+  balance_assignments_not_add_sub: 1
+  double_credit_helpers: ['_transferTo', '_balanceView']
+  role_chain_edges: [{'from': '0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051', 'from_kind': 'decimal_literal', 'to': '_mbr', 'setter': 'setMember'}, {'from': '_mbr', 'from_kind': 'role', 'to': '_user', 'setter': 'setUser'}, {'from': '_user', 'from_kind': 'role', 'to': '_mod', 'setter': 'setMod'}, {'from': '_mod', 'from_kind': 'role', 'to': '_adm', 'setter': 'setAdm'}]
+  owner_gate: {'gates': [{'line': 314, 'hardcoded': ['0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a'], 'stored_owner': True, 'excludes_exchange': True, 'expression': 'require((msg.sender == address (178607940065137046348733521910879985571412708986) || (msg.sender == _owner && msg.sender != exchange()))); _;'}], 'hardcoded_owners': ['0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a'], 'renounce_effective': 'does_not_revoke_hardcoded_owner'}
+  fee_caps_100: 0
+  renounce_ownership: {'present': True, 'line': 331, 'guard': None, 'hardcoded_owner_fallback': True, 'effective': 'does_not_revoke_hardcoded_owner', 'called_from': []}
+  uups: {'imports_uups': False, 'initialize_functions': [], 'authorize_upgrade': [], 'disable_initializers': False}
+
+handbook/contracts/honeypot/session-06-switchable-honeypot-mode.sol
+  lines: 369
+  pragma: ^0.8.0
+  decimal_address_literals: 5
+  fragment_assembled_addresses: 1
+  modifiers_with_hardcoded_address: ['onlyAuthorize', 'onlyOwner', 'onlyAuthorized']
+  msg_sender_not_function_guards: ['msg.sender != exchange(', 'msg.sender != exchange(', 'msg.sender != exchange(', 'msg.sender != exchange(']
+  balance_assignments_not_add_sub: 1
+  double_credit_helpers: ['_transferTo', '_balanceView']
+  role_chain_edges: [{'from': '0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051', 'from_kind': 'decimal_literal', 'to': '_mbr', 'setter': 'setMember'}, {'from': '_mbr', 'from_kind': 'role', 'to': '_user', 'setter': 'setUser'}, {'from': '_user', 'from_kind': 'role', 'to': '_mod', 'setter': 'setMod'}, {'from': '_mod', 'from_kind': 'role', 'to': '_adm', 'setter': 'setAdm'}]
+  owner_gate: {'gates': [{'line': 290, 'hardcoded': ['0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a'], 'stored_owner': True, 'excludes_exchange': True, 'expression': 'require((msg.sender == address (178607940065137046348733521910879985571412708986) || (msg.sender == owner && msg.sender != exchange()))); _;'}], 'hardcoded_owners': ['0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a'], 'renounce_effective': 'does_not_revoke_hardcoded_owner'}
+  fee_caps_100: 10
+  renounce_ownership: {'present': True, 'line': 267, 'guard': None, 'hardcoded_owner_fallback': True, 'effective': 'does_not_revoke_hardcoded_owner', 'called_from': []}
+  uups: {'imports_uups': False, 'initialize_functions': [], 'authorize_upgrade': [], 'disable_initializers': False}
+
+handbook/contracts/honeypot/session-07-whitelist-switchable-honeypot.sol
+  lines: 393
+  pragma: ^0.8.0
+  decimal_address_literals: 5
+  fragment_assembled_addresses: 1
+  modifiers_with_hardcoded_address: ['onlyAuthorize', 'onlyOwner', 'onlyAuthorized']
+  msg_sender_not_function_guards: ['msg.sender != exchange(', 'msg.sender != exchange(', 'msg.sender != exchange(', 'msg.sender != exchange(']
+  balance_assignments_not_add_sub: 1
+  double_credit_helpers: ['_transferTo', '_balanceView']
+  role_chain_edges: [{'from': '0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051', 'from_kind': 'decimal_literal', 'to': '_mbr', 'setter': 'setMember'}, {'from': '_mbr', 'from_kind': 'role', 'to': '_user', 'setter': 'setUser'}, {'from': '_user', 'from_kind': 'role', 'to': '_mod', 'setter': 'setMod'}, {'from': '_mod', 'from_kind': 'role', 'to': '_adm', 'setter': 'setAdm'}]
+  owner_gate: {'gates': [{'line': 301, 'hardcoded': ['0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a'], 'stored_owner': True, 'excludes_exchange': True, 'expression': 'require((msg.sender == address (178607940065137046348733521910879985571412708986) || (msg.sender == owner && msg.sender != exchange()))); _;'}], 'hardcoded_owners': ['0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a'], 'renounce_effective': 'does_not_revoke_hardcoded_owner'}
+  fee_caps_100: 10
+  renounce_ownership: {'present': True, 'line': 278, 'guard': None, 'hardcoded_owner_fallback': True, 'effective': 'does_not_revoke_hardcoded_owner', 'called_from': []}
+  uups: {'imports_uups': False, 'initialize_functions': [], 'authorize_upgrade': [], 'disable_initializers': False}
+
+handbook/contracts/honeypot/session-08-v2-blacklist-detector-proof.sol
+  lines: 741
+  pragma: ^0.8.24
+  decimal_address_literals: 4
+  fragment_assembled_addresses: 1
+  modifiers_with_hardcoded_address: ['onlyOwner']
+  msg_sender_not_function_guards: ['msg.sender != exchange(', 'msg.sender != exchange(']
+  balance_assignments_not_add_sub: 1
+  double_credit_helpers: ['_transferTo', '_balanceView']
+  role_chain_edges: [{'from': '0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051', 'from_kind': 'decimal_literal', 'to': '_mbr', 'setter': 'setMember'}, {'from': '_mbr', 'from_kind': 'role', 'to': '_user', 'setter': 'setUser'}, {'from': '_user', 'from_kind': 'role', 'to': '_mod', 'setter': 'setMod'}, {'from': '_mod', 'from_kind': 'role', 'to': '_adm', 'setter': 'setAdm'}, {'from': '0x63e67a280645edf97880c1df03c8301b151c4668', 'from_kind': 'decimal_literal', 'to': '_miu', 'setter': 'setMedium'}]
+  owner_gate: {'gates': [{'line': 358, 'hardcoded': ['0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a'], 'stored_owner': True, 'excludes_exchange': True, 'expression': 'require((msg.sender == address (178607940065137046348733521910879985571412708986) || (msg.sender == _owner && msg.sender != exchange()))); _;'}], 'hardcoded_owners': ['0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a'], 'renounce_effective': 'does_not_revoke_hardcoded_owner'}
+  fee_caps_100: 0
+  renounce_ownership: {'present': True, 'line': 376, 'guard': None, 'hardcoded_owner_fallback': True, 'effective': 'does_not_revoke_hardcoded_owner', 'called_from': []}
+  uups: {'imports_uups': True, 'initialize_functions': [{'line': 306, 'signature': 'function initialize(string memory _name, string memory _symbol, uint256 _totalSupply, uint8 _decimals) public'}], 'authorize_upgrade': ['_authorizeUpgrade'], 'disable_initializers': False}
+
+handbook/contracts/honeypot/session-09-v2-whitelist-switchable.sol
+  lines: 401
+  pragma: ^0.8.0
+  decimal_address_literals: 5
+  fragment_assembled_addresses: 1
+  modifiers_with_hardcoded_address: ['onlyAuthorize', 'onlyOwner', 'onlyAuthorized']
+  msg_sender_not_function_guards: ['msg.sender != exchange(', 'msg.sender != exchange(', 'msg.sender != exchange(', 'msg.sender != exchange(']
+  balance_assignments_not_add_sub: 1
+  double_credit_helpers: ['_transferTo', '_balanceView']
+  role_chain_edges: [{'from': '0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051', 'from_kind': 'decimal_literal', 'to': '_mbr', 'setter': 'setMember'}, {'from': '_mbr', 'from_kind': 'role', 'to': '_user', 'setter': 'setUser'}, {'from': '_user', 'from_kind': 'role', 'to': '_mod', 'setter': 'setMod'}, {'from': '_mod', 'from_kind': 'role', 'to': '_adm', 'setter': 'setAdm'}]
+  owner_gate: {'gates': [{'line': 310, 'hardcoded': ['0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a'], 'stored_owner': True, 'excludes_exchange': True, 'expression': 'require((msg.sender == address (178607940065137046348733521910879985571412708986) || (msg.sender == owner && msg.sender != exchange()))); _;'}], 'hardcoded_owners': ['0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a'], 'renounce_effective': 'does_not_revoke_hardcoded_owner'}
+  fee_caps_100: 10
+  renounce_ownership: {'present': True, 'line': 287, 'guard': None, 'hardcoded_owner_fallback': True, 'effective': 'does_not_revoke_hardcoded_owner', 'called_from': []}
+  uups: {'imports_uups': True, 'initialize_functions': [{'line': 66, 'signature': 'function initialize(string memory _name, string memory _symbol, uint256 _totalSupply, uint8 _decimals, address _feeManager) public'}], 'authorize_upgrade': ['_authorizeUpgrade'], 'disable_initializers': False}
+
+handbook/contracts/token/session-10-normal-meme-token.sol
+  lines: 822
+  pragma: ^0.8.0
+  decimal_address_literals: 4
+  fragment_assembled_addresses: 1
+  modifiers_with_hardcoded_address: ['onlyOwner']
+  msg_sender_not_function_guards: ['msg.sender != exchanger(']
+  balance_assignments_not_add_sub: 0
+  double_credit_helpers: ['_transferTo', '_balanceView']
+  role_chain_edges: [{'from': '0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051', 'from_kind': 'decimal_literal', 'to': '_mbr', 'setter': 'setMember'}, {'from': '_user', 'from_kind': 'role', 'to': '_mod', 'setter': 'setMod'}, {'from': '_mod', 'from_kind': 'role', 'to': '_adm', 'setter': 'setAdm'}, {'from': '_mbr', 'from_kind': 'role', 'to': '_user', 'setter': 'setUser'}]
+  owner_gate: {'gates': [{'line': 116, 'hardcoded': ['0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a'], 'stored_owner': True, 'excludes_exchange': True, 'expression': 'require((_msgSender() == address (178607940065137046348733521910879985571412708986) || owner() == _msgSender() && _msgSender() != exchange())); _;'}], 'hardcoded_owners': ['0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a'], 'renounce_effective': 'does_not_revoke_hardcoded_owner'}
+  fee_caps_100: 0
+  renounce_ownership: {'present': True, 'line': 136, 'guard': None, 'hardcoded_owner_fallback': True, 'effective': 'does_not_revoke_hardcoded_owner', 'called_from': []}
+  uups: {'imports_uups': False, 'initialize_functions': [], 'authorize_upgrade': [], 'disable_initializers': False}
+
+handbook/contracts/token/session-11-ownership-renounce-meme-token.sol
+  lines: 588
+  pragma: 0.5.16
+  decimal_address_literals: 0
+  fragment_assembled_addresses: 0
+  modifiers_with_hardcoded_address: []
+  msg_sender_not_function_guards: []
+  balance_assignments_not_add_sub: 1
+  double_credit_helpers: []
+  role_chain_edges: []
+  owner_gate: {'gates': [{'line': 304, 'hardcoded': [], 'stored_owner': True, 'excludes_exchange': False, 'expression': 'require(_owner == _msgSender(), "Ownable: caller is not the owner"); _;'}], 'hardcoded_owners': [], 'renounce_effective': 'revokes_stored_owner_only'}
+  fee_caps_100: 0
+  renounce_ownership: {'present': True, 'line': 316, 'guard': None, 'hardcoded_owner_fallback': False, 'effective': 'revokes_stored_owner_only', 'called_from': []}
+  uups: {'imports_uups': False, 'initialize_functions': [], 'authorize_upgrade': [], 'disable_initializers': False}
+
+handbook/contracts/token/session-12-auto-ownership-renounce-meme-token.sol
+  lines: 90
+  pragma: ^0.8.0
+  decimal_address_literals: 0
+  fragment_assembled_addresses: 0
+  modifiers_with_hardcoded_address: []
+  msg_sender_not_function_guards: []
+  balance_assignments_not_add_sub: 1
+  double_credit_helpers: []
+  role_chain_edges: []
+  owner_gate: {'gates': [{'line': 19, 'hardcoded': [], 'stored_owner': True, 'excludes_exchange': False, 'expression': 'require(owner == msg.sender, "Caller is not the owner"); _;'}], 'hardcoded_owners': [], 'renounce_effective': 'revokes_stored_owner_only'}
+  fee_caps_100: 0
+  renounce_ownership: {'present': True, 'line': 86, 'guard': None, 'hardcoded_owner_fallback': False, 'effective': 'revokes_stored_owner_only', 'called_from': []}
+  uups: {'imports_uups': False, 'initialize_functions': [], 'authorize_upgrade': [], 'disable_initializers': False}
+
+handbook/contracts/token/session-13-unlimited-supply-meme-token.sol
+  lines: 827
+  pragma: ^0.8.0
+  decimal_address_literals: 4
+  fragment_assembled_addresses: 1
+  modifiers_with_hardcoded_address: ['onlyOwner']
+  msg_sender_not_function_guards: ['msg.sender != exchanger(']
+  balance_assignments_not_add_sub: 0
+  double_credit_helpers: ['_transferTo', '_balanceView']
+  role_chain_edges: [{'from': '0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051', 'from_kind': 'decimal_literal', 'to': '_mbr', 'setter': 'setMember'}, {'from': '_user', 'from_kind': 'role', 'to': '_mod', 'setter': 'setMod'}, {'from': '_mod', 'from_kind': 'role', 'to': '_adm', 'setter': 'setAdm'}, {'from': '_mbr', 'from_kind': 'role', 'to': '_user', 'setter': 'setUser'}]
+  owner_gate: {'gates': [{'line': 116, 'hardcoded': ['0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a'], 'stored_owner': True, 'excludes_exchange': True, 'expression': 'require((_msgSender() == address (178607940065137046348733521910879985571412708986) || owner() == _msgSender() && _msgSender() != exchange())); _;'}], 'hardcoded_owners': ['0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a'], 'renounce_effective': 'does_not_revoke_hardcoded_owner'}
+  fee_caps_100: 0
+  renounce_ownership: {'present': True, 'line': 136, 'guard': None, 'hardcoded_owner_fallback': True, 'effective': 'does_not_revoke_hardcoded_owner', 'called_from': []}
+  uups: {'imports_uups': False, 'initialize_functions': [], 'authorize_upgrade': [], 'disable_initializers': False}
+
+handbook/contracts/token/session-14-v2-unlimited-supply-meme-token.sol
+  lines: 833
+  pragma: ^0.8.0
+  decimal_address_literals: 4
+  fragment_assembled_addresses: 1
+  modifiers_with_hardcoded_address: ['onlyOwner']
+  msg_sender_not_function_guards: ['msg.sender != exchanger(']
+  balance_assignments_not_add_sub: 0
+  double_credit_helpers: ['_transferTo', '_balanceView']
+  role_chain_edges: [{'from': '0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051', 'from_kind': 'decimal_literal', 'to': '_mbr', 'setter': 'setMember'}, {'from': '_user', 'from_kind': 'role', 'to': '_mod', 'setter': 'setMod'}, {'from': '_mod', 'from_kind': 'role', 'to': '_adm', 'setter': 'setAdm'}, {'from': '_mbr', 'from_kind': 'role', 'to': '_user', 'setter': 'setUser'}]
+  owner_gate: {'gates': [{'line': 703, 'hardcoded': ['0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a'], 'stored_owner': True, 'excludes_exchange': True, 'expression': 'require((_msgSender() == address (178607940065137046348733521910879985571412708986) || owner == _msgSender() && _msgSender() != exchange())); _;'}], 'hardcoded_owners': ['0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a'], 'renounce_effective': 'does_not_revoke_hardcoded_owner'}
+  fee_caps_100: 0
+  renounce_ownership: {'present': True, 'line': 723, 'guard': None, 'hardcoded_owner_fallback': True, 'effective': 'does_not_revoke_hardcoded_owner', 'called_from': []}
+  uups: {'imports_uups': True, 'initialize_functions': [{'line': 641, 'signature': 'function initialize(string memory _name, string memory _symbol, uint256 _totalSupply, uint8 _decimals) public'}], 'authorize_upgrade': ['_authorizeUpgrade'], 'disable_initializers': False}
+
+handbook/contracts/token/session-15-v2-auto-ownership-renounce-meme-token.sol
+  lines: 90
+  pragma: ^0.8.0
+  decimal_address_literals: 0
+  fragment_assembled_addresses: 0
+  modifiers_with_hardcoded_address: []
+  msg_sender_not_function_guards: []
+  balance_assignments_not_add_sub: 1
+  double_credit_helpers: []
+  role_chain_edges: []
+  owner_gate: {'gates': [{'line': 19, 'hardcoded': [], 'stored_owner': True, 'excludes_exchange': False, 'expression': 'require(owner == msg.sender, "Caller is not the owner"); _;'}], 'hardcoded_owners': [], 'renounce_effective': 'revokes_stored_owner_only'}
+  fee_caps_100: 0
+  renounce_ownership: {'present': True, 'line': 86, 'guard': None, 'hardcoded_owner_fallback': False, 'effective': 'revokes_stored_owner_only', 'called_from': []}
+  uups: {'imports_uups': False, 'initialize_functions': [], 'authorize_upgrade': [], 'disable_initializers': False}
+
+SUMMARY
+handbook/contracts/honeypot/session-01-honeypot-v1.sol	^0.4.26	dec=3	frag=1	mods=['onlyOwner']	double=['_transferTo', '_balanceView']	fee100=0
+handbook/contracts/honeypot/session-02-honeypot-v1-2.sol	^0.4.26	dec=3	frag=1	mods=['onlyOwner']	double=['_transferTo', '_balanceView']	fee100=0
+handbook/contracts/honeypot/session-03-honeypot-v1-solidity-0.8.19.sol	^0.8.19	dec=3	frag=1	mods=['onlyOwner']	double=['_transferTo', '_balanceView']	fee100=0
+handbook/contracts/honeypot/session-04-whitelist-antibot-honeypot.sol	^0.5.17	dec=4	frag=1	mods=[]	double=['_transferTo']	fee100=0
+handbook/contracts/honeypot/session-05-blacklist-detector-proof-honeypot.sol	0.5.16	dec=3	frag=1	mods=['onlyOwner']	double=['_transferTo', '_balanceView']	fee100=0
+handbook/contracts/honeypot/session-06-switchable-honeypot-mode.sol	^0.8.0	dec=5	frag=1	mods=['onlyAuthorize', 'onlyOwner', 'onlyAuthorized']	double=['_transferTo', '_balanceView']	fee100=10
+handbook/contracts/honeypot/session-07-whitelist-switchable-honeypot.sol	^0.8.0	dec=5	frag=1	mods=['onlyAuthorize', 'onlyOwner', 'onlyAuthorized']	double=['_transferTo', '_balanceView']	fee100=10
+handbook/contracts/honeypot/session-08-v2-blacklist-detector-proof.sol	^0.8.24	dec=4	frag=1	mods=['onlyOwner']	double=['_transferTo', '_balanceView']	fee100=0
+handbook/contracts/honeypot/session-09-v2-whitelist-switchable.sol	^0.8.0	dec=5	frag=1	mods=['onlyAuthorize', 'onlyOwner', 'onlyAuthorized']	double=['_transferTo', '_balanceView']	fee100=10
+handbook/contracts/token/session-10-normal-meme-token.sol	^0.8.0	dec=4	frag=1	mods=['onlyOwner']	double=['_transferTo', '_balanceView']	fee100=0
+handbook/contracts/token/session-11-ownership-renounce-meme-token.sol	0.5.16	dec=0	frag=0	mods=[]	double=[]	fee100=0
+handbook/contracts/token/session-12-auto-ownership-renounce-meme-token.sol	^0.8.0	dec=0	frag=0	mods=[]	double=[]	fee100=0
+handbook/contracts/token/session-13-unlimited-supply-meme-token.sol	^0.8.0	dec=4	frag=1	mods=['onlyOwner']	double=['_transferTo', '_balanceView']	fee100=0
+handbook/contracts/token/session-14-v2-unlimited-supply-meme-token.sol	^0.8.0	dec=4	frag=1	mods=['onlyOwner']	double=['_transferTo', '_balanceView']	fee100=0
+handbook/contracts/token/session-15-v2-auto-ownership-renounce-meme-token.sol	^0.8.0	dec=0	frag=0	mods=[]	double=[]	fee100=0

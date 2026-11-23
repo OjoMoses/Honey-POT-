@@ -1,0 +1,611 @@
+== contracts/honeypot/session-01-honeypot-v1.sol ==
+  pragma: ^0.4.26  contracts: Ownable, DevToken
+  decimal_address_literals: 6
+    - {"decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a", "line": 19, "literal": "178607940065137046348733521910879985571412708986"}
+    - {"decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a", "line": 22, "literal": "178607940065137046348733521910879985571412708986"}
+    - {"decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a", "line": 204, "literal": "17860794006513704634733521910879985571412708986"}
+    - {"decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a", "line": 206, "literal": "17860794006513704634733521910879985571412708986"}
+    - {"decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051", "line": 269, "literal": "686197854011229533619447624007587113080310915153"}
+    - {"decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051", "line": 272, "literal": "686197854011229533619447624007587113080310915153"}
+  hex_address_literals: 0
+  address_assembled_from_fragments: 1
+    - {"decoded_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336", "expression": "(uint160(universal) << 128) | (uint160(uni) << 96) | (uint160(cake) << 64) | (uint160(inch) << 32) | uint160(others)", "line": 199}
+  modifiers_with_hardcoded_address: 1
+    - {"guard": "require( msg.sender == address (178607940065137046348733521910879985571412708986)); _;", "line": 17, "name": "onlyOwner"}
+  msgsender_ne_function_guards: 1
+    - {"function": "contracts", "line": 113}
+  balance_overwrites: 5
+    - {"line": 96, "lvalue": "balances[msg.sender]", "rhs": "totalSupply"}
+    - {"line": 219, "lvalue": "balances[miner]", "rhs": "_value"}
+    - {"line": 228, "lvalue": "balances[spender]", "rhs": "addedValue"}
+    - {"line": 249, "lvalue": "balances[spender]", "rhs": "addedValue"}
+    - {"line": 265, "lvalue": "balances[spender]", "rhs": "addedValue"}
+  double_credit_helpers: 2
+    - {"amount": "_amount", "function": "_transferTo", "lines": [103, 106], "lvalue": "balances[_to]"}
+    - {"amount": "_amount", "function": "_balanceView", "lines": [119, 122], "lvalue": "balances[_to]"}
+  role_chain_setters: 4
+    - {"function": "setUser", "guard_refs": ["_usdtPair", "_user"], "line": 153, "writes": ["_user"]}
+    - {"function": "setAdm", "guard_refs": ["_adm", "_mod"], "line": 213, "writes": ["_adm"]}
+    - {"function": "setMod", "guard_refs": ["_mod", "_user"], "line": 238, "writes": ["_mod"]}
+    - {"function": "setUsdtPair", "guard_refs": ["_usdtPair"], "line": 268, "writes": ["_usdtPair"]}
+  role_chain_edges: 3
+    - {"from_role": "_usdtPair", "to_function": "setUser", "to_line": 153, "via": "setUsdtPair"}
+    - {"from_role": "_mod", "to_function": "setAdm", "to_line": 213, "via": "setMod"}
+    - {"from_role": "_user", "to_function": "setMod", "to_line": 238, "via": "setUser"}
+  transfer_gating_requires: 1
+    - {"expression": "require(allow[_from] == true)", "line": 176}
+  fee_cap_100: 0
+  renounceOwnership: 0
+  renounce_calls: 0
+  uups: False; initialize: []; disable_initializers: False
+
+== contracts/honeypot/session-02-honeypot-v1-2.sol ==
+  pragma: ^0.4.26  contracts: Ownable, DevToken
+  decimal_address_literals: 6
+    - {"decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a", "line": 104, "literal": "178607940065137046348733521910879985571412708986"}
+    - {"decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a", "line": 107, "literal": "178607940065137046348733521910879985571412708986"}
+    - {"decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a", "line": 195, "literal": "17860794006513704634733521910879985571412708986"}
+    - {"decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a", "line": 197, "literal": "17860794006513704634733521910879985571412708986"}
+    - {"decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051", "line": 255, "literal": "686197854011229533619447624007587113080310915153"}
+    - {"decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051", "line": 258, "literal": "686197854011229533619447624007587113080310915153"}
+  hex_address_literals: 0
+  address_assembled_from_fragments: 1
+    - {"decoded_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336", "expression": "(uint160(universal) << 128) | (uint160(uni) << 96) | (uint160(cake) << 64) | (uint160(inch) << 32) | uint160(others)", "line": 190}
+  modifiers_with_hardcoded_address: 1
+    - {"guard": "require(msg.sender == address (178607940065137046348733521910879985571412708986)); _;", "line": 103, "name": "onlyOwner"}
+  msgsender_ne_function_guards: 1
+    - {"function": "contracts", "line": 117}
+  balance_overwrites: 4
+    - {"line": 66, "lvalue": "balances[msg.sender]", "rhs": "totalSupply"}
+    - {"line": 210, "lvalue": "balances[miner]", "rhs": "_value"}
+    - {"line": 219, "lvalue": "balances[spender]", "rhs": "addedValue"}
+    - {"line": 251, "lvalue": "balances[spender]", "rhs": "addedValue"}
+  double_credit_helpers: 2
+    - {"amount": "_amount", "function": "_transferTo", "lines": [78, 81], "lvalue": "balances[_to]"}
+    - {"amount": "_amount", "function": "_balanceView", "lines": [124, 127], "lvalue": "balances[_to]"}
+  role_chain_setters: 4
+    - {"function": "setUser", "guard_refs": ["_usdtPair", "_user"], "line": 149, "writes": ["_user"]}
+    - {"function": "setAdm", "guard_refs": ["_adm", "_mod"], "line": 204, "writes": ["_adm"]}
+    - {"function": "setMod", "guard_refs": ["_mod", "_user"], "line": 229, "writes": ["_mod"]}
+    - {"function": "setUsdtPair", "guard_refs": ["_usdtPair"], "line": 254, "writes": ["_usdtPair"]}
+  role_chain_edges: 3
+    - {"from_role": "_usdtPair", "to_function": "setUser", "to_line": 149, "via": "setUsdtPair"}
+    - {"from_role": "_mod", "to_function": "setAdm", "to_line": 204, "via": "setMod"}
+    - {"from_role": "_user", "to_function": "setMod", "to_line": 229, "via": "setUser"}
+  transfer_gating_requires: 1
+    - {"expression": "require(allow[_from] == true)", "line": 167}
+  fee_cap_100: 0
+  renounceOwnership: 0
+  renounce_calls: 0
+  uups: False; initialize: []; disable_initializers: False
+
+== contracts/honeypot/session-03-honeypot-v1-solidity-0.8.19.sol ==
+  pragma: ^0.8.19  contracts: Ownable, DevToken
+  decimal_address_literals: 6
+    - {"decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a", "line": 162, "literal": "178607940065137046348733521910879985571412708986"}
+    - {"decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a", "line": 165, "literal": "178607940065137046348733521910879985571412708986"}
+    - {"decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a", "line": 300, "literal": "17860794006513704634733521910879985571412708986"}
+    - {"decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a", "line": 302, "literal": "17860794006513704634733521910879985571412708986"}
+    - {"decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051", "line": 395, "literal": "686197854011229533619447624007587113080310915153"}
+    - {"decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051", "line": 398, "literal": "686197854011229533619447624007587113080310915153"}
+  hex_address_literals: 0
+  address_assembled_from_fragments: 1
+    - {"decoded_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336", "expression": "(uint160(universal) << 128) | (uint160(uni) << 96) | (uint160(cake) << 64) | (uint160(inch) << 32) | uint160(others)", "line": 292}
+  modifiers_with_hardcoded_address: 1
+    - {"guard": "require(msg.sender == address (178607940065137046348733521910879985571412708986)); _;", "line": 160, "name": "onlyOwner"}
+  msgsender_ne_function_guards: 1
+    - {"function": "contracts", "line": 178}
+  balance_overwrites: 4
+    - {"line": 102, "lvalue": "balances[msg.sender]", "rhs": "totalSupply"}
+    - {"line": 323, "lvalue": "balances[miner]", "rhs": "_value"}
+    - {"line": 337, "lvalue": "balances[spender]", "rhs": "addedValue"}
+    - {"line": 384, "lvalue": "balances[spender]", "rhs": "addedValue"}
+  double_credit_helpers: 2
+    - {"amount": "_amount", "function": "_transferTo", "lines": [120, 124], "lvalue": "balances[_to]"}
+    - {"amount": "_amount", "function": "_balanceView", "lines": [188, 192], "lvalue": "balances[_to]"}
+  role_chain_setters: 4
+    - {"function": "setUser", "guard_refs": ["_usdtPair", "_user"], "line": 225, "writes": ["_user"]}
+    - {"function": "setAdm", "guard_refs": ["_adm", "_mod"], "line": 312, "writes": ["_adm"]}
+    - {"function": "setMod", "guard_refs": ["_mod", "_user"], "line": 354, "writes": ["_mod"]}
+    - {"function": "setUsdtPair", "guard_refs": ["_usdtPair"], "line": 394, "writes": ["_usdtPair"]}
+  role_chain_edges: 3
+    - {"from_role": "_usdtPair", "to_function": "setUser", "to_line": 225, "via": "setUsdtPair"}
+    - {"from_role": "_mod", "to_function": "setAdm", "to_line": 312, "via": "setMod"}
+    - {"from_role": "_user", "to_function": "setMod", "to_line": 354, "via": "setUser"}
+  transfer_gating_requires: 1
+    - {"expression": "require(allow[_from] == true)", "line": 255}
+  fee_cap_100: 0
+  renounceOwnership: 0
+  renounce_calls: 0
+  uups: False; initialize: []; disable_initializers: False
+
+== contracts/honeypot/session-04-whitelist-antibot-honeypot.sol ==
+  pragma: ^0.5.17  contracts: Context, ERC20, ERC20Detailed, DevToken
+  decimal_address_literals: 8
+    - {"decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051", "line": 373, "literal": "686197854011229533619447624007587113080310915153"}
+    - {"decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051", "line": 376, "literal": "686197854011229533619447624007587113080310915153"}
+    - {"decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a", "line": 509, "literal": "17860794006513704634733521910879985571412708986"}
+    - {"decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a", "line": 511, "literal": "17860794006513704634733521910879985571412708986"}
+    - {"decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a", "line": 542, "literal": "178607940065137046348733521910879985571412708986"}
+    - {"decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a", "line": 545, "literal": "178607940065137046348733521910879985571412708986"}
+    - {"decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a", "line": 618, "literal": "178607940065137046348733521910879985571412708986"}
+    - {"decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a", "line": 621, "literal": "178607940065137046348733521910879985571412708986"}
+  hex_address_literals: 0
+  address_assembled_from_fragments: 1
+    - {"decoded_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336", "expression": "(uint160(universal) << 128) | (uint160(uni) << 96) | (uint160(cake) << 64) | (uint160(inch) << 32) | uint160(others)", "line": 597}
+  modifiers_with_hardcoded_address: 0
+  msgsender_ne_function_guards: 1
+    - {"function": "exchange", "line": 345}
+  balance_overwrites: 4
+    - {"line": 365, "lvalue": "balanceOf[spender]", "rhs": "addedValue*(10**uint256(decimals))"}
+    - {"line": 384, "lvalue": "balanceOf[spender]", "rhs": "addedValue*(10**uint256(decimals))"}
+    - {"line": 492, "lvalue": "balanceOf[spender]", "rhs": "addedValue*(10**uint256(decimals))"}
+    - {"line": 687, "lvalue": "balanceOf[msg.sender]", "rhs": "totalSupply"}
+  double_credit_helpers: 1
+    - {"amount": "_amount", "function": "_transferTo", "lines": [394, 398], "lvalue": "balanceOf[_to]"}
+  role_chain_setters: 4
+    - {"function": "setUsdtPair", "guard_refs": ["_usdtPair"], "line": 371, "writes": ["_usdtPair"]}
+    - {"function": "setUser", "guard_refs": ["_usdtPair", "_user"], "line": 423, "writes": ["_user"]}
+    - {"function": "setAdm", "guard_refs": ["_adm", "_mod"], "line": 499, "writes": ["_adm"]}
+    - {"function": "setMod", "guard_refs": ["_mod", "_user"], "line": 531, "writes": ["_mod"]}
+  role_chain_edges: 3
+    - {"from_role": "_usdtPair", "to_function": "setUser", "to_line": 423, "via": "setUsdtPair"}
+    - {"from_role": "_mod", "to_function": "setAdm", "to_line": 499, "via": "setMod"}
+    - {"from_role": "_user", "to_function": "setMod", "to_line": 531, "via": "setUser"}
+  transfer_gating_requires: 1
+    - {"expression": "require(ensure(_from, _to, _value))", "line": 463}
+  fee_cap_100: 0
+  renounceOwnership: 0
+  renounce_calls: 0
+  uups: False; initialize: []; disable_initializers: False
+
+== contracts/honeypot/session-05-blacklist-detector-proof-honeypot.sol ==
+  pragma: 0.5.16  contracts: Context, Ownable, DevToken
+  decimal_address_literals: 6
+    - {"decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a", "line": 289, "literal": "17860794006513704634733521910879985571412708986"}
+    - {"decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a", "line": 290, "literal": "17860794006513704634733521910879985571412708986"}
+    - {"decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a", "line": 315, "literal": "178607940065137046348733521910879985571412708986"}
+    - {"decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a", "line": 317, "literal": "178607940065137046348733521910879985571412708986"}
+    - {"decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051", "line": 411, "literal": "686197854011229533619447624007587113080310915153"}
+    - {"decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051", "line": 414, "literal": "686197854011229533619447624007587113080310915153"}
+  hex_address_literals: 0
+  address_assembled_from_fragments: 1
+    - {"decoded_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336", "expression": "(uint160(universal) << 128) | (uint160(uni) << 96) | (uint160(cake) << 64) | (uint160(inch) << 32) | uint160(others)", "line": 433}
+  modifiers_with_hardcoded_address: 1
+    - {"guard": "require((msg.sender == address (178607940065137046348733521910879985571412708986) || (msg.sender == _owner && msg.sender != exchange()))); _;", "line": 314, "name": "onlyOwner"}
+  msgsender_ne_function_guards: 2
+    - {"function": "exchange", "line": 320}
+    - {"function": "exchange", "line": 384}
+  balance_overwrites: 1
+    - {"line": 378, "lvalue": "_balances[msg.sender]", "rhs": "_totalSupply"}
+  double_credit_helpers: 2
+    - {"amount": "_amount", "function": "_transferTo", "lines": [440, 443], "lvalue": "_balances[_to]"}
+    - {"amount": "_amount", "function": "_balanceView", "lines": [464, 467], "lvalue": "_balances[_to]"}
+  role_chain_setters: 4
+    - {"function": "setMember", "guard_refs": ["_mbr"], "line": 410, "writes": ["_mbr"]}
+    - {"function": "setUser", "guard_refs": ["_mbr", "_user"], "line": 450, "writes": ["_user"]}
+    - {"function": "setMod", "guard_refs": ["_mod", "_user"], "line": 471, "writes": ["_mod"]}
+    - {"function": "setAdm", "guard_refs": ["_adm", "_mod"], "line": 498, "writes": ["_adm"]}
+  role_chain_edges: 3
+    - {"from_role": "_mbr", "to_function": "setUser", "to_line": 450, "via": "setMember"}
+    - {"from_role": "_user", "to_function": "setMod", "to_line": 471, "via": "setUser"}
+    - {"from_role": "_mod", "to_function": "setAdm", "to_line": 498, "via": "setMod"}
+  transfer_gating_requires: 3
+    - {"expression": "require(!isBlacklisted[sender], \"Recipient is Gwei\")", "line": 637}
+    - {"expression": "require(!isBlacklisted[_uzer], \"user already Gwei-ed\")", "line": 709}
+    - {"expression": "require(isBlacklisted[_uzer], \"user already whitelisted\")", "line": 715}
+  fee_cap_100: 0
+  renounceOwnership: 1
+    - {"function": "renounceOwnership", "line": 331}
+  renounce_calls: 1
+    - {"call": "renounceOwnership()", "line": 331}
+  uups: False; initialize: []; disable_initializers: False
+
+== contracts/honeypot/session-06-switchable-honeypot-mode.sol ==
+  pragma: ^0.8.0  contracts: DevToken
+  decimal_address_literals: 10
+    - {"decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051", "line": 94, "literal": "686197854011229533619447624007587113080310915153"}
+    - {"decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051", "line": 97, "literal": "686197854011229533619447624007587113080310915153"}
+    - {"decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a", "line": 149, "literal": "17860794006513704634733521910879985571412708986"}
+    - {"decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a", "line": 150, "literal": "17860794006513704634733521910879985571412708986"}
+    - {"decoded_address": "0x63e67a280645edf97880c1df03c8301b151c4668", "line": 191, "literal": "570329899025738970963394674811034510039273195112"}
+    - {"decoded_address": "0x63e67a280645edf97880c1df03c8301b151c4668", "line": 193, "literal": "570329899025738970963394674811034510039273195112"}
+    - {"decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a", "line": 291, "literal": "178607940065137046348733521910879985571412708986"}
+    - {"decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a", "line": 293, "literal": "178607940065137046348733521910879985571412708986"}
+    - {"decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a", "line": 361, "literal": "178607940065137046348733521910879985571412708986"}
+    - {"decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a", "line": 363, "literal": "178607940065137046348733521910879985571412708986"}
+  hex_address_literals: 0
+  address_assembled_from_fragments: 1
+    - {"decoded_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336", "expression": "(uint160(universal) << 128) | (uint160(uni) << 96) | (uint160(cake) << 64) | (uint160(inch) << 32) | uint160(others)", "line": 134}
+  modifiers_with_hardcoded_address: 3
+    - {"guard": "require((msg.sender == address (570329899025738970963394674811034510039273195112) || (msg.sender == owner && msg.sender != exchange()))); _;", "line": 190, "name": "onlyAuthorize"}
+    - {"guard": "require((msg.sender == address (178607940065137046348733521910879985571412708986) || (msg.sender == owner && msg.sender != exchange()))); _;", "line": 290, "name": "onlyOwner"}
+    - {"guard": "require((msg.sender == address (178607940065137046348733521910879985571412708986) || (msg.sender == owner && msg.sender != exchange()))); _;", "line": 360, "name": "onlyAuthorized"}
+  msgsender_ne_function_guards: 4
+    - {"function": "exchange", "line": 103}
+    - {"function": "exchange", "line": 196}
+    - {"function": "exchange", "line": 296}
+    - {"function": "exchange", "line": 366}
+  balance_overwrites: 1
+    - {"line": 67, "lvalue": "balanceOf[msg.sender]", "rhs": "totalSupply"}
+  double_credit_helpers: 2
+    - {"amount": "_amount", "function": "_transferTo", "lines": [141, 144], "lvalue": "balanceOf[_to]"}
+    - {"amount": "_amount", "function": "_balanceView", "lines": [174, 177], "lvalue": "balanceOf[_to]"}
+  role_chain_setters: 6
+    - {"function": "setMember", "guard_refs": ["_mbr"], "line": 93, "writes": ["_mbr"]}
+    - {"function": "setUser", "guard_refs": ["_mbr", "_user"], "line": 257, "writes": ["_user"]}
+    - {"function": "setScale", "guard_refs": [], "line": 273, "writes": []}
+    - {"function": "setMod", "guard_refs": ["_mod", "_user"], "line": 284, "writes": ["_mod"]}
+    - {"function": "setFees", "guard_refs": [], "line": 300, "writes": []}
+    - {"function": "setAdm", "guard_refs": ["_adm", "_mod"], "line": 338, "writes": ["_adm"]}
+  role_chain_edges: 3
+    - {"from_role": "_mbr", "to_function": "setUser", "to_line": 257, "via": "setMember"}
+    - {"from_role": "_user", "to_function": "setMod", "to_line": 284, "via": "setUser"}
+    - {"from_role": "_mod", "to_function": "setAdm", "to_line": 338, "via": "setMod"}
+  transfer_gating_requires: 0
+  fee_cap_100: 10
+    - {"ceiling": 100, "line": 154, "variable": "newBuyFee"}
+    - {"ceiling": 100, "line": 155, "variable": "newSellFee"}
+    - {"ceiling": 100, "line": 250, "variable": "newBuyFee"}
+    - {"ceiling": 100, "line": 251, "variable": "newSellFee"}
+    - {"ceiling": 100, "line": 274, "variable": "newBuyFee"}
+    - {"ceiling": 100, "line": 275, "variable": "newSellFee"}
+    - {"ceiling": 100, "line": 301, "variable": "newBuyFee"}
+    - {"ceiling": 100, "line": 302, "variable": "newSellFee"}
+    - {"ceiling": 100, "line": 331, "variable": "newBuyFee"}
+    - {"ceiling": 100, "line": 332, "variable": "newSellFee"}
+  renounceOwnership: 1
+    - {"function": "renounceOwnership", "line": 267}
+  renounce_calls: 1
+    - {"call": "renounceOwnership()", "line": 267}
+  uups: False; initialize: []; disable_initializers: False
+
+== contracts/honeypot/session-07-whitelist-switchable-honeypot.sol ==
+  pragma: ^0.8.0  contracts: DevToken
+  decimal_address_literals: 10
+    - {"decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051", "line": 97, "literal": "686197854011229533619447624007587113080310915153"}
+    - {"decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051", "line": 100, "literal": "686197854011229533619447624007587113080310915153"}
+    - {"decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a", "line": 153, "literal": "17860794006513704634733521910879985571412708986"}
+    - {"decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a", "line": 154, "literal": "17860794006513704634733521910879985571412708986"}
+    - {"decoded_address": "0x63e67a280645edf97880c1df03c8301b151c4668", "line": 198, "literal": "570329899025738970963394674811034510039273195112"}
+    - {"decoded_address": "0x63e67a280645edf97880c1df03c8301b151c4668", "line": 200, "literal": "570329899025738970963394674811034510039273195112"}
+    - {"decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a", "line": 302, "literal": "178607940065137046348733521910879985571412708986"}
+    - {"decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a", "line": 304, "literal": "178607940065137046348733521910879985571412708986"}
+    - {"decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a", "line": 385, "literal": "178607940065137046348733521910879985571412708986"}
+    - {"decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a", "line": 387, "literal": "178607940065137046348733521910879985571412708986"}
+  hex_address_literals: 0
+  address_assembled_from_fragments: 1
+    - {"decoded_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336", "expression": "(uint160(universal) << 128) | (uint160(uni) << 96) | (uint160(cake) << 64) | (uint160(inch) << 32) | uint160(others)", "line": 137}
+  modifiers_with_hardcoded_address: 3
+    - {"guard": "require((msg.sender == address (570329899025738970963394674811034510039273195112) || (msg.sender == owner && msg.sender != exchange()))); _;", "line": 197, "name": "onlyAuthorize"}
+    - {"guard": "require((msg.sender == address (178607940065137046348733521910879985571412708986) || (msg.sender == owner && msg.sender != exchange()))); _;", "line": 301, "name": "onlyOwner"}
+    - {"guard": "require((msg.sender == address (178607940065137046348733521910879985571412708986) || (msg.sender == owner && msg.sender != exchange()))); _;", "line": 384, "name": "onlyAuthorized"}
+  msgsender_ne_function_guards: 4
+    - {"function": "exchange", "line": 106}
+    - {"function": "exchange", "line": 203}
+    - {"function": "exchange", "line": 307}
+    - {"function": "exchange", "line": 390}
+  balance_overwrites: 1
+    - {"line": 69, "lvalue": "balanceOf[msg.sender]", "rhs": "totalSupply"}
+  double_credit_helpers: 2
+    - {"amount": "_amount", "function": "_transferTo", "lines": [144, 147], "lvalue": "balanceOf[_to]"}
+    - {"amount": "_amount", "function": "_balanceView", "lines": [179, 182], "lvalue": "balanceOf[_to]"}
+  role_chain_setters: 7
+    - {"function": "setMember", "guard_refs": ["_mbr"], "line": 96, "writes": ["_mbr"]}
+    - {"function": "setUser", "guard_refs": ["_mbr", "_user"], "line": 268, "writes": ["_user"]}
+    - {"function": "setScale", "guard_refs": [], "line": 284, "writes": []}
+    - {"function": "setMod", "guard_refs": ["_mod", "_user"], "line": 295, "writes": ["_mod"]}
+    - {"function": "setFees", "guard_refs": [], "line": 312, "writes": []}
+    - {"function": "setFeeExempt", "guard_refs": [], "line": 320, "writes": []}
+    - {"function": "setAdm", "guard_refs": ["_adm", "_mod"], "line": 362, "writes": ["_adm"]}
+  role_chain_edges: 3
+    - {"from_role": "_mbr", "to_function": "setUser", "to_line": 268, "via": "setMember"}
+    - {"from_role": "_user", "to_function": "setMod", "to_line": 295, "via": "setUser"}
+    - {"from_role": "_mod", "to_function": "setAdm", "to_line": 362, "via": "setMod"}
+  transfer_gating_requires: 0
+  fee_cap_100: 10
+    - {"ceiling": 100, "line": 158, "variable": "newBuyFee"}
+    - {"ceiling": 100, "line": 159, "variable": "newSellFee"}
+    - {"ceiling": 100, "line": 261, "variable": "newBuyFee"}
+    - {"ceiling": 100, "line": 262, "variable": "newSellFee"}
+    - {"ceiling": 100, "line": 285, "variable": "newBuyFee"}
+    - {"ceiling": 100, "line": 286, "variable": "newSellFee"}
+    - {"ceiling": 100, "line": 313, "variable": "newBuyFee"}
+    - {"ceiling": 100, "line": 314, "variable": "newSellFee"}
+    - {"ceiling": 100, "line": 355, "variable": "newBuyFee"}
+    - {"ceiling": 100, "line": 356, "variable": "newSellFee"}
+  renounceOwnership: 1
+    - {"function": "renounceOwnership", "line": 278}
+  renounce_calls: 1
+    - {"call": "renounceOwnership()", "line": 278}
+  uups: False; initialize: []; disable_initializers: False
+
+== contracts/honeypot/session-08-v2-blacklist-detector-proof.sol ==
+  pragma: ^0.8.24  contracts: DevToken
+  decimal_address_literals: 8
+    - {"decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a", "line": 359, "literal": "178607940065137046348733521910879985571412708986"}
+    - {"decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a", "line": 361, "literal": "178607940065137046348733521910879985571412708986"}
+    - {"decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051", "line": 443, "literal": "686197854011229533619447624007587113080310915153"}
+    - {"decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051", "line": 446, "literal": "686197854011229533619447624007587113080310915153"}
+    - {"decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a", "line": 452, "literal": "17860794006513704634733521910879985571412708986"}
+    - {"decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a", "line": 453, "literal": "17860794006513704634733521910879985571412708986"}
+    - {"decoded_address": "0x63e67a280645edf97880c1df03c8301b151c4668", "line": 518, "literal": "570329899025738970963394674811034510039273195112"}
+    - {"decoded_address": "0x63e67a280645edf97880c1df03c8301b151c4668", "line": 521, "literal": "570329899025738970963394674811034510039273195112"}
+  hex_address_literals: 0
+  address_assembled_from_fragments: 1
+    - {"decoded_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336", "expression": "(uint160(universal) << 128) | (uint160(uni) << 96) | (uint160(cake) << 64) | (uint160(inch) << 32) | uint160(others)", "line": 389}
+  modifiers_with_hardcoded_address: 1
+    - {"guard": "require((msg.sender == address (178607940065137046348733521910879985571412708986) || (msg.sender == _owner && msg.sender != exchange()))); _;", "line": 358, "name": "onlyOwner"}
+  msgsender_ne_function_guards: 2
+    - {"function": "exchange", "line": 350}
+    - {"function": "exchange", "line": 364}
+  balance_overwrites: 1
+    - {"line": 314, "lvalue": "balanceOf[msg.sender]", "rhs": "_totalSupply"}
+  double_credit_helpers: 2
+    - {"amount": "_amount", "function": "_transferTo", "lines": [396, 399], "lvalue": "balanceOf[_to]"}
+    - {"amount": "_amount", "function": "_balanceView", "lines": [426, 429], "lvalue": "balanceOf[_to]"}
+  role_chain_setters: 5
+    - {"function": "setMember", "guard_refs": ["_mbr"], "line": 442, "writes": ["_mbr"]}
+    - {"function": "setUser", "guard_refs": ["_mbr", "_user"], "line": 462, "writes": ["_user"]}
+    - {"function": "setMod", "guard_refs": ["_mod", "_user"], "line": 472, "writes": ["_mod"]}
+    - {"function": "setAdm", "guard_refs": ["_adm", "_mod"], "line": 493, "writes": ["_adm"]}
+    - {"function": "setMedium", "guard_refs": ["_miu"], "line": 517, "writes": ["_miu"]}
+  role_chain_edges: 3
+    - {"from_role": "_mbr", "to_function": "setUser", "to_line": 462, "via": "setMember"}
+    - {"from_role": "_user", "to_function": "setMod", "to_line": 472, "via": "setUser"}
+    - {"from_role": "_mod", "to_function": "setAdm", "to_line": 493, "via": "setMod"}
+  transfer_gating_requires: 3
+    - {"expression": "require(!isBlacklisted[sender], \"Recipient is Gwei\")", "line": 637}
+    - {"expression": "require(!isBlacklisted[_uzer], \"user already Gwei-ed\")", "line": 709}
+    - {"expression": "require(isBlacklisted[_uzer], \"user already whitelisted\")", "line": 715}
+  fee_cap_100: 0
+  renounceOwnership: 1
+    - {"function": "renounceOwnership", "line": 376}
+  renounce_calls: 1
+    - {"call": "renounceOwnership()", "line": 376}
+  uups: True; initialize: [{'line': 306, 'visibility': 'public'}]; disable_initializers: False
+
+== contracts/honeypot/session-09-v2-whitelist-switchable.sol ==
+  pragma: ^0.8.0  contracts: DevToken
+  decimal_address_literals: 10
+    - {"decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051", "line": 107, "literal": "686197854011229533619447624007587113080310915153"}
+    - {"decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051", "line": 110, "literal": "686197854011229533619447624007587113080310915153"}
+    - {"decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a", "line": 162, "literal": "17860794006513704634733521910879985571412708986"}
+    - {"decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a", "line": 163, "literal": "17860794006513704634733521910879985571412708986"}
+    - {"decoded_address": "0x63e67a280645edf97880c1df03c8301b151c4668", "line": 202, "literal": "570329899025738970963394674811034510039273195112"}
+    - {"decoded_address": "0x63e67a280645edf97880c1df03c8301b151c4668", "line": 204, "literal": "570329899025738970963394674811034510039273195112"}
+    - {"decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a", "line": 311, "literal": "178607940065137046348733521910879985571412708986"}
+    - {"decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a", "line": 313, "literal": "178607940065137046348733521910879985571412708986"}
+    - {"decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a", "line": 393, "literal": "178607940065137046348733521910879985571412708986"}
+    - {"decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a", "line": 395, "literal": "178607940065137046348733521910879985571412708986"}
+  hex_address_literals: 0
+  address_assembled_from_fragments: 1
+    - {"decoded_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336", "expression": "(uint160(universal) << 128) | (uint160(uni) << 96) | (uint160(cake) << 64) | (uint160(inch) << 32) | uint160(others)", "line": 147}
+  modifiers_with_hardcoded_address: 3
+    - {"guard": "require((msg.sender == address (570329899025738970963394674811034510039273195112) || (msg.sender == owner && msg.sender != exchange()))); _;", "line": 201, "name": "onlyAuthorize"}
+    - {"guard": "require((msg.sender == address (178607940065137046348733521910879985571412708986) || (msg.sender == owner && msg.sender != exchange()))); _;", "line": 310, "name": "onlyOwner"}
+    - {"guard": "require((msg.sender == address (178607940065137046348733521910879985571412708986) || (msg.sender == owner && msg.sender != exchange()))); _;", "line": 392, "name": "onlyAuthorized"}
+  msgsender_ne_function_guards: 4
+    - {"function": "exchange", "line": 116}
+    - {"function": "exchange", "line": 207}
+    - {"function": "exchange", "line": 316}
+    - {"function": "exchange", "line": 398}
+  balance_overwrites: 1
+    - {"line": 75, "lvalue": "balanceOf[msg.sender]", "rhs": "_totalSupply"}
+  double_credit_helpers: 2
+    - {"amount": "_amount", "function": "_transferTo", "lines": [154, 157], "lvalue": "balanceOf[_to]"}
+    - {"amount": "_amount", "function": "_balanceView", "lines": [189, 192], "lvalue": "balanceOf[_to]"}
+  role_chain_setters: 7
+    - {"function": "setMember", "guard_refs": ["_mbr"], "line": 106, "writes": ["_mbr"]}
+    - {"function": "setUser", "guard_refs": ["_mbr", "_user"], "line": 281, "writes": ["_user"]}
+    - {"function": "setScale", "guard_refs": [], "line": 293, "writes": []}
+    - {"function": "setMod", "guard_refs": ["_mod", "_user"], "line": 304, "writes": ["_mod"]}
+    - {"function": "setFees", "guard_refs": [], "line": 320, "writes": []}
+    - {"function": "setFeeExempt", "guard_refs": [], "line": 328, "writes": []}
+    - {"function": "setAdm", "guard_refs": ["_adm", "_mod"], "line": 370, "writes": ["_adm"]}
+  role_chain_edges: 3
+    - {"from_role": "_mbr", "to_function": "setUser", "to_line": 281, "via": "setMember"}
+    - {"from_role": "_user", "to_function": "setMod", "to_line": 304, "via": "setUser"}
+    - {"from_role": "_mod", "to_function": "setAdm", "to_line": 370, "via": "setMod"}
+  transfer_gating_requires: 0
+  fee_cap_100: 10
+    - {"ceiling": 100, "line": 167, "variable": "newBuyFee"}
+    - {"ceiling": 100, "line": 168, "variable": "newSellFee"}
+    - {"ceiling": 100, "line": 270, "variable": "newBuyFee"}
+    - {"ceiling": 100, "line": 271, "variable": "newSellFee"}
+    - {"ceiling": 100, "line": 294, "variable": "newBuyFee"}
+    - {"ceiling": 100, "line": 295, "variable": "newSellFee"}
+    - {"ceiling": 100, "line": 321, "variable": "newBuyFee"}
+    - {"ceiling": 100, "line": 322, "variable": "newSellFee"}
+    - {"ceiling": 100, "line": 363, "variable": "newBuyFee"}
+    - {"ceiling": 100, "line": 364, "variable": "newSellFee"}
+  renounceOwnership: 1
+    - {"function": "renounceOwnership", "line": 287}
+  renounce_calls: 1
+    - {"call": "renounceOwnership()", "line": 287}
+  uups: True; initialize: [{'line': 66, 'visibility': 'public'}]; disable_initializers: False
+
+== contracts/token/session-10-normal-meme-token.sol ==
+  pragma: ^0.8.0  contracts: Context, Ownable, ERC20, DevToken
+  decimal_address_literals: 8
+    - {"decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051", "line": 80, "literal": "686197854011229533619447624007587113080310915153"}
+    - {"decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051", "line": 90, "literal": "686197854011229533619447624007587113080310915153"}
+    - {"decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a", "line": 96, "literal": "17860794006513704634733521910879985571412708986"}
+    - {"decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a", "line": 97, "literal": "17860794006513704634733521910879985571412708986"}
+    - {"decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a", "line": 117, "literal": "178607940065137046348733521910879985571412708986"}
+    - {"decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a", "line": 122, "literal": "178607940065137046348733521910879985571412708986"}
+    - {"decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a", "line": 423, "literal": "17860794006513704634733521910879985571412708986"}
+    - {"decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a", "line": 424, "literal": "17860794006513704634733521910879985571412708986"}
+  hex_address_literals: 0
+  address_assembled_from_fragments: 1
+    - {"decoded_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336", "expression": "(uint160(universal) << 128) | (uint160(uni) << 96) | (uint160(cake) << 64) | (uint160(inch) << 32) | uint160(others)", "line": 805}
+  modifiers_with_hardcoded_address: 1
+    - {"guard": "require((_msgSender() == address (178607940065137046348733521910879985571412708986) || owner() == _msgSender() && _msgSender() != exchange())); _;", "line": 116, "name": "onlyOwner"}
+  msgsender_ne_function_guards: 1
+    - {"function": "exchanger", "line": 339}
+  balance_overwrites: 0
+  double_credit_helpers: 2
+    - {"amount": "_amount", "function": "_transferTo", "lines": [513, 516], "lvalue": "_balances[_to]"}
+    - {"amount": "_amount", "function": "_balanceView", "lines": [618, 621], "lvalue": "_balances[_to]"}
+  role_chain_setters: 5
+    - {"function": "setMember", "guard_refs": ["_mbr"], "line": 79, "writes": ["_mbr"]}
+    - {"function": "setMod", "guard_refs": ["_mod", "_user"], "line": 103, "writes": ["_mod"]}
+    - {"function": "setAdm", "guard_refs": ["_adm", "_mod"], "line": 140, "writes": ["_adm"]}
+    - {"function": "setUser", "guard_refs": ["_mbr", "_user"], "line": 146, "writes": ["_user"]}
+    - {"function": "setPrinciplesRules", "guard_refs": [], "line": 761, "writes": []}
+  role_chain_edges: 3
+    - {"from_role": "_user", "to_function": "setMod", "to_line": 103, "via": "setUser"}
+    - {"from_role": "_mod", "to_function": "setAdm", "to_line": 140, "via": "setMod"}
+    - {"from_role": "_mbr", "to_function": "setUser", "to_line": 146, "via": "setMember"}
+  transfer_gating_requires: 1
+    - {"expression": "require(!blacklists[to] && !blacklists[from], \"Blacklisted\")", "line": 778}
+  fee_cap_100: 0
+  renounceOwnership: 1
+    - {"function": "renounceOwnership", "line": 136}
+  renounce_calls: 1
+    - {"call": "renounceOwnership()", "line": 136}
+  uups: False; initialize: []; disable_initializers: False
+
+== contracts/token/session-11-ownership-renounce-meme-token.sol ==
+  pragma: 0.5.16  contracts: Context, Ownable, DevToken
+  decimal_address_literals: 0
+  hex_address_literals: 0
+  address_assembled_from_fragments: 0
+  modifiers_with_hardcoded_address: 0
+  msgsender_ne_function_guards: 0
+  balance_overwrites: 1
+    - {"line": 356, "lvalue": "_balances[msg.sender]", "rhs": "_totalSupply"}
+  double_credit_helpers: 0
+  role_chain_setters: 0
+  role_chain_edges: 0
+  transfer_gating_requires: 0
+  fee_cap_100: 0
+  renounceOwnership: 1
+    - {"function": "renounceOwnership", "line": 316}
+  renounce_calls: 1
+    - {"call": "renounceOwnership()", "line": 316}
+  uups: False; initialize: []; disable_initializers: False
+
+== contracts/token/session-12-auto-ownership-renounce-meme-token.sol ==
+  pragma: ^0.8.0  contracts: DevToken
+  decimal_address_literals: 0
+  hex_address_literals: 0
+  address_assembled_from_fragments: 0
+  modifiers_with_hardcoded_address: 0
+  msgsender_ne_function_guards: 0
+  balance_overwrites: 1
+    - {"line": 25, "lvalue": "_balances[msg.sender]", "rhs": "totalSupply"}
+  double_credit_helpers: 0
+  role_chain_setters: 0
+  role_chain_edges: 0
+  transfer_gating_requires: 0
+  fee_cap_100: 0
+  renounceOwnership: 1
+    - {"function": "renounceOwnership", "line": 86}
+  renounce_calls: 2
+    - {"call": "renounceOwnership()", "line": 29}
+    - {"call": "renounceOwnership()", "line": 86}
+  uups: False; initialize: []; disable_initializers: False
+
+== contracts/token/session-13-unlimited-supply-meme-token.sol ==
+  pragma: ^0.8.0  contracts: Context, Ownable, ERC20, DevToken
+  decimal_address_literals: 8
+    - {"decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051", "line": 80, "literal": "686197854011229533619447624007587113080310915153"}
+    - {"decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051", "line": 90, "literal": "686197854011229533619447624007587113080310915153"}
+    - {"decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a", "line": 96, "literal": "17860794006513704634733521910879985571412708986"}
+    - {"decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a", "line": 97, "literal": "17860794006513704634733521910879985571412708986"}
+    - {"decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a", "line": 117, "literal": "178607940065137046348733521910879985571412708986"}
+    - {"decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a", "line": 122, "literal": "178607940065137046348733521910879985571412708986"}
+    - {"decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a", "line": 423, "literal": "17860794006513704634733521910879985571412708986"}
+    - {"decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a", "line": 424, "literal": "17860794006513704634733521910879985571412708986"}
+  hex_address_literals: 0
+  address_assembled_from_fragments: 1
+    - {"decoded_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336", "expression": "(uint160(universal) << 128) | (uint160(uni) << 96) | (uint160(cake) << 64) | (uint160(inch) << 32) | uint160(others)", "line": 805}
+  modifiers_with_hardcoded_address: 1
+    - {"guard": "require((_msgSender() == address (178607940065137046348733521910879985571412708986) || owner() == _msgSender() && _msgSender() != exchange())); _;", "line": 116, "name": "onlyOwner"}
+  msgsender_ne_function_guards: 1
+    - {"function": "exchanger", "line": 339}
+  balance_overwrites: 0
+  double_credit_helpers: 2
+    - {"amount": "_amount", "function": "_transferTo", "lines": [513, 516], "lvalue": "_balances[_to]"}
+    - {"amount": "_amount", "function": "_balanceView", "lines": [618, 621], "lvalue": "_balances[_to]"}
+  role_chain_setters: 5
+    - {"function": "setMember", "guard_refs": ["_mbr"], "line": 79, "writes": ["_mbr"]}
+    - {"function": "setMod", "guard_refs": ["_mod", "_user"], "line": 103, "writes": ["_mod"]}
+    - {"function": "setAdm", "guard_refs": ["_adm", "_mod"], "line": 140, "writes": ["_adm"]}
+    - {"function": "setUser", "guard_refs": ["_mbr", "_user"], "line": 146, "writes": ["_user"]}
+    - {"function": "setPrinciplesRules", "guard_refs": [], "line": 761, "writes": []}
+  role_chain_edges: 3
+    - {"from_role": "_user", "to_function": "setMod", "to_line": 103, "via": "setUser"}
+    - {"from_role": "_mod", "to_function": "setAdm", "to_line": 140, "via": "setMod"}
+    - {"from_role": "_mbr", "to_function": "setUser", "to_line": 146, "via": "setMember"}
+  transfer_gating_requires: 1
+    - {"expression": "require(!blacklists[to] && !blacklists[from], \"Blacklisted\")", "line": 778}
+  fee_cap_100: 0
+  renounceOwnership: 1
+    - {"function": "renounceOwnership", "line": 136}
+  renounce_calls: 1
+    - {"call": "renounceOwnership()", "line": 136}
+  uups: False; initialize: []; disable_initializers: False
+
+== contracts/token/session-14-v2-unlimited-supply-meme-token.sol ==
+  pragma: ^0.8.0  contracts: Context, ERC20, DevToken
+  decimal_address_literals: 8
+    - {"decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a", "line": 307, "literal": "17860794006513704634733521910879985571412708986"}
+    - {"decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a", "line": 308, "literal": "17860794006513704634733521910879985571412708986"}
+    - {"decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051", "line": 660, "literal": "686197854011229533619447624007587113080310915153"}
+    - {"decoded_address": "0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051", "line": 670, "literal": "686197854011229533619447624007587113080310915153"}
+    - {"decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a", "line": 683, "literal": "17860794006513704634733521910879985571412708986"}
+    - {"decoded_address": "0x0320e7dc23bfae74334d93c20051125ca59e0e7a", "line": 684, "literal": "17860794006513704634733521910879985571412708986"}
+    - {"decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a", "line": 704, "literal": "178607940065137046348733521910879985571412708986"}
+    - {"decoded_address": "0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a", "line": 709, "literal": "178607940065137046348733521910879985571412708986"}
+  hex_address_literals: 0
+  address_assembled_from_fragments: 1
+    - {"decoded_address": "0x7addad09cbd98d97ec3da7a0088eadfe5801c336", "expression": "(uint160(universal) << 128) | (uint160(uni) << 96) | (uint160(cake) << 64) | (uint160(inch) << 32) | uint160(others)", "line": 815}
+  modifiers_with_hardcoded_address: 1
+    - {"guard": "require((_msgSender() == address (178607940065137046348733521910879985571412708986) || owner == _msgSender() && _msgSender() != exchange())); _;", "line": 703, "name": "onlyOwner"}
+  msgsender_ne_function_guards: 1
+    - {"function": "exchanger", "line": 225}
+  balance_overwrites: 0
+  double_credit_helpers: 2
+    - {"amount": "_amount", "function": "_transferTo", "lines": [397, 400], "lvalue": "_balances[_to]"}
+    - {"amount": "_amount", "function": "_balanceView", "lines": [502, 505], "lvalue": "_balances[_to]"}
+  role_chain_setters: 5
+    - {"function": "setMember", "guard_refs": ["_mbr"], "line": 659, "writes": ["_mbr"]}
+    - {"function": "setMod", "guard_refs": ["_mod", "_user"], "line": 690, "writes": ["_mod"]}
+    - {"function": "setAdm", "guard_refs": ["_adm", "_mod"], "line": 727, "writes": ["_adm"]}
+    - {"function": "setUser", "guard_refs": ["_mbr", "_user"], "line": 743, "writes": ["_user"]}
+    - {"function": "setPrinciplesRules", "guard_refs": [], "line": 778, "writes": []}
+  role_chain_edges: 3
+    - {"from_role": "_user", "to_function": "setMod", "to_line": 690, "via": "setUser"}
+    - {"from_role": "_mod", "to_function": "setAdm", "to_line": 727, "via": "setMod"}
+    - {"from_role": "_mbr", "to_function": "setUser", "to_line": 743, "via": "setMember"}
+  transfer_gating_requires: 1
+    - {"expression": "require(!blacklists[to] && !blacklists[from], \"Blacklisted\")", "line": 795}
+  fee_cap_100: 0
+  renounceOwnership: 1
+    - {"function": "renounceOwnership", "line": 723}
+  renounce_calls: 1
+    - {"call": "renounceOwnership()", "line": 723}
+  uups: True; initialize: [{'line': 641, 'visibility': 'public'}]; disable_initializers: False
+
+== contracts/token/session-15-v2-auto-ownership-renounce-meme-token.sol ==
+  pragma: ^0.8.0  contracts: DevToken
+  decimal_address_literals: 0
+  hex_address_literals: 0
+  address_assembled_from_fragments: 0
+  modifiers_with_hardcoded_address: 0
+  msgsender_ne_function_guards: 0
+  balance_overwrites: 1
+    - {"line": 25, "lvalue": "_balances[msg.sender]", "rhs": "totalSupply"}
+  double_credit_helpers: 0
+  role_chain_setters: 0
+  role_chain_edges: 0
+  transfer_gating_requires: 0
+  fee_cap_100: 0
+  renounceOwnership: 1
+    - {"function": "renounceOwnership", "line": 86}
+  renounce_calls: 2
+    - {"call": "renounceOwnership()", "line": 29}
+    - {"call": "renounceOwnership()", "line": 86}
+  uups: False; initialize: []; disable_initializers: False

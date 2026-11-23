@@ -1,0 +1,19 @@
+Duplicate comparison: C:\Users\Surujkalita\Documents\honepot\Honey-POT-\contracts vs C:\Users\Surujkalita\AppData\Local\Temp\opencode\honeypot-review\src\out\contracts
+
+file: raw lengths A/B; compact (comments+whitespace removed) lengths A/B; LF-normalised bytes equal; CRLF counts A/B
+
+session-01-honeypot-v1.sol: raw 9111/8827; compact 4933/4933; LF-normalised identical=True; code-identical=True; CRLF 284/0
+session-02-honeypot-v1-2.sol: raw 8240/7975; compact 5045/5045; LF-normalised identical=True; code-identical=True; CRLF 265/0
+session-03-honeypot-v1-solidity-0.8.19.sol: raw 8698/8289; compact 5089/5089; LF-normalised identical=True; code-identical=True; CRLF 409/0
+session-04-whitelist-antibot-honeypot.sol: raw 16775/16082; compact 9929/9929; LF-normalised identical=True; code-identical=True; CRLF 693/0
+session-05-blacklist-detector-proof-honeypot.sol: raw 24240/23499; compact 8399/8399; LF-normalised identical=True; code-identical=True; CRLF 741/0
+session-06-switchable-honeypot-mode.sol: raw 13368/12999; compact 8319/8319; LF-normalised identical=True; code-identical=True; CRLF 369/0
+session-07-whitelist-switchable-honeypot.sol: raw 13974/13581; compact 8718/8718; LF-normalised identical=True; code-identical=True; CRLF 393/0
+session-08-v2-blacklist-detector-proof.sol: raw 24350/23609; compact 8531/8531; LF-normalised identical=True; code-identical=True; CRLF 741/0
+session-09-v2-whitelist-switchable.sol: raw 14386/13985; compact 9061/9061; LF-normalised identical=True; code-identical=True; CRLF 401/0
+session-10-normal-meme-token.sol: raw 28113/27291; compact 9548/9548; LF-normalised identical=True; code-identical=True; CRLF 822/0
+session-11-ownership-renounce-meme-token.sol: raw 19065/18477; compact 5885/5885; LF-normalised identical=True; code-identical=True; CRLF 588/0
+session-12-auto-ownership-renounce-meme-token.sol: raw 3188/3098; compact 2320/2320; LF-normalised identical=True; code-identical=True; CRLF 90/0
+session-13-unlimited-supply-meme-token.sol: raw 28245/27418; compact 9646/9646; LF-normalised identical=True; code-identical=True; CRLF 827/0
+session-14-v2-unlimited-supply-meme-token.sol: raw 28442/27609; compact 9837/9837; LF-normalised identical=True; code-identical=True; CRLF 833/0
+session-15-v2-auto-ownership-renounce-meme-token.sol: raw 3213/3123; compact 2362/2362; LF-normalised identical=True; code-identical=True; CRLF 90/0

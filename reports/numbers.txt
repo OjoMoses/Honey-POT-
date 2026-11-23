@@ -1,0 +1,62 @@
+address A decimal -> hex: 0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a  [expected 0x1f490e99657cd08a058c6bb6cd81dd38f59e0e7a; OK]
+address B decimal -> hex: 0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051  [expected 0x78322d0c5768c9ca370ddfc1d44db0fef3a6e051; OK]
+address C decimal -> hex: 0x0320e7dc23bfae74334d93c20051125ca59e0e7a  [expected 0x0320e7dc23bfae74334d93c20051125ca59e0e7a; OK]
+address D decimal -> hex: 0x63e67a280645edf97880c1df03c8301b151c4668  [expected 0x63e67a280645edf97880c1df03c8301b151c4668; OK]
+address P decimal decimal -> hex: 0x7addad09cbd98d97ec3da7a0088eadfe5801c336  [expected 0x7addad09cbd98d97ec3da7a0088eadfe5801c336; OK]
+P assembled from five 32-bit fragments: 0x7addad09cbd98d97ec3da7a0088eadfe5801c336  [expected 0x7addad09cbd98d97ec3da7a0088eadfe5801c336; OK]
+P fits in 160 bits: True  [expected True; OK]
+fragment decimal matches assembly: True  [expected True; OK]
+AMM dy (x=1e6,y=100,f=0.3%,dx=1e6) exact: 99700/1997
+AMM dy rounded 4dp: 49.9249  [expected 49.9249; OK]
+AMM price impact of that sell (exact): 1000/1997
+AMM impact 4dp: 0.5008  [expected 0.5008; OK]
+round-trip multiplier (5% buy, 10% sell): 171/200  [expected 171/200; OK]
+round-trip loss percent: 29/2  [expected 29/2; OK]
+multiplier at sell tax 100%: 0  [expected 0; OK]
+asymmetric path tau_b=0, tau_s=s/100 for s=100: 0  [expected 0; OK]
+transferFrom fee with amount=1000, sellFee=100: 1000  [expected 1000; OK]
+seller receives: 0  [expected 0; OK]
+transfer fee-free for same amount: 1000  [expected 1000; OK]
+AMM round-trip tokens from buying 1 quote: 997000000/100997 ~ 9871.5803
+AMM round-trip quote from selling them: 99400900/101991009 ~ 0.974605
+AMM round-trip rho: 99400900/101991009 ~ 0.974605
+AMM rho equals (1-impact_b)(1-impact_s): 99400900/101991009  [expected 99400900/101991009; OK]
+AMM zero-impact limit gamma^2: 994009/1000000  [expected 994009/1000000; OK]
+AMM naive gamma^2*(1-ib)*(1-is) would be: 988053892081/1019910090000
+double credit: delta sum balances: 1554  [expected 1554; OK]
+double credit: delta totalSupply: 0  [expected 0; OK]
+double credit: events emitted: 2  [expected 2; OK]
+dilution before percent: 10  [expected 10; OK]
+dilution after percent: 5  [expected 5; OK]
+drain fraction m=1000000 (6dp): 0.499249
+drain fraction m=10000000 (6dp): 0.908842
+drain fraction m=1000000000 (6dp): 0.998998
+drain fraction m=1000000000000 (6dp): 0.999999
+drain limit as m -> infinity: 1  [expected 1; OK]
+01 condition v >= B+v with B>0: False  [expected False; OK]
+01 condition with B=0: True  [expected True; OK]
+10 number of deposits before cap reaches 1 wei: 55  [expected 55; OK]
+10 exact deposit sum (wei): 99999999999999979  [expected 99999999999999979; OK]
+10 shortfall from 100 finney (wei): 21  [expected 21; OK]
+10 geometric bound 2*L0: 100000000000000000  [expected 100000000000000000; OK]
+07 uint8 loop last value before wrap: 255  [expected 255; OK]
+07 payout wei: 255  [expected 255; OK]
+07a multi at i=127: 254  [expected 254; OK]
+07a multi at i=128: 0  [expected 0; OK]
+07a payout wei: 254  [expected 254; OK]
+04 smallest 160-bit address above 10: 11  [expected 11; OK]
+lines session-01-honeypot-v1.sol: 284
+lines session-02-honeypot-v1-2.sol: 265
+lines session-03-honeypot-v1-solidity-0.8.19.sol: 409
+lines session-04-whitelist-antibot-honeypot.sol: 693
+lines session-05-blacklist-detector-proof-honeypot.sol: 741
+lines session-06-switchable-honeypot-mode.sol: 369
+lines session-07-whitelist-switchable-honeypot.sol: 393
+lines session-08-v2-blacklist-detector-proof.sol: 741
+lines session-09-v2-whitelist-switchable.sol: 401
+lines session-10-normal-meme-token.sol: 822
+lines session-11-ownership-renounce-meme-token.sol: 588
+lines session-12-auto-ownership-renounce-meme-token.sol: 90
+lines session-13-unlimited-supply-meme-token.sol: 827
+lines session-14-v2-unlimited-supply-meme-token.sol: 833
+lines session-15-v2-auto-ownership-renounce-meme-token.sol: 90

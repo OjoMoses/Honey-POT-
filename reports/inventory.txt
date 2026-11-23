@@ -1,0 +1,79 @@
+Inventory root A: C:\Users\Surujkalita\Documents\honepot\Honey-POT-
+Inventory root B: C:\Users\Surujkalita\AppData\Local\Temp\opencode\honeypot-review\src
+Files: 73
+
+sha256[:16]  root  bytes  relative path
+
+10546e96933af446  A    27609  out/contracts/token/session-14-v2-unlimited-supply-meme-token.sol
+10546e96933af446  B    27609  out/contracts/token/session-14-v2-unlimited-supply-meme-token.sol
+13ab33b605c4b0e0  A    24350  Session 1 - Upgraded V2 Blacklist Honeypot Detector Proof.sol
+13ab33b605c4b0e0  A    24350  contracts/honeypot/session-08-v2-blacklist-detector-proof.sol
+13ab33b605c4b0e0  A    24350  handbook/contracts/honeypot/session-08-v2-blacklist-detector-proof.sol
+1c13561738066301  A    13581  out/contracts/honeypot/session-07-whitelist-switchable-honeypot.sol
+1c13561738066301  B    13581  out/contracts/honeypot/session-07-whitelist-switchable-honeypot.sol
+35d0ca7d1a3b3d41  A    23499  out/contracts/honeypot/session-05-blacklist-detector-proof-honeypot.sol
+35d0ca7d1a3b3d41  B    23499  out/contracts/honeypot/session-05-blacklist-detector-proof-honeypot.sol
+36f2dc7b6b49429e  A    16082  out/contracts/honeypot/session-04-whitelist-antibot-honeypot.sol
+36f2dc7b6b49429e  B    16082  out/contracts/honeypot/session-04-whitelist-antibot-honeypot.sol
+3e3381ef46d32987  A    27291  out/contracts/token/session-10-normal-meme-token.sol
+3e3381ef46d32987  B    27291  out/contracts/token/session-10-normal-meme-token.sol
+3f2fd120af2f42b8  A     8698  contracts/honeypot/session-03-honeypot-v1-solidity-0.8.19.sol
+3f2fd120af2f42b8  A     8698  handbook/contracts/honeypot/session-03-honeypot-v1-solidity-0.8.19.sol
+41e48da5aa428d1e  A    24240  contracts/honeypot/session-05-blacklist-detector-proof-honeypot.sol
+41e48da5aa428d1e  A    24240  handbook/contracts/honeypot/session-05-blacklist-detector-proof-honeypot.sol
+41e48da5aa428d1e  A    24240  honeypot-scanner-detector-proof-token
+46f49e5c17aa4f3b  A     7975  out/contracts/honeypot/session-02-honeypot-v1-2.sol
+46f49e5c17aa4f3b  B     7975  out/contracts/honeypot/session-02-honeypot-v1-2.sol
+51cd7d72381d026b  A     3213  Session 3 - Upgraded V2 Automatic Ownership Renounce Meme Token.sol
+51cd7d72381d026b  A     3213  contracts/token/session-15-v2-auto-ownership-renounce-meme-token.sol
+51cd7d72381d026b  A     3213  handbook/contracts/token/session-15-v2-auto-ownership-renounce-meme-token.sol
+57caed22640a34bc  A    28245  contracts/token/session-13-unlimited-supply-meme-token.sol
+57caed22640a34bc  A    28245  handbook/contracts/token/session-13-unlimited-supply-meme-token.sol
+57caed22640a34bc  A    28245  unlimited supply printing-normal-meme-token-non honeypot-code
+627bedcac0ac2cbe  A    13368  contracts/honeypot/session-06-switchable-honeypot-mode.sol
+627bedcac0ac2cbe  A    13368  handbook/contracts/honeypot/session-06-switchable-honeypot-mode.sol
+627bedcac0ac2cbe  A    13368  switch on&off honeypot mode-honeypot-scanner-detector-proof-token
+69857f43530e00b5  A    14386  Session 2 - Upgraded V2 Whitelist Switch On-Off Honeypot Mode.sol
+69857f43530e00b5  A    14386  contracts/honeypot/session-09-v2-whitelist-switchable.sol
+69857f43530e00b5  A    14386  handbook/contracts/honeypot/session-09-v2-whitelist-switchable.sol
+76e4b479ef07d8f4  A    16775  contracts/honeypot/session-04-whitelist-antibot-honeypot.sol
+76e4b479ef07d8f4  A    16775  handbook/contracts/honeypot/session-04-whitelist-antibot-honeypot.sol
+76e4b479ef07d8f4  A    16775  whitelist-antibot-smart-contract
+789ac5fa100fec9b  A     3123  out/contracts/token/session-15-v2-auto-ownership-renounce-meme-token.sol
+789ac5fa100fec9b  B     3123  out/contracts/token/session-15-v2-auto-ownership-renounce-meme-token.sol
+7dcd299c150572b8  A    18477  out/contracts/token/session-11-ownership-renounce-meme-token.sol
+7dcd299c150572b8  B    18477  out/contracts/token/session-11-ownership-renounce-meme-token.sol
+89c0524413007c54  A    19065  contracts/token/session-11-ownership-renounce-meme-token.sol
+89c0524413007c54  A    19065  handbook/contracts/token/session-11-ownership-renounce-meme-token.sol
+89c0524413007c54  A    19065  ownership renounce-normal-meme-token-non honeypot-code
+9011baddf4975baa  A     8827  out/contracts/honeypot/session-01-honeypot-v1.sol
+9011baddf4975baa  B     8827  out/contracts/honeypot/session-01-honeypot-v1.sol
+97c74e9d5c6cac7c  A    27418  out/contracts/token/session-13-unlimited-supply-meme-token.sol
+97c74e9d5c6cac7c  B    27418  out/contracts/token/session-13-unlimited-supply-meme-token.sol
+989b900d8b28c263  A     3098  out/contracts/token/session-12-auto-ownership-renounce-meme-token.sol
+989b900d8b28c263  B     3098  out/contracts/token/session-12-auto-ownership-renounce-meme-token.sol
+98f77461561bfcf8  A    13985  out/contracts/honeypot/session-09-v2-whitelist-switchable.sol
+98f77461561bfcf8  B    13985  out/contracts/honeypot/session-09-v2-whitelist-switchable.sol
+a076ae965cd1f7b4  A     8240  contracts/honeypot/session-02-honeypot-v1-2.sol
+a076ae965cd1f7b4  A     8240  handbook/contracts/honeypot/session-02-honeypot-v1-2.sol
+bb95e2a85f2414d9  A     9111  contracts/honeypot/session-01-honeypot-v1.sol
+bb95e2a85f2414d9  A     9111  handbook/contracts/honeypot/session-01-honeypot-v1.sol
+bb95e2a85f2414d9  A     9111  honeypot-smart-contract
+c5e24018b2e582fa  A     3188  automatic ownership renounce-normal-low gas fee-meme-token-non honeypot-code
+c5e24018b2e582fa  A     3188  contracts/token/session-12-auto-ownership-renounce-meme-token.sol
+c5e24018b2e582fa  A     3188  handbook/contracts/token/session-12-auto-ownership-renounce-meme-token.sol
+c8fa480483655208  A    12999  out/contracts/honeypot/session-06-switchable-honeypot-mode.sol
+c8fa480483655208  B    12999  out/contracts/honeypot/session-06-switchable-honeypot-mode.sol
+e95b55d4259f1561  A    28113  contracts/token/session-10-normal-meme-token.sol
+e95b55d4259f1561  A    28113  handbook/contracts/token/session-10-normal-meme-token.sol
+e95b55d4259f1561  A    28113  normal-meme-pepe-token-non honeypot-code
+ed97be16537db192  A    13974  contracts/honeypot/session-07-whitelist-switchable-honeypot.sol
+ed97be16537db192  A    13974  handbook/contracts/honeypot/session-07-whitelist-switchable-honeypot.sol
+ed97be16537db192  A    13974  whitelist-switch on&off honeypot mode-honeypot-scanner-detector-proof-token
+f1618a898d4d5605  A    28442  Session 4 - Upgraded V2 Unlimited Supply Printing Meme Token.sol
+f1618a898d4d5605  A    28442  contracts/token/session-14-v2-unlimited-supply-meme-token.sol
+f1618a898d4d5605  A    28442  handbook/contracts/token/session-14-v2-unlimited-supply-meme-token.sol
+f78b68433588b6f4  A     8289  out/contracts/honeypot/session-03-honeypot-v1-solidity-0.8.19.sol
+f78b68433588b6f4  B     8289  out/contracts/honeypot/session-03-honeypot-v1-solidity-0.8.19.sol
+febd4835c2521cdc  A    23609  out/contracts/honeypot/session-08-v2-blacklist-detector-proof.sol
+febd4835c2521cdc  B    23609  out/contracts/honeypot/session-08-v2-blacklist-detector-proof.sol
