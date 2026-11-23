@@ -1,6 +1,6 @@
 # Smart Contract Honeypot Research Repository
 
-A documentation-oriented repository containing smart-contract artifacts, session notes, and reference material for defensive security research, auditing education, and token-contract analysis.
+A documentation-oriented repository containing smart-contract project artifacts, organized code files, and reference documentation for defensive security research, auditing education, and token-contract analysis.
 
 > **Responsible use:** This repository includes honeypot-pattern examples. Use the contents only for legitimate research, auditing, and defensive analysis in controlled environments. Do not use these materials to deploy scams, deceive users, or cause financial harm.
 
@@ -46,7 +46,6 @@ The root also retains the original source/reference files, including contract ar
 - `ownership renounce-normal-meme-token-non honeypot-code`
 - `automatic ownership renounce-normal-low gas fee-meme-token-non honeypot-code`
 - `unlimited supply printing-normal-meme-token-non honeypot-code`
-- `beginner-guide`, `add-remove-liquidity-in-decentralized exchanges`, `how-to-token-marketing`
 
 ## Documentation
 
